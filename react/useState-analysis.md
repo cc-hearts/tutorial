@@ -2,6 +2,34 @@
 title:useState 的简易实现
 ---
 
+## useState 的变化
+
+一个 `useState` 会返回一个 callback 但是同一个 `useState` 每次返回的 callback 的值都是同一个
+
+```tsx
+import { useState, useRef } from 'react'
+export default function App() {
+  const [s, setS] = useState(1)
+  const refs = useRef<{
+    count: number
+    setCount: ((...rest: any[]) => void) | null
+  }>({ count: -1, setCount: null })
+  if (refs.current.count === -1) {
+    console.log('执行次数')
+    refs.current.count = s
+    refs.current.setCount = setS
+  }
+  console.log(refs.current.setCount === setS)
+  return (
+    <React.Fragment>
+      <button onClick={() => setS((state) => state + 1)}>
+        click change state
+      </button>
+    </React.Fragment>
+  )
+}
+```
+
 首先 利用闭包的特性 将 state 声明到 function 之外 使得数据持久化
 
 useState.ts
