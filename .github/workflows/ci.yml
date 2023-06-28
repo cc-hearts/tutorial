@@ -5,9 +5,9 @@ jobs:
     name: uni test
     runs-on: ubuntu-latest
     steps:
-      - name: Print a greeting
-      uses: actions/checkout@v2
-      - name: install deps
-      run: npm install
-      - name: build
-      run: npm run test
+    - name: Print a greeting
+    uses: actions/checkout@v2
+    - name: install deps
+    run: npm install
+    - name: build
+    run: npm run test
