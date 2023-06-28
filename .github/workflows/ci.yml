@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Print a greeting
       uses: actions/checkout@v2
-      -name: install deps
+      - name: install deps
       run: npm install
-      -name: build
+      - name: build
       run: npm run test
