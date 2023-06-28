@@ -2,6 +2,17 @@
 title: git 基本命令
 ---
 
+* `feat` -新功能 feature
+* `fix` -修复 bug
+* `docs` -文档注释
+* `stye` -代码格式（不影响代码运行的变动）
+* `refactor` -重构、优化（既不增加新功能，也不是修复 bug)
+* `perf` -性能优化
+* `test` -增加测试
+* `chore` -构建过程或辅助工具的变动
+* `revert` -回退
+* `build` -打包
+
 ### 查看全局配置
 
 ```shell
@@ -42,6 +53,14 @@ git config  --global user.name <heart>
 
 ```shell
 git config  --global user.email <heart@163.com>
+```
+
+### amend
+
+用于 `commit` 的时候如果注释写错了 可以使用
+
+```shell
+git commit --amend  # 修改 commit 注释
 ```
 
 ### .gitconfig
@@ -89,6 +108,7 @@ git branch - d <name>
 > 远程分支一定要存在 否则会失败
 
 ```shell
+# 新建本地分支指定远程分支，该命令可以将远程git仓库里的指定分支拉取到本地
 git checkout -b <本地分支名> origin/<远程分支名>
 ```
 
@@ -170,11 +190,38 @@ git merge main
 
 ​	或者使用 `rebase` 变基合并
 
+> 变基只适合在本地操作，如果记录已经推到了远程仓库，那么就不能再执行变基操作 否则 多人开发代码结构会混乱不堪
+
+```shell
+git checkout top # 切换到要进行变基的分支
+git rebase master # 将当前的分支 变基到 master分支
+
+# 之后 切换到 master 合并这个分支即可
+git merge top # 此时的分支就会是一条线
+```
+
 ```shell
 git rebase feat-xxx main
 # 解决冲突后推送
 git push
 ```
+
+### git 合并不想干的分支
+
+```shell
+git merge master --allow-unrelated-histories
+```
+
+### git 中断合并
+
+```shell
+git merge --abort # 在合并的时候，出现了冲突，但是还没有解决冲突，没有进行提交的时候，放弃合并
+```
+
+> 如果已经 commit：
+>
+> - git revert -m 1 HEAD 新建一个 commit，并且回到合并之前的状态
+> - git reset --hard commit_id 回退到指定的 commit 节点
 
 ### 清除本地修改
 
@@ -240,3 +287,49 @@ git merge master --allow-unrelated-histories
 ```shell
 git pull origin master --allow-unrelated-histories
 ```
+
+###  git ignore track files
+
+`.gitignore` 只能忽略那些原来没有被 `track` 的文件 因此要把本地缓存的 `track` 文件清除再 `commit` 即可清除缓存
+
+```shell
+git rm -r --cached . \
+git add . \
+git commit -m 'chore: update .gitignore file'
+```
+
+### git 创建一个没有关联的新分支
+
+新建一个分支 但是这个分支会包含父元素的所有内容 但是这个分支没有历史节点
+
+```shell
+git checkout --orphan emptyBranch
+```
+
+删除所有的文件
+
+```shell
+git rm -rf .
+```
+
+创建一个新提交
+
+```shell
+echo 'new branch' >> README.md
+
+git add README.md
+
+git commit -m 'chore: init commit'
+```
+
+之后 `push` 到远程仓库即可
+
+### git 删除 github 等以往的所有分支的提交记录
+
+* `git checkout --orphan latest_branch`
+
+* `git add -A`
+
+* 删除分支 `git branch -D master` ，master 是分支名
+* 将当前分支 **latest_branch** 重命名为 **master** ，`git branch -m master`
+* 强制更新到远程仓库 `git push -f origin master`
