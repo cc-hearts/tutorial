@@ -21,9 +21,9 @@ export NVM_DIR="$HOME/.nvm"
 
 1, nvm nvm list 是查找本电脑上所有的 node 版本
 
-* nvm list 查看已经安装的版本
-* nvm list installed 查看已经安装的版本
-* nvm list available 查看网络可以安装的版本
+- nvm list 查看已经安装的版本
+- nvm list installed 查看已经安装的版本
+- nvm list available 查看网络可以安装的版本
 
 2, nvm install 安装最新版本 nvm
 

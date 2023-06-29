@@ -23,7 +23,7 @@ console.log([NaN].includes(NaN))
 
 ## 同值相等 Object.is
 
-Object.is 是同值相等的判断 能够区分 + - 0 的区别 ` ==`  `=== ` 区分不了 `+ - 0`
+Object.is 是同值相等的判断 能够区分 + - 0 的区别 ` ==` `=== ` 区分不了 `+ - 0`
 
 ```javascript
 Object.is(+0, -0) // false
@@ -31,4 +31,5 @@ Object.is(NaN, NaN) // true
 ```
 
 # 参考资料
-* <https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness>
+
+- <https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Equality_comparisons_and_sameness>

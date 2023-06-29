@@ -16,7 +16,7 @@ title: symbol
 
 ## Symbol.totoPrimitive
 
-对象到原始类型的转换 有三种类型( `hint` )的转换 `string`  `number`  `default`
+对象到原始类型的转换 有三种类型( `hint` )的转换 `string` `number` `default`
 
 三种类型的转换会运行的转换算法是:
 
@@ -33,12 +33,12 @@ a==1&&a==2&&a==3 的值为 true？
 
 ```js
 const a = {
-    val: 0
+  val: 0,
 }
 
-a[Symbol.toPrimitive] = function(hint) {
-    console.log(hint) // default
-    return ++a.val
+a[Symbol.toPrimitive] = function (hint) {
+  console.log(hint) // default
+  return ++a.val
 }
 console.log(a == 1 && a == 2 && a == 3) // true
 ```

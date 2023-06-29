@@ -5,7 +5,7 @@ title: vue2 基础
 ## 获取当前的路由
 
 ```js
-this.$route.path;
+this.$route.path
 ```
 
 ## watch 的深层使用
@@ -27,16 +27,16 @@ watch: {
 
 ```js
 watch: {
-    tableData: {
-        handler: [
-            function getData(newValue, oldValue) {
-                // ...
-            },
-            function getLength(newValue, oldValue) {
-                // ...
-            },
-        ];
-    }
+  tableData: {
+    handler: [
+      function getData(newValue, oldValue) {
+        // ...
+      },
+      function getLength(newValue, oldValue) {
+        // ...
+      },
+    ]
+  }
 }
 ```
 
@@ -97,8 +97,8 @@ sync 只是一个语法糖
 
 ## vue2 响应式
 
-* 对象类型 通过`Object.defineProperty()` 对属性的读取 修改 进行拦截(数据劫持)
-* 数组类型：通过重写更新数组的一系列方法来实现拦截(对数组的变更方法进行了包裹)
+- 对象类型 通过`Object.defineProperty()` 对属性的读取 修改 进行拦截(数据劫持)
+- 数组类型：通过重写更新数组的一系列方法来实现拦截(对数组的变更方法进行了包裹)
 
 > 数组响应式：https://segmentfault.com/a/1190000040238233
 
@@ -111,7 +111,7 @@ Object.defineProperty(data, 'count', {
 
 存在的问题
 
-* 直接新增/删除属性 界面不会刷新
+- 直接新增/删除属性 界面不会刷新
 
 ```vue
 <script>
@@ -140,7 +140,7 @@ methods: {
 </script>
 ```
 
-* 直接通过下标修改数组界面不会刷新
+- 直接通过下标修改数组界面不会刷新
 
 ```js
 < script >
@@ -177,7 +177,7 @@ export default {
 
 ## 废置属性
 
-> slot slot-scope废弃 使用 v-slot代替
+> slot slot-scope 废弃 使用 v-slot 代替
 
 ## 强制刷新
 

@@ -94,5 +94,4 @@ function cache(fn) {
 module.exports = {
   cache,
 }
-
 ```

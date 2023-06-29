@@ -14,7 +14,6 @@ title: 现代 css reset 解决方案
 
 - [Modern-CSS-Reset](https://github.com/hankchizljaw/modern-css-reset)小而美，重置合理的默认值的现代 CSS Reset 方案
 
-
-
 文章参考:
--  https://juejin.cn/post/7086280551446888462
+
+- https://juejin.cn/post/7086280551446888462

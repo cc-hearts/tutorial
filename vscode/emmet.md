@@ -6,7 +6,7 @@ title: emmet 语法
 
 ```html
 <ul>
-    <li><a href=""></a></li>
+  <li><a href=""></a></li>
 </ul>
 ```
 
@@ -14,7 +14,7 @@ title: emmet 语法
 
 ```html
 <ul>
-    <li><a href="javascript:;"></a></li>
+  <li><a href="javascript:;"></a></li>
 </ul>
 ```
 
@@ -26,13 +26,13 @@ title: emmet 语法
 
 多层嵌套：
 
- `ul>li*5>a[href="#"]>img[src=""]`
+`ul>li*5>a[href="#"]>img[src=""]`
 
 ## 兄弟关系
 
 使用 `+` 号连接可生成多个平级标签
 
- `a+p+span`
+`a+p+span`
 
 ```html
 <a href=""></a>
@@ -42,19 +42,19 @@ title: emmet 语法
 
 嵌套加平级
 
- `div>a[href="#"]+p+span`
+`div>a[href="#"]+p+span`
 
 ```html
 <div>
-    <a href="#"></a>
-    <p></p>
-    <span></span>
+  <a href="#"></a>
+  <p></p>
+  <span></span>
 </div>
 ```
 
 ## 含类名标签自然数
 
- `.module$*3`
+`.module$*3`
 
 ```html
 <div class="module1"></div>
@@ -62,25 +62,25 @@ title: emmet 语法
 <div class="module3"></div>
 ```
 
- `.module$*3>ul>li.item$*2>a[href="#"]`
+`.module$*3>ul>li.item$*2>a[href="#"]`
 
 ```html
 <div class="module1">
-    <ul>
-        <li class="item1"><a href="#"></a></li>
-        <li class="item2"><a href="#"></a></li>
-    </ul>
+  <ul>
+    <li class="item1"><a href="#"></a></li>
+    <li class="item2"><a href="#"></a></li>
+  </ul>
 </div>
 <div class="module2">
-    <ul>
-        <li class="item1"><a href="#"></a></li>
-        <li class="item2"><a href="#"></a></li>
-    </ul>
+  <ul>
+    <li class="item1"><a href="#"></a></li>
+    <li class="item2"><a href="#"></a></li>
+  </ul>
 </div>
 <div class="module3">
-    <ul>
-        <li class="item1"><a href="#"></a></li>
-        <li class="item2"><a href="#"></a></li>
-    </ul>
+  <ul>
+    <li class="item1"><a href="#"></a></li>
+    <li class="item2"><a href="#"></a></li>
+  </ul>
 </div>
 ```

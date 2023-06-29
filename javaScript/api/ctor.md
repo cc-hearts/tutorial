@@ -5,8 +5,7 @@ title: 构造函数
 每个 JavaScript 都是一个 Function 对象
 
 ```javascript
-;
-(function() {}).constructor === Function // true
+;(function () {}).constructor === Function // true
 ```
 
 ## 构造函数 Function
@@ -45,9 +44,9 @@ export {}
 window.v = 1
 
 function foo(a: number, b: number) {
-    const v = 2
-    const func: Function = new Function('a', 'b', 'c', 'return (a + b) / c + v')
-    return func(a, b, 4)
+  const v = 2
+  const func: Function = new Function('a', 'b', 'c', 'return (a + b) / c + v')
+  return func(a, b, 4)
 }
 
 console.log(foo(1, 3)) // 2

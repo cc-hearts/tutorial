@@ -2,7 +2,7 @@
 title: dockerfile 文件编写
 ---
 
-01. 保留字需要大写
+1.  保留字需要大写
 
 `dockerfile` 的指令会从上到下顺序执行
 
@@ -12,29 +12,30 @@ title: dockerfile 文件编写
 
 ## 保留字
 
-01. FORM 基础镜像 当前新镜像是基于哪个镜像 制定一个已经存在的作为模版 第一条得是 from
+1.  FORM 基础镜像 当前新镜像是基于哪个镜像 制定一个已经存在的作为模版 第一条得是 from
 
-02. MAINTAINER 镜像维护者的姓名和邮箱地址
+2.  MAINTAINER 镜像维护者的姓名和邮箱地址
 
-03. RUN 容器构建的时候需要运行的命令
+3.  RUN 容器构建的时候需要运行的命令
 
-   1. shell 命令或者 exec 格式
+4.  shell 命令或者 exec 格式
 
-   > run 在 docker build 的时候运行
-   >
-   > exec: RUN ['./dest.js', 'dev']
+> run 在 docker build 的时候运行
+>
+> exec: RUN ['./dest.js', 'dev']
 
-04. EXPOSE 指定的端口映射
-05. WORKDIR 指定容器创建的时候 终端默认登陆进来的工作目录 一个落脚点
-06. ROOT 指定镜像的用户权限 默认是 root
-07. ENV 设置环境变量 该环境变量可以在后续的任何 RUN 指令中使用
-08. VOLUME 容器卷
-09. ADD 将宿主机目录下的文件拷贝到镜像中并且会自动处理 URL 和解压 tar 压缩包
+4.  EXPOSE 指定的端口映射
+5.  WORKDIR 指定容器创建的时候 终端默认登陆进来的工作目录 一个落脚点
+6.  ROOT 指定镜像的用户权限 默认是 root
+7.  ENV 设置环境变量 该环境变量可以在后续的任何 RUN 指令中使用
+8.  VOLUME 容器卷
+9.  ADD 将宿主机目录下的文件拷贝到镜像中并且会自动处理 URL 和解压 tar 压缩包
 
 10. COPY 类似 ADD,拷贝文件和目录到镜像中。
     将从构建上下文目录中<源路径>的文件/目录复制到新的一层的镜像内的<目标路径>
 
 11. CMD 指定容器启动之后做的事情
+
     > 可以有多个 CMD 命令 但是只有一个最后生效
     >
     > `CMD 会被docker run之后的参数替换`
@@ -50,7 +51,7 @@ title: dockerfile 文件编写
 
 ## 编译命令
 
- `docker build -t <镜像名字>:\<Tag> .`
+`docker build -t <镜像名字>:\<Tag> .`
 
 > Java8 Dockerfile
 >
@@ -60,7 +61,6 @@ title: dockerfile 文件编写
 >
 > `docker build --platform linux/x86_64 -t centosjava8:1.0 .`
 
->
 > 需要添加 `--platform linux/x86_64` 编译
 
 ```shell
@@ -138,10 +138,10 @@ docker system prune --volumes
 
 清除：
 
-* 所有停止的容器
-* 所有不被任何一个容器使用的网络
-* 所有不被任何一个容器使用的 volume
-* 所有无实例的**镜像**
+- 所有停止的容器
+- 所有不被任何一个容器使用的网络
+- 所有不被任何一个容器使用的 volume
+- 所有无实例的**镜像**
 
 ## 常见问题
 

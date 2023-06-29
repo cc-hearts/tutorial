@@ -42,57 +42,57 @@ categories: Config
 
 ## 常用插件
 
-* Code Spell Checker
+- Code Spell Checker
 
-* Easy Snippet
+- Easy Snippet
 
-* IntelliJ IDEA Keybindings
+- IntelliJ IDEA Keybindings
 
-* Stylelint
+- Stylelint
 
-* Prettier - Code formatter
+- Prettier - Code formatter
 
-* EsLint
+- EsLint
 
-* Code Translate
+- Code Translate
 
-* Error Lens
+- Error Lens
 
-* EditorConfig for VS Code
+- EditorConfig for VS Code
 
 ---
 
 ### 单测插件
 
-* Jest Runner
+- Jest Runner
 
 ---
 
 ### vue 插件
 
-* Vetur
+- Vetur
 
-* Vue Language Feature (Volar)
+- Vue Language Feature (Volar)
 
-* Vite
+- Vite
 
 ### 其他插件
 
-* CodeSnap
+- CodeSnap
 
-* Butter Comments
+- Butter Comments
 
   > TODO 等注释显示
 
-* DotENV
+- DotENV
 
-* Quokkas
+- Quokkas
 
   > 在线运行
 
 ### 主题
 
-* Material Icon Theme
+- Material Icon Theme
 
   > 文件夹主题
 

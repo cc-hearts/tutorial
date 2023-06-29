@@ -12,4 +12,4 @@ pnpm install esm
 
 ## 参考资料
 
-* [esm](https://github.com/standard-things/esm#readme)
+- [esm](https://github.com/standard-things/esm#readme)

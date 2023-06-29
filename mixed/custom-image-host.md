@@ -88,10 +88,8 @@ export class UploadService {
 > 由于图床的文件是以 base64 上传的，因此需要设置 json 的大小
 >
 > 在 `main.ts` 中设置:
->
->  
 
-```ts
+````ts
 > app.use(json({ limit: '50mb' }))
 > app.use(urlencoded({ extended: true, limit: '50mb' }))
 > ```
@@ -120,7 +118,7 @@ RUN cp ./app.production.yaml ./dist/app.production.yaml
 EXPOSE 30002
 
 CMD npm run start:prod
-```
+````
 
 通过运行 `docker build -t nest-pic:1.0.0 .` 构建镜像。
 
@@ -132,6 +130,6 @@ CMD npm run start:prod
 
 ## 参考资料
 
-* [uPic 图床配置教程 - 自定义](https://blog.svend.cc/upic/tutorials/custom/)
+- [uPic 图床配置教程 - 自定义](https://blog.svend.cc/upic/tutorials/custom/)
 
-* [NestJs docs file upload](https://docs.nestjs.com/techniques/file-upload)
+- [NestJs docs file upload](https://docs.nestjs.com/techniques/file-upload)

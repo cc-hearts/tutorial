@@ -8,7 +8,7 @@ title: fs Modules
 
 ```js
 if (fs.existsSync(fileName)) {
-    console.log('file exist')
+  console.log('file exist')
 }
 ```
 
@@ -20,24 +20,24 @@ if (fs.existsSync(fileName)) {
 // https://nodejs.org/api/fs.html#fswritefilesyncfile-data-options
 
 fs.writeFileSync(`./${fileName}`, `# ${getTodayFormatDate()} 每日计划`, {
-    encoding: 'utf-8',
+  encoding: 'utf-8',
 })
 ```
 
-* fs.dir：操作目录的子模块，提供`dir.read`、`dir.readSync`等 API 来读取目录信息。
-* fs.createReadStream()：创建一个读文件流对象。
-* fs.createWriteSteam()：创建一个写文件流对象。
-* fs.stat、fs.statSync()()：读取文件信息，包括文件状态、权限、创建时间、修改时间等等信息。
-* fs.appendFile()、fs.appendFileSync()：追加内容到文件
-* fs.chmod()、fs.chown()：改变文件权限、权限组。
-* fs.copyFile()、fs.copyFileSync()：拷贝文件。
-* fs.mkdir()、fs.mkdirSync()：创建目录。
-* fs.rename()、fs.renameSync()：修改文件名。
-* fs.rmdir()、fs.rmdirSync()：删除目录。
-* fs.unlink()、fs.unlinkSync()：删除文件。
-* fs.watchFile()：这是用来监听文件内容变化的 API。
-* fs.writeFile()、fs.writeFileSync()：写入文件。
-* fs.realpath () 获取文件的绝对路径
+- fs.dir：操作目录的子模块，提供`dir.read`、`dir.readSync`等 API 来读取目录信息。
+- fs.createReadStream()：创建一个读文件流对象。
+- fs.createWriteSteam()：创建一个写文件流对象。
+- fs.stat、fs.statSync()()：读取文件信息，包括文件状态、权限、创建时间、修改时间等等信息。
+- fs.appendFile()、fs.appendFileSync()：追加内容到文件
+- fs.chmod()、fs.chown()：改变文件权限、权限组。
+- fs.copyFile()、fs.copyFileSync()：拷贝文件。
+- fs.mkdir()、fs.mkdirSync()：创建目录。
+- fs.rename()、fs.renameSync()：修改文件名。
+- fs.rmdir()、fs.rmdirSync()：删除目录。
+- fs.unlink()、fs.unlinkSync()：删除文件。
+- fs.watchFile()：这是用来监听文件内容变化的 API。
+- fs.writeFile()、fs.writeFileSync()：写入文件。
+- fs.realpath () 获取文件的绝对路径
 
 ## fs.stats
 
@@ -71,14 +71,12 @@ console.log(stats)
 ## 查看文件的大小以及 gzip 压缩之后的大小
 
 ```js
-import fs, {
-    readFileSync
-} from 'fs'
+import fs, { readFileSync } from 'fs'
 import * as zlib from 'zlib'
 const filePath = './assets/index-88542b38.js'
 fs.stat(filePath, (err, file) => {
-    console.log(file)
-    // 1kb === 1000b
+  console.log(file)
+  // 1kb === 1000b
 })
 const file = readFileSync(filePath)
 console.log(zlib.gzipSync(file).length) // 46173b === 46.17kb

@@ -2,16 +2,16 @@
 title: git 基本命令
 ---
 
-* `feat` -新功能 feature
-* `fix` -修复 bug
-* `docs` -文档注释
-* `stye` -代码格式（不影响代码运行的变动）
-* `refactor` -重构、优化（既不增加新功能，也不是修复 bug)
-* `perf` -性能优化
-* `test` -增加测试
-* `chore` -构建过程或辅助工具的变动
-* `revert` -回退
-* `build` -打包
+- `feat` -新功能 feature
+- `fix` -修复 bug
+- `docs` -文档注释
+- `stye` -代码格式（不影响代码运行的变动）
+- `refactor` -重构、优化（既不增加新功能，也不是修复 bug)
+- `perf` -性能优化
+- `test` -增加测试
+- `chore` -构建过程或辅助工具的变动
+- `revert` -回退
+- `build` -打包
 
 ### 查看全局配置
 
@@ -188,7 +188,7 @@ git checkout <分支名>
 git merge main
 ```
 
-​	或者使用 `rebase` 变基合并
+​ 或者使用 `rebase` 变基合并
 
 > 变基只适合在本地操作，如果记录已经推到了远程仓库，那么就不能再执行变基操作 否则 多人开发代码结构会混乱不堪
 
@@ -288,7 +288,7 @@ git merge master --allow-unrelated-histories
 git pull origin master --allow-unrelated-histories
 ```
 
-###  git ignore track files
+### git ignore track files
 
 `.gitignore` 只能忽略那些原来没有被 `track` 的文件 因此要把本地缓存的 `track` 文件清除再 `commit` 即可清除缓存
 
@@ -326,10 +326,10 @@ git commit -m 'chore: init commit'
 
 ### git 删除 github 等以往的所有分支的提交记录
 
-* `git checkout --orphan latest_branch`
+- `git checkout --orphan latest_branch`
 
-* `git add -A`
+- `git add -A`
 
-* 删除分支 `git branch -D master` ，master 是分支名
-* 将当前分支 **latest_branch** 重命名为 **master** ，`git branch -m master`
-* 强制更新到远程仓库 `git push -f origin master`
+- 删除分支 `git branch -D master` ，master 是分支名
+- 将当前分支 **latest_branch** 重命名为 **master** ，`git branch -m master`
+- 强制更新到远程仓库 `git push -f origin master`

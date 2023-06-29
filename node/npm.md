@@ -52,7 +52,7 @@ yarn global upgrade typescript
 
 ## 版本格式
 
- `major.minor.patch`
+`major.minor.patch`
 
 主版本号. 次版本号. 修补版本号
 
@@ -68,7 +68,7 @@ yarn global upgrade typescript
 
 `>version` : 表示大于某个版本
 
-> `>=version`  `< version`  `<= version` 亦是如此
+> `>=version` `< version` `<= version` 亦是如此
 
 `~version` : 大概匹配某个版本
 
@@ -151,6 +151,6 @@ yarn global upgrade typescript
 
 ## 参考资料
 
-* [查看npm包大小](https://packagephobia.com/result?p%253D%2540cc-heart%252Futils)
-* [npm 包 原理分析](https://cloud.tencent.com/developer/article/1555982)
-* [npm install 与 npm update 的不同](https://stackoverflow.com/questions/12478679/npm-install-vs-update-whats-the-difference)
+- [查看 npm 包大小](https://packagephobia.com/result?p%253D%2540cc-heart%252Futils)
+- [npm 包 原理分析](https://cloud.tencent.com/developer/article/1555982)
+- [npm install 与 npm update 的不同](https://stackoverflow.com/questions/12478679/npm-install-vs-update-whats-the-difference)

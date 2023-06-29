@@ -2,6 +2,57 @@
 title: pnpm 的使用
 ---
 
+## 安装 pnpm
+
+```shell
+yarn gloabl add pnpm
+```
+
+## 初始化 pnpm
+
+```shell
+pnpm init
+```
+
+### 配置工作区
+
+> 指定关键字 `packages` 之后 `packages` 下面的包就可以使用 `@packages/xxx` 标明包位置
+
+```yaml
+# pnpm-workspace.yaml
+packages:
+  - 'packages/**'
+```
+
+### 声明包名称
+
+```json
+// pakcage.json
+{
+  "name": "@packages/utils"
+}
+```
+
+### ## 安装全局依赖
+
+`-w` 把依赖安装到根目录下
+
+```shell
+pnpm install typescript -d -w
+```
+
+### 安装局部依赖
+
+> `-F` 等价于 `--filter`
+
+```shell
+pnpm --filter @packages/utils add axios
+
+# 卸载依赖
+pnpm --filter @packages/utils remove axios
+
+```
+
 ## 基本命令
 
 `-w` 作为所有的 package 的公共依赖安装到根目录
@@ -34,3 +85,44 @@ repo:
 ```shell
 pnpm config set auto-install-peers true
 ```
+
+## link 机制
+
+在 monorepo 中 各个包之间需要依赖的引用 可以使用如下方法安装
+
+```shell
+pnpm i @repo/utils -r --filter @repo/vue2-template@*
+```
+
+其中的 `@*` 表示默认同步最新版本，省去每次都要同步最新版本的问题。
+
+此时的 `vue2-template` 的 `package.json` 中
+
+```json
+{
+  "dependencies": {
+    // 通过workspace 实现本地引用
+
+    "@repo/utils": "workspace: *",
+
+    "vite-plugin-vue2": "^2.0.2",
+
+    "vue": "^2.7.10",
+
+    "vue-template-compiler": "^2.7.10"
+  }
+}
+```
+
+通过通配符的看上去 workspace 是局部依赖， `pnpm publish` 会转成真实路径依赖.
+
+## 列出这个包的源码位置，被 monorepo 内部哪些项目引用
+
+```shell
+pnpm why -r
+```
+
+## 参考资料
+
+- [pnpm 文档](https://pnpm.io/zh/)
+- [pnpm 使用](https://zhuanlan.zhihu.com/p/422740629)

@@ -29,4 +29,4 @@ function handleClick() {
 
 ## 参考资料
 
-* [vue docs - shallowReactive](https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive)
+- [vue docs - shallowReactive](https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive)

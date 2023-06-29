@@ -59,8 +59,8 @@ export function preZeronDateReplace(str: string, target: number) {
 
 ```javascript
 describe('preZeronDateReplace result 01', () => {
-    it('test', () => {
-        expect(preZeronDateReplace(new Date().getMonth() + 1 + '', 2)).toBe('02')
-    })
+  it('test', () => {
+    expect(preZeronDateReplace(new Date().getMonth() + 1 + '', 2)).toBe('02')
+  })
 })
 ```

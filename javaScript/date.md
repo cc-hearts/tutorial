@@ -5,15 +5,15 @@ title: Date
 Date 类型将日期 保存为自协调世界时(UTC，Universal Time Coordinated)时间 1970 年 1 月 1 日午夜(零时)至今所 经过的毫秒数。使用这种存储格式，Date 类型可以精确表示 1970 年 1 月 1 日之前及之后 285 616 年的 日期。
 
 ```js
-console.log(new Date().toLocaleString()); //5/2/2022, 8:42:38 PM
-console.log(new Date().toString()); // Mon May 02 2022 20:42:38 GMT+0800 (China Standard Time)
-console.log(new Date().toDateString()); //星期一 五月 2号 2022
+console.log(new Date().toLocaleString()) //5/2/2022, 8:42:38 PM
+console.log(new Date().toString()) // Mon May 02 2022 20:42:38 GMT+0800 (China Standard Time)
+console.log(new Date().toDateString()) //星期一 五月 2号 2022
 ```
 
-toDateString()显示日期中的周几、月、日、年(格式特定于实现); 
-toTimeString()显示日期中的时、分、秒和时区(格式特定于实现); 
-toLocaleDateString()显示日期中的周几、月、日、年(格式特定于实现和地区); 
-toLocaleTimeString()显示日期中的时、分、秒(格式特定于实现和地区); 
+toDateString()显示日期中的周几、月、日、年(格式特定于实现);
+toTimeString()显示日期中的时、分、秒和时区(格式特定于实现);
+toLocaleDateString()显示日期中的周几、月、日、年(格式特定于实现和地区);
+toLocaleTimeString()显示日期中的时、分、秒(格式特定于实现和地区);
 toUTCString()显示完整的 UTC 日期(格式特定于实现)。
 这些方法的输出与 toLocaleString()和 toString()一样，会因浏览器而异。因此不能用于在用户界面上一致地显示日期。
 
@@ -92,8 +92,8 @@ getTimezoneoffset () 返回以分钟计的 UTC 与本地时区的偏移量（如
 时间是参照**格林威治时间**（也就是本初子午线的时间）
 
 ```js
-new Date().toISOString();
-('2022-11-05T12:17:23.944Z')
+new Date().toISOString()
+;('2022-11-05T12:17:23.944Z')
 ```
 
 ## UTC
@@ -101,8 +101,8 @@ new Date().toISOString();
 > GMT 是前世界标准时，UTC 是现世界标准时。
 
 ```js
-new Date().toUTCString();
-('Sat, 05 Nov 2022 12:20:48 GMT')
+new Date().toUTCString()
+;('Sat, 05 Nov 2022 12:20:48 GMT')
 ```
 
 ## GMT
@@ -110,6 +110,6 @@ new Date().toUTCString();
 格林威治平时（也称格林威治时间）
 
 ```js
-new Date().toGMTString();
-('Mon, 05 Dec 2022 15:28:41 GMT')
+new Date().toGMTString()
+;('Mon, 05 Dec 2022 15:28:41 GMT')
 ```

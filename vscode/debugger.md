@@ -137,7 +137,7 @@ launch.json 配置:
   ]
 ```
 
-## 常用debugger配置
+## 常用 debugger 配置
 
 ```json
 {
@@ -156,7 +156,7 @@ launch.json 配置:
       // 运行时启动的参数
       "runtimeArgs": [
         "--auto-open-devtools-for-tabs ", // 自动打开调试面板
-        "incognito", // 无痕模式/隐身模式 预览
+        "incognito" // 无痕模式/隐身模式 预览
       ],
       // 是否支持sourceMap映射
       "sourceMaps": true,
@@ -180,11 +180,11 @@ launch.json 配置:
 
 chrome 浏览器启动参数配置:
 
-* <https://www.cnblogs.com/gurenyumao/p/14721035.html>
+- <https://www.cnblogs.com/gurenyumao/p/14721035.html>
 
 远程调试技术介绍:
 
-* <https://fed.taobao.org/blog/taofed/do71ct/chrome-remote-debugging-technics/>
+- <https://fed.taobao.org/blog/taofed/do71ct/chrome-remote-debugging-technics/>
 
-* source-map 映射介绍
-* <https://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html>
+- source-map 映射介绍
+- <https://www.ruanyifeng.com/blog/2013/01/javascript_source_map.html>

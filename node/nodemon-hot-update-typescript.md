@@ -31,4 +31,4 @@ title: 利用nodemon 热更新 typescript
 }
 ```
 
-之后只要运行 `npx nodemon` 就会 `watch`  `index` 和 `show-pkg-version` 的代码发生变化重启项目了
+之后只要运行 `npx nodemon` 就会 `watch` `index` 和 `show-pkg-version` 的代码发生变化重启项目了

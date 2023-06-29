@@ -169,10 +169,11 @@ console.log('just after subscribe')
 
 ## 参考资料
 
-* [80 行代码实现简易 RxJS](https://mp.weixin.qq.com/s/G-Af4gDuBuXuHMTV-de-0w)
+- [80 行代码实现简易 RxJS](https://mp.weixin.qq.com/s/G-Af4gDuBuXuHMTV-de-0w)
+
 ---
-title: rxjs 基本的理解与使用
----
+
+## title: rxjs 基本的理解与使用
 
 ```ts
 // Observable 用于监听一个一个的事件
@@ -341,4 +342,4 @@ console.log('just after subscribe')
 
 ## 参考资料
 
-* [80 行代码实现简易 RxJS](https://mp.weixin.qq.com/s/G-Af4gDuBuXuHMTV-de-0w)
+- [80 行代码实现简易 RxJS](https://mp.weixin.qq.com/s/G-Af4gDuBuXuHMTV-de-0w)

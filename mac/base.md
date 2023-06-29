@@ -65,6 +65,22 @@ rmdir 删除空目录，不过一旦目录非空会提示
 
 > 使用这个 rm -rf 的时候一定要格外小心，linux 没有回收站的，删除之后再想找回就很难了
 
+## 常用指令集
+
+```shell
+find 文件路径 参数
+```
+
+查找名字中包含 detail 的文件
+
+```shell
+find ~ -iname 'detail*'
+```
+
+```shell
+mdfind -name 文件名字
+```
+
 ## 参考资料
 
 [快速操作删除](https://www.duotin.com/ios/27361.html)

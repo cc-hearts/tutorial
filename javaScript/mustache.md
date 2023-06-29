@@ -9,16 +9,16 @@ global.a = 2
 global.b = 3
 global.c = 4
 const scope = {
-    a: 1,
-    b: 2,
-    c: 0,
+  a: 1,
+  b: 2,
+  c: 0,
 }
 
 function functionFactory(data) {
-    const reg = /^\s*\{\{([\s\S]*)\}\}\s*$/
-    const matcher = data.match(reg)
-    const newData = matcher?.[1] || ''
-    return new Function('$root', `with ($root) { return (${newData}) }`)
+  const reg = /^\s*\{\{([\s\S]*)\}\}\s*$/
+  const matcher = data.match(reg)
+  const newData = matcher?.[1] || ''
+  return new Function('$root', `with ($root) { return (${newData}) }`)
 }
 
 console.log(functionFactory(data)(scope))

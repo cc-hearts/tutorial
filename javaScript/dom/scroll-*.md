@@ -4,9 +4,9 @@ title: scroll-* offset-* scroll-* page-*
 
 ## client-\*
 
- `clientWidth = width + padding`
+`clientWidth = width + padding`
 
- `clientHeight = height + padding`
+`clientHeight = height + padding`
 
 > clientLeft 即 border-left-width + 左边的滚动条的宽度
 
@@ -26,9 +26,9 @@ document.getElementById('app').clientWidth // 150
 
 ## offset-\*
 
- `offsetWidth = width + padding + border+水平滚动条的宽度`
+`offsetWidth = width + padding + border+水平滚动条的宽度`
 
- `offsetHeight = height + padding + border+垂直滚动条的宽度`
+`offsetHeight = height + padding + border+垂直滚动条的宽度`
 
 `offsetTop` : 从当前元素的 border 外边框到父元素的 border 内边框 与父元素的距离（包括父元素的 padding）
 
@@ -51,10 +51,10 @@ document.getElementById('app').offsetWidth // 190
 
 ```css
 #app {
-    width: 150px;
-    height: 150px;
-    background-color: red;
-    border: 20px solid #fff;
+  width: 150px;
+  height: 150px;
+  background-color: red;
+  border: 20px solid #fff;
 }
 ```
 
@@ -75,29 +75,29 @@ scrollHeight 的值等于该元素在不使用滚动条的情况下为了适应�
 > 当一个元素的内容没有产生垂直方向的滚动条，那么它的 scrollTop 值为 0
 
 ```javascript
-document.getElementById('btn').onclick = function() {
-    console.log(document.documentElement.scrollHeight)
-    console.log(document.documentElement.scrollTop)
-    console.log(document.documentElement.clientHeight)
+document.getElementById('btn').onclick = function () {
+  console.log(document.documentElement.scrollHeight)
+  console.log(document.documentElement.scrollTop)
+  console.log(document.documentElement.clientHeight)
 }
 ```
 
 ```css
 #app {
-    width: 150px;
-    height: 2500px;
-    background-color: red;
+  width: 150px;
+  height: 2500px;
+  background-color: red;
 }
 
 #btn {
-    width: 40px;
-    height: 20px;
-    cursor: pointer;
-    position: fixed;
-    text-align: center;
-    top: 0;
-    left: 50%;
-    background-color: indianred;
+  width: 40px;
+  height: 20px;
+  cursor: pointer;
+  position: fixed;
+  text-align: center;
+  top: 0;
+  left: 50%;
+  background-color: indianred;
 }
 ```
 
@@ -111,8 +111,9 @@ document.getElementById('btn').onclick = function() {
 
 ## 参考文章
 
-* [菜鸟教程 scrollHeight](https://www.runoob.com/jsref/prop-element-scrollheight.html)
-* [scrollHeight 等区分](https://juejin.cn/post/6844903488124633096)
+- [菜鸟教程 scrollHeight](https://www.runoob.com/jsref/prop-element-scrollheight.html)
+- [scrollHeight 等区分](https://juejin.cn/post/6844903488124633096)
+
 # offsetTop、offsetLeft
 
 **HTMLElement.offsetTop** 为只读属性，它返回当前元素相对于其 offsetParent 元素的顶部内边距的距离。
@@ -126,12 +127,12 @@ console.log(box.offsetParent) // null
 
 ```css
 #box {
-    width: 70px;
-    height: 70px;
-    background-color: gray;
-    margin-top: 15px;
-    overflow: hidden;
-    position: fixed;
+  width: 70px;
+  height: 70px;
+  background-color: gray;
+  margin-top: 15px;
+  overflow: hidden;
+  position: fixed;
 }
 ```
 
@@ -146,24 +147,24 @@ console.log(box.offsetTop) //43 app的border 20px box margin 15px body 自带的
 
 ```css
 #app {
-    width: 150px;
-    height: 750px;
-    background-color: red;
-    border: 20px solid #fff;
+  width: 150px;
+  height: 750px;
+  background-color: red;
+  border: 20px solid #fff;
 }
 
 #box {
-    width: 70px;
-    height: 70px;
-    background-color: gray;
-    margin-top: 15px;
-    overflow: hidden;
+  width: 70px;
+  height: 70px;
+  background-color: gray;
+  margin-top: 15px;
+  overflow: hidden;
 }
 ```
 
 ```html
 <div id="app">
-    <div id="box"></div>
+  <div id="box"></div>
 </div>
 ```
 
@@ -179,4 +180,4 @@ clientX/Y：相对于当前页面且不包含滚动条距离
 
 ## 参考资料
 
-* [容易混淆的 client-\*, scroll-\*, offset-\*](https://segmentfault.com/a/1190000005897042)
+- [容易混淆的 client-\*, scroll-\*, offset-\*](https://segmentfault.com/a/1190000005897042)

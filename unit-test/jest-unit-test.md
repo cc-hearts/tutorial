@@ -14,31 +14,29 @@ index.js
 
 ```javascript
 function sum(a, b) {
-    return a + b
+  return a + b
 }
 
 module.exports = {
-    sum,
+  sum,
 }
 ```
 
 index.test.js
 
 ```javascript
-const {
-    sum
-} = require('../js/index')
+const { sum } = require('../js/index')
 
 describe('sum function test', () => {
-    // 描述
-    it('sum(1, 2) === 3', () => {
-        // 会打印时间
-        expect(sum(1, 2)).toBe(3)
-    })
-    test('sum(1, 2) === 3', () => {
-        // 只是普通测试
-        expect(sum(1, 2)).toBe(3)
-    })
+  // 描述
+  it('sum(1, 2) === 3', () => {
+    // 会打印时间
+    expect(sum(1, 2)).toBe(3)
+  })
+  test('sum(1, 2) === 3', () => {
+    // 只是普通测试
+    expect(sum(1, 2)).toBe(3)
+  })
 })
 ```
 
@@ -58,27 +56,25 @@ npm install--save - dev @babel / core @babel / preset - env {
 
 ```javascript
 export function sum(a, b) {
-    return a + b
+  return a + b
 }
 ```
 
 > index.test.js
 
 ```javascript
-import {
-    sum
-} from '../js/index'
+import { sum } from '../js/index'
 
 describe('sum function test', () => {
-    // 描述
-    it('sum(1, 2) === 3', () => {
-        // 会打印时间
-        expect(sum(1, 2)).toBe(3)
-    })
-    test('sum(1, 2) === 3', () => {
-        // 只是普通测试
-        expect(sum(1, 2)).toBe(3)
-    })
+  // 描述
+  it('sum(1, 2) === 3', () => {
+    // 会打印时间
+    expect(sum(1, 2)).toBe(3)
+  })
+  test('sum(1, 2) === 3', () => {
+    // 只是普通测试
+    expect(sum(1, 2)).toBe(3)
+  })
 })
 ```
 
@@ -168,20 +164,20 @@ test('测试嵌套对象存在的可枚举属性 line1', () => {
 
 ```javascript
 export const getUserInfo = () => {
-    return {
-        name: 'moji',
-        age: 24,
-    }
+  return {
+    name: 'moji',
+    age: 24,
+  }
 }
 ```
 
 ```javascript
 test('getUserInfo()返回的对象深度相等', () => {
-    expect(getUserInfo()).toEqual(getUserInfo())
+  expect(getUserInfo()).toEqual(getUserInfo())
 })
 
 test('getUserInfo()返回的对象内存地址不同', () => {
-    expect(getUserInfo()).not.toBe(getUserInfo())
+  expect(getUserInfo()).not.toBe(getUserInfo())
 })
 ```
 
@@ -287,18 +283,112 @@ npx jest src/index.test.ts -t "add" // add 会去匹配用例名字的正则
 }
 ```
 
+### 自定义匹配器
+
+可以使用 `expect.extends(matchFunction)` 去自定义一个匹配器函数（官方例子），需要返回一个对象或者返回一个 Promise 对象 对象中包含两个 属性 `pass: boolean` 和一个 `message  的 function`
+
+```ts
+expect.extend({
+  toBeWithinRange(received, floor, ceiling) {
+    const pass = received >= floor && received <= ceiling
+    if (pass) {
+      return {
+        message: () =>
+          `expected ${received} not to be within range ${floor} - ${ceiling}`,
+        pass: true,
+      }
+    } else {
+      return {
+        message: () =>
+          `expected ${received} to be within range ${floor} - ${ceiling}`,
+        pass: false,
+      }
+    }
+  },
+})
+
+test('numeric ranges', () => {
+  expect(100).toBeWithinRange(90, 110)
+  expect(101).not.toBeWithinRange(0, 100)
+  expect({ apples: 6, bananas: 3 }).toEqual({
+    apples: expect.toBeWithinRange(1, 10),
+    bananas: expect.not.toBeWithinRange(11, 20),
+  })
+})
+```
+
+> 如果使用 `typescript` 则需要去定义一下 `dts` 的类型
+
+### 异步的自定义匹配器函数
+
+```ts
+// 异步的自定义匹配器函数
+expect.extend({
+  async toBeDivisibleByExternalValue(received) {
+    const externalValue = await getExternalValueFromRemoteSource()
+    const pass = received % externalValue == 0
+    if (pass) {
+      return {
+        message: () =>
+          `expected ${received} not to be divisible by ${externalValue}`,
+        pass: true,
+      }
+    } else {
+      return {
+        message: () =>
+          `expected ${received} to be divisible by ${externalValue}`,
+        pass: false,
+      }
+    }
+  },
+})
+
+test('is divisible by external value', async () => {
+  await expect(100).toBeDivisibleByExternalValue()
+  await expect(101).not.toBeDivisibleByExternalValue()
+})
+```
+
+自定义匹配函数中的 this 有一些辅助函数
+
+1. this.not
+
+```ts
+this.isNot: boolean  this.not 表示当前的匹配函数是否是.not返回之后的
+```
+
+2. this.promise
+
+```ts
+this.promise: 'rejects | resolves | '' '
+```
+
+```ts
+interface CustomMatchers<R = unknown> {
+  // 自定义匹配函数
+  toBeWithinRange(floor: number, ceiling: number): R
+}
+
+declare global {
+  namespace jest {
+    interface Expect extends CustomMatchers {}
+    interface Matchers<R> extends CustomMatchers<R> {}
+    interface InverseAsymmetricMatchers extends CustomMatchers {}
+  }
+}
+```
+
 > 参考文章: https://juejin.cn/post/7226988012675874872
 
 ## jest 中的钩子函数
 
-* beforeAll：所有测试之前执行
-* afterAll：所有测试执行完之后
-* beforeEach：每个测试实例之前执行
-* afterEach：每个测试实例完成之后执行
+- beforeAll：所有测试之前执行
+- afterAll：所有测试执行完之后
+- beforeEach：每个测试实例之前执行
+- afterEach：每个测试实例完成之后执行
 
 运行顺序:
 
 ```js
-;
-(beforeAll) => (beforeeach) => (afterEach) => afterAll
+;(beforeAll) => (beforeeach) => (afterEach) => afterAll
 ```

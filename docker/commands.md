@@ -33,11 +33,11 @@ docker search <镜像名称>
 从远程的镜像服务查找镜像
 参数介绍
 
-* name 镜像名称
-* description 镜像说明
-* stars 点赞数量
-* official 是否官方
-* automated 是否自动构建的
+- name 镜像名称
+- description 镜像说明
+- stars 点赞数量
+- official 是否官方
+- automated 是否自动构建的
 
 ```shell
 docker search --help 查看命令
@@ -275,10 +275,10 @@ docker system prune --volumes
 
 改命令清除:
 
-* 所有停止的容器
-* 所有不被任何一个容器使用的网络
-* 所有不被任何一个容器使用的 volume
-* 所有无实例的镜像
+- 所有停止的容器
+- 所有不被任何一个容器使用的网络
+- 所有不被任何一个容器使用的 volume
+- 所有无实例的镜像
 
 ## docker host 模式
 

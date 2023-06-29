@@ -6,10 +6,10 @@ title: border-radius
 
 ```css
 #root {
-    width: 200px;
-    height: 200px;
-    border-radius: 20px / 50px;
-    background-color: red;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px / 50px;
+  background-color: red;
 }
 ```
 
@@ -19,4 +19,4 @@ title: border-radius
 
 ## 参考资料
 
-* [秋月何时了，CSS3 border-radius 知多少？](https://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/)
+- [秋月何时了，CSS3 border-radius 知多少？](https://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/)

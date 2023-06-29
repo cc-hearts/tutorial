@@ -7,9 +7,9 @@ title: html 文件下载
 ```html
 <a id="download" href="http://localhost:3000/static/test.docx" download>下载</a>
 <script>
-    const link = document.getElementById('download')
-    link.download = 't.docx'
-    link.click()
+  const link = document.getElementById('download')
+  link.download = 't.docx'
+  link.click()
 </script>
 ```
 
@@ -19,27 +19,27 @@ title: html 文件下载
 
 ```html
 <body>
-    <button id="btn">click</button>
-    <script>
-        const btn = document.getElementById('btn')
-        const url 'http://localhost:3000/static/test.docx'
-        btn.onclick = function() {
-            fetch(url, {
-                method: 'get',
-            }).then(res => {
-                return res.blob()
-            }).then(content => {
-                const el = document.createElement('a')
-                const blob = new Blob([content]);
-                el.href = URL.createObjectURL(blob);
-                el.style.display = 'hidden'
-                el.download = 't.docx'
-                document.body.appendChild(el)
-                el.click()
-                document.body.removeChild(el)
-            })
-        }
-    </script>
+  <button id="btn">click</button>
+  <script>
+    const btn = document.getElementById('btn')
+    const url 'http://localhost:3000/static/test.docx'
+    btn.onclick = function() {
+        fetch(url, {
+            method: 'get',
+        }).then(res => {
+            return res.blob()
+        }).then(content => {
+            const el = document.createElement('a')
+            const blob = new Blob([content]);
+            el.href = URL.createObjectURL(blob);
+            el.style.display = 'hidden'
+            el.download = 't.docx'
+            document.body.appendChild(el)
+            el.click()
+            document.body.removeChild(el)
+        })
+    }
+  </script>
 </body>
 ```
 
@@ -70,4 +70,4 @@ title: html 文件下载
 
 ## 参考资料
 
-* [JS 前端创建 html 或 json 文件并浏览器导出下载](https://www.zhangxinxu.com/wordpress/2017/07/js-text-string-download-as-html-json-file/)
+- [JS 前端创建 html 或 json 文件并浏览器导出下载](https://www.zhangxinxu.com/wordpress/2017/07/js-text-string-download-as-html-json-file/)

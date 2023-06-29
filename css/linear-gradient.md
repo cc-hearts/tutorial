@@ -4,8 +4,8 @@ title: gradients
 
 渐变分为两种：
 
-* 线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向。
-* 径向渐变（Radial Gradients）- 由它们的中心向四周发散。
+- 线性渐变（Linear Gradients）- 向下/向上/向左/向右/对角方向。
+- 径向渐变（Radial Gradients）- 由它们的中心向四周发散。
 
 ## 线性渐变
 

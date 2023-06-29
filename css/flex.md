@@ -16,3 +16,39 @@ flex: 1 其实是 flex-grow, flex-shrink, flex-basis 的缩写
 &#x20; flex-grow: 扩展，子元素宽度之和小于父元素宽度 那么子元素就会分配父元素剩余的宽度
 &#x20; flex-shrink: 收缩, 子元素宽度之和大于父元素宽度 那么子元素就会按照比列收缩
 &#x20; flex-basis: 是弹性盒子的基准值，在没有设置宽度的情况下宽度由 content 决定，如果 content 内容过长就会溢出外层容器，如果设置一个宽度，只要这个宽度小于外层容器的剩余宽度(一般设置为 0，这样就可以保证百分之百小于剩余宽度) flex-grow 就会起作用 自动分配剩余宽度，这样就可以保证 flex-basis 的宽度是外层容器的宽度而不是 content 的宽度，内容也就不会溢出
+
+- flex-grow: 可拉伸
+- flex-shrink 可压缩
+- flex-basis 当前元素的宽度
+
+flex 默认值
+
+```css
+flex {
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+```
+
+flex: 1
+
+```css
+flex {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+}
+```
+
+flex: auto
+
+```css
+flex {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+```
+
+> flex: 1 会导致父元素宽度自动变为 100%

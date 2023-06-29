@@ -8,7 +8,7 @@ title: useVModel 的实现
 
 DONE:
 
-* 支持`ref`、`reactive` 等两种
+- 支持`ref`、`reactive` 等两种
 
 ```vue
 <!-- children.vue -->

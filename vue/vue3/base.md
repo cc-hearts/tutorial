@@ -4,16 +4,14 @@ title: Vue 3.0
 
 ## 初始化
 
- `pnpm create vite <project-name>`
+`pnpm create vite <project-name>`
 
 ## 一些特性
 
 ```js
 // createApp 工厂函数 已经不会导出Vue
 // import Vue from 'vue' // undefined
-import {
-    createApp
-} from 'vue';
+import { createApp } from 'vue'
 ```
 
 > vue3.0 的 template 可以没有根标签
@@ -29,31 +27,29 @@ import {
 1. 如果返回的是一个对象 则对象中的属性 方法 在模版中均可以直接使用
 
 ```js
-   export default {
-       setup() {
-           // 有点小问题 数据不是响应式
-           return {
-               msg: 'Hello Vue.js!22',
-               count: 0,
-           };
-       },
-   };
+export default {
+  setup() {
+    // 有点小问题 数据不是响应式
+    return {
+      msg: 'Hello Vue.js!22',
+      count: 0,
+    }
+  },
+}
 ```
 
 2. 如果返回一个渲染函数 则可以自定义渲染内容
 
 ```js
-import {
-    h
-} from 'vue';
+import { h } from 'vue'
 export default {
-    setup() {
-        // 自定义渲染函数
-        return () => {
-            return h('h1', 'hello vue');
-        };
-    },
-};
+  setup() {
+    // 自定义渲染函数
+    return () => {
+      return h('h1', 'hello vue')
+    }
+  },
+}
 ```
 
 > vue2 的配置可以读取到 vue3 中的配置
@@ -78,23 +74,23 @@ export default {
 </template>
 
 <script>
-import { ref } from 'vue';
+import { ref } from 'vue'
 export default {
   setup() {
-    let msg = ref('hello message');
-    console.log(msg); // 被ref加工后是一个引用实现的对象RefImpl
-    let obj = ref({ a: 1, b: 2 }); // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
-    console.log(obj);
+    let msg = ref('hello message')
+    console.log(msg) // 被ref加工后是一个引用实现的对象RefImpl
+    let obj = ref({ a: 1, b: 2 }) // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
+    console.log(obj)
     return {
       msg: msg,
       obj: obj,
       click() {
         // 在template中可以不用.value
-        msg.value = '112';
+        msg.value = '112'
       },
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -118,34 +114,34 @@ reactive 定义的响应式函数是深层次的 内部基于 Proxy 实现 通�
 
 ```js
 const obj = {
-    name: 'John',
-    age: 30,
-    job: 'developer',
-    sayHello: function() {
-        console.log(`Hello, ${this.name}`);
-    },
-};
+  name: 'John',
+  age: 30,
+  job: 'developer',
+  sayHello: function () {
+    console.log(`Hello, ${this.name}`)
+  },
+}
 const proxy = new Proxy(obj, {
-    // 获取某个熟悉的时候调用
-    get(target, propName) {
-        console.log(`Getting prop ${propName}`);
-        console.log(`target[propName] = ${target[propName]}`);
-        // return target[propName]
-        return Reflect.get(target, propName);
-    },
-    // 新增或者更新的时候调用
-    set(target, propName, value) {
-        console.log(`Setting prop ${propName} to ${value}`);
-        // target[propName] = value;
-        return Reflect.set(target, propName, value);
-    },
-    // 删除的时候调用
-    deleteProperty(target, propName) {
-        console.log(`Deleting prop ${propName}`);
-        // return delete target[propName];
-        return Reflect.deleteProperty(target, propName);
-    },
-});
+  // 获取某个熟悉的时候调用
+  get(target, propName) {
+    console.log(`Getting prop ${propName}`)
+    console.log(`target[propName] = ${target[propName]}`)
+    // return target[propName]
+    return Reflect.get(target, propName)
+  },
+  // 新增或者更新的时候调用
+  set(target, propName, value) {
+    console.log(`Setting prop ${propName} to ${value}`)
+    // target[propName] = value;
+    return Reflect.set(target, propName, value)
+  },
+  // 删除的时候调用
+  deleteProperty(target, propName) {
+    console.log(`Deleting prop ${propName}`)
+    // return delete target[propName];
+    return Reflect.deleteProperty(target, propName)
+  },
+})
 //#region
 // console.log(proxy.age);
 
@@ -161,40 +157,40 @@ const proxy = new Proxy(obj, {
 /**
  * Reflect
  */
-console.log(Reflect.get(obj, 'name'));
-const isFlag = Reflect.set(obj, 'ddd', 'Tom');
-console.log('isFlag', isFlag);
+console.log(Reflect.get(obj, 'name'))
+const isFlag = Reflect.set(obj, 'ddd', 'Tom')
+console.log('isFlag', isFlag)
 const a1 = Reflect.defineProperty(obj, 'ref', {
-    get() {
-        return 3;
-    },
-});
-console.log('a1', a1);
+  get() {
+    return 3
+  },
+})
+console.log('a1', a1)
 
 // 重复定义个新的属性值 会返回一个bool类型 判断是否返回成功
 const a2 = Reflect.defineProperty(obj, 'ref', {
-    get() {
-        return 4;
-    },
-});
-console.log('a2', a2);
+  get() {
+    return 4
+  },
+})
+console.log('a2', a2)
 
-console.log(obj.ddd);
+console.log(obj.ddd)
 
 Object.defineProperty(obj, 'reflect', {
-    get() {
-        return '1';
-    },
-});
+  get() {
+    return '1'
+  },
+})
 
 // Object.defineProperty 不能够重复定义一个属性值
 Object.defineProperty(obj, 'reflect', {
-    get() {
-        return '2';
-    },
-});
+  get() {
+    return '2'
+  },
+})
 
-console.log('2');
+console.log('2')
 ```
 
 ## reactive 与 ref 对比数据
@@ -216,31 +212,31 @@ console.log('2');
    1. ref 操作数据需要.value 在 template 中读取 ref 定义的数据不需要 `.value`
 
 ```vue
-   <template>
-     <div>{{ objRef.a }}</div>
-     <button @click="click">函数点击添加</button>
-   </template>
-   <script>
-   import { ref } from 'vue';
-   export default {
-     setup() {
-       let objRef = ref({ a: 1, b: 2 }); // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
-       return {
-         objRef,
-         click() {
-           objRef.value.a++;
-         },
-       };
-     },
-   };
-   </script>
-   ```
+<template>
+  <div>{{ objRef.a }}</div>
+  <button @click="click">函数点击添加</button>
+</template>
+<script>
+import { ref } from 'vue'
+export default {
+  setup() {
+    let objRef = ref({ a: 1, b: 2 }) // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
+    return {
+      objRef,
+      click() {
+        objRef.value.a++
+      },
+    }
+  },
+}
+</script>
+```
 
 4. reactive 定义的数据均不需要`.value`
 
 setup 执行的时机
 
-* 在 beforeCreate 之前执行一次 this 是`undefined`
+- 在 beforeCreate 之前执行一次 this 是`undefined`
 
 ```js
 setup(props, context) {
@@ -276,27 +272,27 @@ setup(props, context) {
 </template>
 
 <script>
-import { computed, reactive } from 'vue';
+import { computed, reactive } from 'vue'
 export default {
   setup() {
     const person = reactive({
       'first-name': '张三',
       'last-name': '李四',
       age: 18,
-    });
+    })
     // 计算属性应该为 person 的一个属性 不应该单独变成一个对象
     // const computedObj = computed(() => {
     //   return `${person["first-name"]} - ${person["last-name"]}`;
     // });
     person.fullName = computed(() => {
-      return `${person['first-name']} - ${person['last-name']}`;
-    });
+      return `${person['first-name']} - ${person['last-name']}`
+    })
     return {
       person,
       //  computedObj
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -310,38 +306,38 @@ export default {
   </div>
 </template>
 <script>
-let detail = 1;
-import { computed, reactive } from 'vue';
+let detail = 1
+import { computed, reactive } from 'vue'
 export default {
   setup() {
     const person = reactive({
       'first-name': '张三',
       'last-name': '李四',
       age: 18,
-    });
+    })
     // 由于detail不是响应式数据 所以页面不会刷新
     const b = computed({
       get() {
-        return detail + 'b';
+        return detail + 'b'
       },
       set(value) {
-        console.log('a');
-        detail++;
+        console.log('a')
+        detail++
         // 这里如果换成 person.age++ 即会刷新页面
-        return true;
+        return true
       },
-    });
+    })
     function updateB() {
-      b.value++;
-      console.log('更新b', 'detail', detail);
+      b.value++
+      console.log('更新b', 'detail', detail)
     }
     return {
       person,
       updateB,
       b,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -366,15 +362,16 @@ watch 多个值的写法
 
 ```js
 watch(
-    [sum, msg],
-    (newVal, oldVal) => {
-        // 此时的newVal是一个数组 oldVal也是一个数组
-        // newVal[newSum,newMsg] oldVal[oldSum,oldMsg]
-        console.log('sum变化', newVal, oldVal);
-    }, {
-        immediate: true
-    }
-);
+  [sum, msg],
+  (newVal, oldVal) => {
+    // 此时的newVal是一个数组 oldVal也是一个数组
+    // newVal[newSum,newMsg] oldVal[oldSum,oldMsg]
+    console.log('sum变化', newVal, oldVal)
+  },
+  {
+    immediate: true,
+  }
+)
 ```
 
 监视 reactive 定义的一个响应式的数据 newValue 和 oldValue 相等
@@ -385,18 +382,19 @@ watch 监听的时候 ref 的基本数据类型直接监听即可 如果是 ref 
 
 ```js
 const ps = ref({
-    names: 'josin',
-    age: 19,
-});
+  names: 'josin',
+  age: 19,
+})
 
 watch(
-    ps,
-    (newVal) => {
-        console.log('newVal ps ', ps);
-    }, {
-        deep: true
-    }
-);
+  ps,
+  (newVal) => {
+    console.log('newVal ps ', ps)
+  },
+  {
+    deep: true,
+  }
+)
 ```
 
 监视 reactive 所定义的一个响应式的**全部**数据
@@ -431,24 +429,24 @@ watch(
 
 ```js
 const person = reactive({
-    name: 'join',
-    age: 18,
-});
+  name: 'join',
+  age: 18,
+})
 
 watch(
-    () => person.age,
-    (newVal, oldVal) => {
-        console.log('person.age', person.age);
-    }
-);
+  () => person.age,
+  (newVal, oldVal) => {
+    console.log('person.age', person.age)
+  }
+)
 ```
 
 监视 reactive 中的某些属性
 
 ```js
 watch([() => person.age, () => person.name], (newVal, oldVal) => {
-    console.log('new Val', newVal);
-});
+  console.log('new Val', newVal)
+})
 ```
 
 ## 获取对象的 ref 的使用
@@ -487,25 +485,25 @@ setup() {
 </template>
 
 <script>
-import { reactive, nextTick } from 'vue';
+import { reactive, nextTick } from 'vue'
 
 export default {
   setup() {
-    const arr = reactive([1, 2, 3]);
+    const arr = reactive([1, 2, 3])
     // 存储dom数组
-    const myRef = reactive([]);
+    const myRef = reactive([])
     const setRef = (el) => {
-      myRef.push(el);
-    };
+      myRef.push(el)
+    }
     nextTick(() => {
-      console.log(myRef);
-    });
+      console.log(myRef)
+    })
     return {
       arr,
       setRef,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -547,47 +545,43 @@ hooks 有点类似于 mixin 的方式 本质是一个函数
 > useMouseDown 的 hook 实现 全局单一挂载 并且数据返回的始终是鼠标的点击的位置
 
 ```js
-import {
-    reactive,
-    onMounted,
-    onBeforeUnmount
-} from 'vue';
+import { reactive, onMounted, onBeforeUnmount } from 'vue'
 
-let isInit = false;
+let isInit = false
 const obj = {
-    x: 0,
-    y: 0,
-};
-export default function() {
-    const mouseDown = reactive(obj);
-    const ev = (e) => {
-        mouseDown.x = e.clientX;
-        mouseDown.y = e.clientY;
-    };
-    if (!isInit) {
-        isInit = true;
-        onMounted(() => {
-            console.log('onMounted');
-            window.addEventListener('mousedown', ev);
-        });
+  x: 0,
+  y: 0,
+}
+export default function () {
+  const mouseDown = reactive(obj)
+  const ev = (e) => {
+    mouseDown.x = e.clientX
+    mouseDown.y = e.clientY
+  }
+  if (!isInit) {
+    isInit = true
+    onMounted(() => {
+      console.log('onMounted')
+      window.addEventListener('mousedown', ev)
+    })
 
-        onBeforeUnmount(() => {
-            window.removeEventListener('mousedown', ev);
-        });
-    }
+    onBeforeUnmount(() => {
+      window.removeEventListener('mousedown', ev)
+    })
+  }
 
-    return mouseDown;
+  return mouseDown
 }
 ```
 
 ## toRef
 
-* 创建一个 ref 对象其 value 指向的是另外一个对象中的某个属性
+- 创建一个 ref 对象其 value 指向的是另外一个对象中的某个属性
 
 > 应用场景： 将响应式对象中的某个属性单独提供给外部使用
 
 ```js
-const name = toRef(person, 'name'); // 将person.name的包装成RefImpl
+const name = toRef(person, 'name') // 将person.name的包装成RefImpl
 ```
 
 ```vue
@@ -599,7 +593,7 @@ const name = toRef(person, 'name'); // 将person.name的包装成RefImpl
 </template>
 
 <script>
-import { reactive, toRef } from 'vue';
+import { reactive, toRef } from 'vue'
 export default {
   setup() {
     const person = reactive({
@@ -609,19 +603,19 @@ export default {
         a: 1,
         b: 2,
       },
-    });
+    })
     // 将person.detail.a 通过ref包裹了一层 使得它能够响应式
-    const r = toRef(person.detail, 'a');
-    console.log(r);
+    const r = toRef(person.detail, 'a')
+    console.log(r)
     function handleChange() {
-      r.value++;
+      r.value++
     }
     return {
       person,
       handleChange,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -754,30 +748,30 @@ style >
 </template>
 
 <script>
-import { reactive, toRaw } from 'vue';
+import { reactive, toRaw } from 'vue'
 export default {
   setup() {
     const demo = {
       ds: 'dd',
-    };
+    }
     const person = reactive({
       detail: 'detial',
       d: demo,
-    });
+    })
     // 将person.d 没有代理之前的对象返回
-    const a = toRaw(person.d);
+    const a = toRaw(person.d)
     function handleClick() {
-      a.ds = '123';
-      console.log(a);
-      console.log(a === demo); // true toRaw返回的是proxy之前的对象
+      a.ds = '123'
+      console.log(a)
+      console.log(a === demo) // true toRaw返回的是proxy之前的对象
     }
     return {
       person,
       handleClick,
       a,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -795,24 +789,24 @@ export default {
 </template>
 
 <script>
-import { markRaw, reactive } from 'vue';
+import { markRaw, reactive } from 'vue'
 // markRaw 标记了person  使其不会变成一个响应式的对象
 export default {
   setup() {
     const person = {
       name: 'join',
       age: 18,
-    };
-    const p = reactive(markRaw(person));
+    }
+    const p = reactive(markRaw(person))
     function handleClick() {
-      console.log(p); // 一个普通的Object对象
+      console.log(p) // 一个普通的Object对象
     }
     return {
       p,
       handleClick,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -827,28 +821,28 @@ export default {
 </template>
 
 <script>
-import { markRaw, reactive } from 'vue';
+import { markRaw, reactive } from 'vue'
 export default {
   setup() {
     const d = markRaw({
       hobby: 'play',
-    });
+    })
     const person = {
       name: 'join',
       age: 18,
       d,
-    };
-    const p = reactive(person);
+    }
+    const p = reactive(person)
     function handleClick() {
-      p.d.hobby = 12;
-      console.log(p);
+      p.d.hobby = 12
+      console.log(p)
     }
     return {
       p,
       handleClick,
-    };
+    }
   },
-};
+}
 </script>
 
 <style></style>
@@ -874,35 +868,35 @@ export default {
 
 <script>
 // 实现一个防抖的功能
-import { customRef } from 'vue';
+import { customRef } from 'vue'
 export default {
   setup() {
     function myRef(val, delay = 1000) {
-      let timer = null;
+      let timer = null
       return customRef((track, trigger) => {
         return {
           get() {
-            console.log('val value:', val);
-            track(); // 通知vue追踪数据的变化 是否进行依赖更踪
-            return val;
+            console.log('val value:', val)
+            track() // 通知vue追踪数据的变化 是否进行依赖更踪
+            return val
           },
           set(newVal) {
-            console.log(' trigger template update' + newVal);
-            timer && clearTimeout(timer);
+            console.log(' trigger template update' + newVal)
+            timer && clearTimeout(timer)
             timer = setTimeout(() => {
-              val = newVal;
-              trigger(); // 触发template模版更新机制
-            }, delay);
+              val = newVal
+              trigger() // 触发template模版更新机制
+            }, delay)
           },
-        };
-      });
+        }
+      })
     }
-    const text = myRef('hello');
+    const text = myRef('hello')
     return {
       text,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -922,8 +916,8 @@ export default {
 </template>
 
 <script>
-import { reactive, provide } from 'vue';
-import HelloWorldVue from './components/HelloWorld.vue';
+import { reactive, provide } from 'vue'
+import HelloWorldVue from './components/HelloWorld.vue'
 export default {
   name: 'App',
   components: {
@@ -932,20 +926,20 @@ export default {
   setup() {
     const background = reactive({
       backgroundColor: '#fff',
-    });
+    })
     function changeColor() {
-      background.backgroundColor = '#ccc';
+      background.backgroundColor = '#ccc'
     }
     // 可以提供多个provide供后代组件使用
     provide('background', {
       state: background,
       action: changeColor,
-    });
+    })
     return {
       background,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
@@ -957,31 +951,31 @@ export default {
 </template>
 
 <script>
-import { inject } from 'vue';
+import { inject } from 'vue'
 export default {
   setup() {
     // inject 获取provide提供的数据
-    const val = inject('background');
+    const val = inject('background')
     function handleChange() {
-      val.action();
+      val.action()
     }
     return {
       handleChange,
-    };
+    }
   },
-};
+}
 </script>
 ```
 
 ## 响应式判断
 
-* isRef: 检查一个值是否为一个 ref 对象
+- isRef: 检查一个值是否为一个 ref 对象
 
-* isReactive: 检查一个对象是否是由 reactive 创建的响应式代理
+- isReactive: 检查一个对象是否是由 reactive 创建的响应式代理
 
-* isReadonly: 检查一个对象是否是由 readonly 创建的只读代理
+- isReadonly: 检查一个对象是否是由 readonly 创建的只读代理
 
-* isProxy: 检查一个对象是否是由 reactive 或者 readonly 方法创建的代理
+- isProxy: 检查一个对象是否是由 reactive 或者 readonly 方法创建的代理
 
 ## Fragment
 
@@ -1011,12 +1005,10 @@ export default {
 > 而异步引入无需去等待组件是否引入完成
 
 ```js
-import Children from './components/child'; // 静态引入
+import Children from './components/child' // 静态引入
 
-import {
-    defineAsyncComponent
-} from 'vue'; //异步引入
-const Child = defineAsyncComponent(() => import('./components/child'));
+import { defineAsyncComponent } from 'vue' //异步引入
+const Child = defineAsyncComponent(() => import('./components/child'))
 ```
 
 ```vue
@@ -1034,16 +1026,16 @@ const Child = defineAsyncComponent(() => import('./components/child'));
 </template>
 
 <script>
-import { defineAsyncComponent } from 'vue';
+import { defineAsyncComponent } from 'vue'
 const HelloWorldAsync = defineAsyncComponent(() =>
   import('./components/HelloWorld.vue')
-);
+)
 export default {
   name: 'App',
   components: {
     HelloWorldAsync,
   },
-};
+}
 </script>
 ```
 
@@ -1059,11 +1051,11 @@ export default {
 </template>
 
 <script>
-import { ref } from 'vue';
-import SignCanvas from './canvas.vue';
-import WaterMaker from './waterMaker.vue';
-import BaseUrl from './baseUrl.vue';
-import useMouseDown from '../hooks/useMouseDown';
+import { ref } from 'vue'
+import SignCanvas from './canvas.vue'
+import WaterMaker from './waterMaker.vue'
+import BaseUrl from './baseUrl.vue'
+import useMouseDown from '../hooks/useMouseDown'
 export default {
   components: {
     SignCanvas,
@@ -1073,20 +1065,20 @@ export default {
   setup() {
     // 此时可以返回一个promise 的实例对象
     return new Promise((resolve, reject) => {
-      let objRef = ref({ a: 1, b: 2 }); // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
-      const obj = useMouseDown();
+      let objRef = ref({ a: 1, b: 2 }) // 引用数据类型的对象是RefImpl 里面的value是Proxy对象
+      const obj = useMouseDown()
       setTimeout(() => {
         resolve({
           objRef,
           obj,
           click() {
-            objRef.value.a++;
+            objRef.value.a++
           },
-        });
-      }, 1000);
-    });
+        })
+      }, 1000)
+    })
   },
-};
+}
 </script>
 ```
 
@@ -1134,12 +1126,12 @@ V2:
 ```css
 .v-enter,
 .v-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
 
 .v-leave,
 .v-enter-to {
-    opacity: 1;
+  opacity: 1;
 }
 ```
 
@@ -1148,12 +1140,12 @@ V3:
 ```css
 .v-enter-from,
 .v-leave-to {
-    opacity: 0;
+  opacity: 0;
 }
 
 .v-leave-from,
 .v-enter-to {
-    opacity: 1;
+  opacity: 1;
 }
 ```
 
@@ -1168,7 +1160,7 @@ V3:
 ```
 
 ```js
-Vue.config.keyCodes.enters = 13; // 自定义一个别名的按键
+Vue.config.keyCodes.enters = 13 // 自定义一个别名的按键
 ```
 
 2. 移除`v-on.native`修饰符
@@ -1176,16 +1168,16 @@ Vue.config.keyCodes.enters = 13; // 自定义一个别名的按键
    在 v3 中 如果要声明自定义事件 需要在子组件中声明 emits
 
 ```vue
-   <components v-on:close="handleClose" v-on:click="handleClick" />
-   ```
+<components v-on:close="handleClose" v-on:click="handleClick" />
+```
 
 ```vue
-   <script>
-   export default {
-     // 此时没有指定click 则 close被认为是一个自定义事件 click被认为是一个原声事件
-     emits: ['close'],
-   };
-   </script>
-   ```
+<script>
+export default {
+  // 此时没有指定click 则 close被认为是一个自定义事件 click被认为是一个原声事件
+  emits: ['close'],
+}
+</script>
+```
 
 3. 移除过滤器(filer)

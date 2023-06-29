@@ -28,84 +28,84 @@ title: 推荐轮子 文章
 </template>
 
 <script>
-import { ref, onMounted, reactive } from 'vue';
+import { ref, onMounted, reactive } from 'vue'
 export default {
   setup() {
-    const canvas = ref(null);
+    const canvas = ref(null)
     const options = reactive({
       lineWidth: 5,
       ctx: '',
       width: 300,
       height: 150,
       isWindowListener: false,
-    });
+    })
     function mouseMove(event) {
-      options.ctx.restore();
-      options.ctx.lineTo(event.offsetX, event.offsetY);
-      options.ctx.stroke();
-      options.ctx.save();
-      event.stopPropagation();
-      return false;
+      options.ctx.restore()
+      options.ctx.lineTo(event.offsetX, event.offsetY)
+      options.ctx.stroke()
+      options.ctx.save()
+      event.stopPropagation()
+      return false
     }
     function addEventListener(canvas, options, event) {
-      const { offsetX, offsetY } = event;
+      const { offsetX, offsetY } = event
       if (canvas) {
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d')
         if (ctx) {
-          options.ctx = ctx;
-          options.ctx.beginPath();
-          options.ctx.moveTo(offsetX, offsetY);
-          canvas.addEventListener('mousemove', mouseMove, false);
+          options.ctx = ctx
+          options.ctx.beginPath()
+          options.ctx.moveTo(offsetX, offsetY)
+          canvas.addEventListener('mousemove', mouseMove, false)
         }
       }
     }
     function removeEventListener(canvas, options) {
       if (options.ctx) {
-        options.ctx.closePath();
+        options.ctx.closePath()
       }
-      canvas && canvas.removeEventListener('mousemove', mouseMove, false);
+      canvas && canvas.removeEventListener('mousemove', mouseMove, false)
     }
     function mouseDown(event) {
-      const canvas = event.target;
-      addEventListener(canvas, options, event);
+      const canvas = event.target
+      addEventListener(canvas, options, event)
     }
     function AddEventRemoveCanvasMouseMoving() {
       if (canvas && canvas.value) {
-        removeEventListener(canvas.value, options);
+        removeEventListener(canvas.value, options)
       }
     }
     function mouseUp(event) {
-      const canvas = event.target;
-      removeEventListener(canvas, options);
+      const canvas = event.target
+      removeEventListener(canvas, options)
     }
     // 初始化配置
     function init() {
-      const c = canvas.value;
+      const c = canvas.value
       if (c) {
         // width height 决定了多少像素可以显示在画布上
-        c.width = options.width * window.devicePixelRatio;
-        c.height = options.height * window.devicePixelRatio;
+        c.width = options.width * window.devicePixelRatio
+        c.height = options.height * window.devicePixelRatio
         // 这里的 宽 高 还是300 150 相当于画布被缩放
-        c.style.width = options.width + 'px';
-        c.style.height = options.height + 'px';
-        const ctx = c.getContext('2d');
-        ctx.lineWidth = options.lineWidth;
+        c.style.width = options.width + 'px'
+        c.style.height = options.height + 'px'
+        const ctx = c.getContext('2d')
+        ctx.lineWidth = options.lineWidth
         // 因此这里要放大
-        ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+        ctx.scale(window.devicePixelRatio, window.devicePixelRatio)
       }
     }
     function handleClearCanvas() {
       if (canvas && canvas.value) {
-        const c = canvas.value;
+        const c = canvas.value
         if (c) {
-          const ctx = c.getContext('2d');
-          ctx.clearRect(0, 0, c.width, c.height);
+          const ctx = c.getContext('2d')
+          ctx.clearRect(0, 0, c.width, c.height)
         }
       }
     }
     function handleSubmitCanvas() {
       if (canvas && canvas.value) {
-        const c = canvas.value;
+        const c = canvas.value
         c.toBlob(
           (blob) => {
             // 'sign' + new Data().getTime() + '.png'
@@ -116,24 +116,24 @@ export default {
               {
                 type: 'image/png',
               }
-            );
+            )
           },
           'image/jpeg',
           1
-        );
+        )
       }
     }
     onMounted(() => {
-      init();
+      init()
       // TODO: 不需要移出就停止 则 关闭这个
       if (options.isWindowListener) {
         window.addEventListener(
           'mousemove',
           AddEventRemoveCanvasMouseMoving,
           false
-        );
+        )
       }
-    });
+    })
 
     return {
       canvas,
@@ -142,9 +142,9 @@ export default {
       mouseUp,
       handleClearCanvas,
       handleSubmitCanvas,
-    };
+    }
   },
-};
+}
 </script>
 
 <style>
@@ -227,25 +227,25 @@ button:hover {
 </template>
 
 <script>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 export default {
   setup() {
-    const canvas = ref(null);
-    const text = ref(`heart\nthis is waterMark`);
-    const width = ref(180); //水印盒子的宽度
-    const height = ref(90); // 水印盒子的高度
-    const fontSize = ref(20);
-    const rotate = ref(-30);
+    const canvas = ref(null)
+    const text = ref(`heart\nthis is waterMark`)
+    const width = ref(180) //水印盒子的宽度
+    const height = ref(90) // 水印盒子的高度
+    const fontSize = ref(20)
+    const rotate = ref(-30)
     function init() {
-      const c = canvas.value;
-      c.width = window.innerWidth;
-      c.height = window.innerHeight;
+      const c = canvas.value
+      c.width = window.innerWidth
+      c.height = window.innerHeight
       // 将屏幕切割
       if (c) {
-        const ctx = c.getContext('2d');
-        ctx.font = fontSize.value + 'px' + ' Arial';
-        ctx.fillStyle = 'rgba(51,51,51,.1)';
-        ctx.textAlign = 'center';
+        const ctx = c.getContext('2d')
+        ctx.font = fontSize.value + 'px' + ' Arial'
+        ctx.fillStyle = 'rgba(51,51,51,.1)'
+        ctx.textAlign = 'center'
         for (
           let i = 0;
           i < c.width + width.value;
@@ -256,29 +256,29 @@ export default {
             j < c.height + height.value;
             j = j + (Number.parseInt(height.value) || 10)
           ) {
-            ctx.save();
+            ctx.save()
             ctx.translate(
               i + (Number.parseInt(width.value) || 10) / 2,
               j + (Number.parseInt(height.value) || 10) / 2
-            );
-            ctx.rotate((-1 * rotate * Math.PI) / 180);
+            )
+            ctx.rotate((-1 * rotate * Math.PI) / 180)
             for (let k = 0; k < text.value.split('\n').length; k++) {
               // k * fontSize.value 则是在第几个
-              ctx.fillText(text.value.split('\n')[k], 0, k * fontSize.value);
+              ctx.fillText(text.value.split('\n')[k], 0, k * fontSize.value)
             }
-            ctx.restore();
+            ctx.restore()
           }
         }
-        ctx.stroke();
+        ctx.stroke()
       }
     }
     function changeCanvas(e, field) {
-      changeCanvas.timer && clearTimeout(changeCanvas.timer);
+      changeCanvas.timer && clearTimeout(changeCanvas.timer)
       switch (field) {
         case 'fontSize':
         case 'text': {
-          text.value = e.target.value;
-          break;
+          text.value = e.target.value
+          break
         }
         case 'width': {
           width.value =
@@ -286,8 +286,8 @@ export default {
               ? e.target.value < 1000
                 ? e.target.value
                 : 1000
-              : 50;
-          break;
+              : 50
+          break
         }
         case 'height': {
           height.value =
@@ -295,18 +295,18 @@ export default {
               ? e.target.value < 1000
                 ? e.target.value
                 : 1000
-              : 50;
-          break;
+              : 50
+          break
         }
       }
       changeCanvas.timer = setTimeout(() => {
-        init();
-      }, 500);
+        init()
+      }, 500)
     }
     onMounted(() => {
-      init();
-      window.addEventListener('resize', init, false);
-    });
+      init()
+      window.addEventListener('resize', init, false)
+    })
     return {
       canvas,
       text,
@@ -314,9 +314,9 @@ export default {
       width,
       height,
       fontSize,
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped>

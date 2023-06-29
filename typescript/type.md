@@ -168,7 +168,7 @@ function options(options: number, y?: number): number {
 
 y 的类型应该是 number | undefined
 
-> 当你写一个回调函数的类型时,不要写一个可选参数, 除非你真的打算调用函数的时候不传入实参
+> 当你写一个回调函数的类型时, 不要写一个可选参数, 除非你真的打算调用函数的时候不传入实参
 
 ```typescript
 myForEach([1, 2, 3], (a, i) => {
@@ -423,4 +423,44 @@ class OKGreeter {
   // Not initialized, but no error
   name!: string
 }
+```
+
+## typeof class
+
+typeof 一个 class 的情况:
+
+```ts
+class person {
+  name: string
+  static s = '1'
+  constructor() {
+
+    this.name = 'some'
+
+  }
+}
+
+// 这里如果是匿名类的话 属性需要和typeof的类对应
+const son: typeof person = class {
+  name = '123'
+  static s = '2'
+  constructor() {
+
+    console.log('')
+
+  }
+}
+
+// 如果不是匿名类 则需要这个类是typeof 类的子类
+const child: typeof person = class B extends person {
+  constructor() {
+
+    super()
+
+  }
+}
+
+## 参考资料
+
+* <https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/>
 ```

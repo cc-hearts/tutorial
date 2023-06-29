@@ -9,13 +9,11 @@ canvas 的背景颜色本身就是透明颜色
 可以通过修改 canvas 的 style 的 `backgroundColor` 属性修改 canvas 的背景颜色
 
 ```js
-const canvas = document.querySelector('canvas');
-c.style.backgroundColor = 'transparent';
+const canvas = document.querySelector('canvas')
+c.style.backgroundColor = 'transparent'
 ```
 
 > 如果是 webGL 则设置一个透明的颜色就行
->
->
 
 ```js
 > gl.clearColor(0, 0, 0, 0); >
@@ -24,31 +22,31 @@ c.style.backgroundColor = 'transparent';
 ## canvas 清除画布
 
 ```js
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-ctx.clearRect(0, 0, c.width, c.height);
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d')
+ctx.clearRect(0, 0, c.width, c.height)
 ```
 
 ## canvas 转 DataURL
 
 ```js
-canvas.toDataURL('image/png');
+canvas.toDataURL('image/png')
 ```
 
 ## canvas 转 Blob 对象
 
 ```js
 canvas.toBlob((blob) => {
-    if (blob) {
-        const file = new window.File([blob], `sign_${new Date().getTime()}.png`, {
-            type: 'image/png',
-        });
-        // 加入Form表单
-        const formData = new FormData();
-        formData.append('file', file);
-        // 请求接口 上传图片
-    }
-});
+  if (blob) {
+    const file = new window.File([blob], `sign_${new Date().getTime()}.png`, {
+      type: 'image/png',
+    })
+    // 加入Form表单
+    const formData = new FormData()
+    formData.append('file', file)
+    // 请求接口 上传图片
+  }
+})
 ```
 
 ## canvas 设置宽高
@@ -66,7 +64,9 @@ canvas.height = 300
 canvas 如果没有指定 width 和 height 则默认是 300 \* 150 的布局
 
 ```html
-<canvas ref="{canvasRef" as React.RefObject<HTMLCanvasElement>}>您的浏览器不支持canvas 请先升级浏览器</canvas>
+<canvas ref="{canvasRef" as React.RefObject<HTMLCanvasElement
+  >}>您的浏览器不支持canvas 请先升级浏览器</canvas
+>
 ```
 
 **canvas 元素默认被网格所覆盖。通常来说网格中的一个单元相当于 canvas 元素中的一像素。栅格的起点为左上角，坐标为 (0, 0) 。所有元素的位置都相对于原点来定位。所以图中蓝色方形左上角的坐标为距离左边（X 轴）x 像素，距离上边（Y 轴）y 像素，**
@@ -102,7 +102,8 @@ function draw<T extends HTMLCanvasElement>(canvas: T): void {
 ```
 
 ```html
-<canvas ref="{canvasRef" as React.RefObject<HTMLCanvasElement>} > 您的浏览器不支持canvas 请先升级浏览器
+<canvas ref="{canvasRef" as React.RefObject<HTMLCanvasElement
+  >} > 您的浏览器不支持canvas 请先升级浏览器
 </canvas>
 ```
 
@@ -110,9 +111,9 @@ canvast 提供了三种方法绘制矩形：
 
 > **x, y**：指的是矩形的距离左上角的坐标。(相对于 canvas 的坐标原点)
 
-* 1、**fillRect(x, y, width, height)**：绘制一个填充的矩形。（默认颜色为黑色）
-* 2、**strokeRect(x, y, width, height)**：绘制一个矩形的边框。(默认也为黑底)
-* 3、**clearRect(x, y, widh, height)**：清除指定的矩形区域，然后这块区域会变的完全透明。
+- 1、**fillRect(x, y, width, height)**：绘制一个填充的矩形。（默认颜色为黑色）
+- 2、**strokeRect(x, y, width, height)**：绘制一个矩形的边框。(默认也为黑底)
+- 3、**clearRect(x, y, widh, height)**：清除指定的矩形区域，然后这块区域会变的完全透明。
 
 > html 接上述
 
@@ -632,9 +633,9 @@ Canvas 的状态就是当前画面应用的所有样式和变形的一个快照�
 **1 . 关于 save() ：Canvas 状态存储在栈中，每当 save()方法被调用后，当前的状态就被推送到栈中保存。**
 一个绘画状态包括：
 
-* 当前应用的变形（即移动，旋转和缩放）
-* strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 的值
-* 当前的裁切路径（clipping path）可以调用任意多次 save 方法(类似数组的 push())。
+- 当前应用的变形（即移动，旋转和缩放）
+- strokeStyle, fillStyle, globalAlpha, lineWidth, lineCap, lineJoin, miterLimit, shadowOffsetX, shadowOffsetY, shadowBlur, shadowColor, globalCompositeOperation 的值
+- 当前的裁切路径（clipping path）可以调用任意多次 save 方法(类似数组的 push())。
 
 **可以调用任意多次 save 方法**(类似数组的 push())。
 

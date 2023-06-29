@@ -10,39 +10,34 @@ title: tabs components
 
 ```vue
 <script setup>
-  import { reactive, ref } from 'vue'
-  import Tabs from './core/tabs.vue'
-  const tabsProps = reactive({
+import { reactive, ref } from 'vue'
+import Tabs from './core/tabs.vue'
+const tabsProps = reactive({
+  columns: [
+    { text: 'user' },
+    { text: 'config' },
+    { text: 'role' },
+    { text: 'task' },
+  ],
+})
 
-    columns: [
-      {text: 'user'},
-      {text: 'config'},
-      {text: 'role'},
-      {text: 'task'},
-    ]
+const slotTabsProps = reactive({
+  columns: [
+    { slot: { name: 'user' } },
+    { text: 'config' },
+    { text: 'role' },
+    { text: 'task' },
+  ],
+})
 
-  })
-
-  const slotTabsProps = reactive({
-
-    columns: [
-      { slot: { name : 'user'} },
-      { text :'config' },
-      { text :'role' },
-      { text :'task' },
-    ]
-
-  })
-
-  const active = ref(2)
+const active = ref(2)
 </script>
 
 <template>
-<div>
-  <Tabs v-bind="tabsProps" />
-</div>
+  <div>
+    <Tabs v-bind="tabsProps" />
+  </div>
 </template>
-
 ```
 
 ```vue
@@ -70,15 +65,13 @@ const tabBarProps = reactive({
 
 ```vue
 <template>
-<div>
-   <Tabs v-bind="slotTabsProps">
-
-    <template #user>
-      <i>123213</i>
-    </template>
-
-   </Tabs>
-</div>
+  <div>
+    <Tabs v-bind="slotTabsProps">
+      <template #user>
+        <i>123213</i>
+      </template>
+    </Tabs>
+  </div>
 </template>
 ```
 
@@ -113,14 +106,11 @@ const slotTabsProps = reactive({
 
 ```vue
 <template>
-
   <Tabs v-bind="slotTabsProps" v-model:active="active">
-
     <template #user>
       <i>123213</i>
     </template>
-
-   </Tabs>
+  </Tabs>
 </template>
 ```
 
@@ -288,5 +278,4 @@ onMounted(() => {
   }
 }
 </style>
-
 ```

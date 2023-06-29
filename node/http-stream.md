@@ -10,4 +10,4 @@ res.setHeader('Content-Type', 'application/octet-stream')
 
 ## 参考资料
 
-* <https://juejin.cn/post/7198439108140744765>
+- <https://juejin.cn/post/7198439108140744765>

@@ -87,19 +87,20 @@ export default {
 
 ```js
 export default {
-    data() {
-        return {
-            image: 'https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNlwgSFtFxtcSIDswt94ibibvxpKPZgK1EOwvGOkRJq6jtz25qWcbjaWTcOR0DLLGzBv7735uV2gafuw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1',
+  data() {
+    return {
+      image:
+        'https://mmbiz.qpic.cn/mmbiz_png/A1HKVXsfHNlwgSFtFxtcSIDswt94ibibvxpKPZgK1EOwvGOkRJq6jtz25qWcbjaWTcOR0DLLGzBv7735uV2gafuw/640?wx_fmt=png&wxfrom=5&wx_lazy=1&wx_co=1',
 
-            time: Date.now(),
-        }
-    },
+      time: Date.now(),
+    }
+  },
 
-    methods: {
-        handleClick() {
-            // 不在改变key 可以通过条件改变时间戳从而让图片资源重新获取
-            this.time = Date.now()
-        },
+  methods: {
+    handleClick() {
+      // 不在改变key 可以通过条件改变时间戳从而让图片资源重新获取
+      this.time = Date.now()
     },
+  },
 }
 ```

@@ -21,8 +21,6 @@ export default defineConfig({
 ```
 
 > 如果有 `eslint` 报错 关闭 `eslint` 报错
->
->  
 
 ```js
 > module.exports = {

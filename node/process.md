@@ -6,9 +6,9 @@ title: process
 
 ```js
 function usedSize() {
-    // 获取堆内存使用情况
-    const used = process.memoryUsage().heapUsed
-    return Math.round((used / 1024 / 1024) * 100) / 100 + 'M'
+  // 获取堆内存使用情况
+  const used = process.memoryUsage().heapUsed
+  return Math.round((used / 1024 / 1024) * 100) / 100 + 'M'
 }
 ```
 
@@ -29,32 +29,32 @@ process.hrtime() 方法在 [seconds, nanoseconds] 元组 Array 中返回当前�
 ```js
 // $ node src/docs/day-2/index.js --title=12
 function getArgvParams(list) {
-    return (
-        list instanceof Array &&
-        list.reduce((pre, cur) => {
-            if (/^--/.test(cur)) {
-                const arr = cur.split(/^--|=/)
-                const [, title, value] = arr
-                if (title && value) pre[title] = value
-            }
-            return pre
-        }, {})
-    )
+  return (
+    list instanceof Array &&
+    list.reduce((pre, cur) => {
+      if (/^--/.test(cur)) {
+        const arr = cur.split(/^--|=/)
+        const [, title, value] = arr
+        if (title && value) pre[title] = value
+      }
+      return pre
+    }, {})
+  )
 }
 ```
 
 ```js
 // $ node src/docs/day-2/index.js --title 12
 function parseArgv(list) {
-    const options = {}
-    const reg = /^--/
-    for (let i = 0; i < list.length; i++) {
-        if (reg.test(list[i])) {
-            const key = list[i].replace(reg, '')
-            options[key] = list[++i]
-        }
+  const options = {}
+  const reg = /^--/
+  for (let i = 0; i < list.length; i++) {
+    if (reg.test(list[i])) {
+      const key = list[i].replace(reg, '')
+      options[key] = list[++i]
     }
-    return options
+  }
+  return options
 }
 ```
 
@@ -73,38 +73,43 @@ import commandLineArgs from 'command-line-args'
 
 // 使用name 则是 node src/docs/day-2/command-line-args.js --title 1234
 
-const optionDefinitions = [{
+const optionDefinitions = [
+  {
     name: 'title',
     alias: 't',
-    type: String
-}]
+    type: String,
+  },
+]
 
 console.log(commandLineArgs(optionDefinitions)) // { title: '1234' }
 ```
 
-* [command-line-usage](https://github.com/75lb/command-line-usage)
+- [command-line-usage](https://github.com/75lb/command-line-usage)
   > 用于生成简单的 help 提示命令
 
 ```js
 import commandLineUsage from 'command-line-usage'
 
-const sections = [{
-        header: '词条生成器',
+const sections = [
+  {
+    header: '词条生成器',
 
-        content: '生成词条段落 便于调试',
-    },
+    content: '生成词条段落 便于调试',
+  },
 
-    {
-        header: 'help',
+  {
+    header: 'help',
 
-        optionList: [{
-            name: 'max',
+    optionList: [
+      {
+        name: 'max',
 
-            typeLabel: '{underline string}',
+        typeLabel: '{underline string}',
 
-            description: '文章最大字数',
-        }, ],
-    },
+        description: '文章最大字数',
+      },
+    ],
+  },
 ]
 
 export const usage = commandLineUsage(sections)
@@ -124,31 +129,31 @@ process.stdin.setEncoding('utf-8')
 // 回车出发readable
 
 process.stdin.on('readable', () => {
-    // 读取的是utf8
+  // 读取的是utf8
 
-    // 除去空格
+  // 除去空格
 
-    const chunk = process.stdin.read() // 获取当前输入的字符，包含回车
+  const chunk = process.stdin.read() // 获取当前输入的字符，包含回车
 
-    // 字符串切割
+  // 字符串切割
 
-    const n = Number(chunk.slice(0, -1))
+  const n = Number(chunk.slice(0, -1))
 
-    sum += n
+  sum += n
 
-    if (n === 0) {
-        process.stdin.emit('end')
+  if (n === 0) {
+    process.stdin.emit('end')
 
-        return
-    }
+    return
+  }
 
-    //process.stdin.read()从标准输入流中读取内容，如果有内容，就会把读到的内容返回，如果没有内容，则会返回 null，并继续处于readable状态，监听下一次输入
+  //process.stdin.read()从标准输入流中读取内容，如果有内容，就会把读到的内容返回，如果没有内容，则会返回 null，并继续处于readable状态，监听下一次输入
 
-    process.stdin.read()
+  process.stdin.read()
 })
 
 process.stdin.on('end', () => {
-    console.log('sum:', sum)
+  console.log('sum:', sum)
 })
 
 // https://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html

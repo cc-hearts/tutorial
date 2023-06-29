@@ -22,7 +22,7 @@ ios 不支持零宽断言
 
 ## 横向模糊匹配
 
-* 横向模糊匹配： 正则匹配的字符串长度不固定的`{m,n}`的形式
+- 横向模糊匹配： 正则匹配的字符串长度不固定的`{m,n}`的形式
 
 ```javascript
 const reg = /a{1,3}/
@@ -30,7 +30,7 @@ const reg = /a{1,3}/
 
 ## 纵向模糊匹配
 
-* 纵向模糊匹配： 匹配某一位的字符时可以不是某个确定的字符，可以有多种可能
+- 纵向模糊匹配： 匹配某一位的字符时可以不是某个确定的字符，可以有多种可能
 
 ```javascript
 const reg = /a[a-z]d/
@@ -120,11 +120,11 @@ nums.toFixed(2).replace(reg, ',').replace(/^/, '$$')
 
 ```javascript
 reg =
-    /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[A-Z])(?=.*[a-z]))^[0-9a-zA-Z]{6,12}$/
+  /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[A-Z])(?=.*[a-z]))^[0-9a-zA-Z]{6,12}$/
 
 // 短信验证码 至少包含两种字符 密码在6-12位
 reg =
-    /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[A-Z])(?=.*[a-z]))^[0-9a-zA-Z]{6,12}$/
+  /((?=.*[0-9])(?=.*[a-z])|(?=.*[0-9])(?=.*[A-Z])|(?=.*[A-Z])(?=.*[a-z]))^[0-9a-zA-Z]{6,12}$/
 console.log(reg.test('12345Az'))
 
 // 另外一种写法 (?!)
@@ -166,28 +166,28 @@ console.log(reg.exec(str)) // ['ababab','ab',index: 0,input: 'abababa ababab abb
  * @returns
  */
 function replaceDateFormat(str: string) {
-    var reg = /(\d{4})-(\d{2})-(\d{2})/
-    if (reg.test(str)) {
-        var year = RegExp.$1
-        var month = RegExp.$2
-        var day = RegExp.$3
-    }
-    var s: string = str
+  var reg = /(\d{4})-(\d{2})-(\d{2})/
+  if (reg.test(str)) {
+    var year = RegExp.$1
+    var month = RegExp.$2
+    var day = RegExp.$3
+  }
+  var s: string = str
 
-    return s.replace(reg, function() {
-        return day + '/' + month + '/' + year
-    })
-    // 这样的写法等价于
-    return s.replace(reg, '$3/$2/$1')
+  return s.replace(reg, function () {
+    return day + '/' + month + '/' + year
+  })
+  // 这样的写法等价于
+  return s.replace(reg, '$3/$2/$1')
 
-    // 也等价于
-    s.replace(reg, function(match, year, month, day) {
-        console.log(match) // 2020-01-02
-        console.log(year)
-        console.log(month)
-        console.log(day)
-        return day + '/' + month + '/' + year
-    })
+  // 也等价于
+  s.replace(reg, function (match, year, month, day) {
+    console.log(match) // 2020-01-02
+    console.log(year)
+    console.log(month)
+    console.log(day)
+    return day + '/' + month + '/' + year
+  })
 }
 
 console.log(replaceDateFormat('2020-01-02'))
@@ -257,9 +257,10 @@ console.log('12345'.match(reg))
 (?:p) 如果这是想要括号的最原始的功能 既不在 API 中引用他 也不在正则中反向引用他 可以使用非捕获括号
 
 # match 的解释
-* 如果使用了 g 则不会返回捕获数组 而是返回正则匹配的所有的结果
-* 如果未使用 g 则会返回正则匹配的第一个值 而且会返回其相关的捕获数组
-* 捕获数组 第一个值是完整匹配 第二个值之后就是被捕获的数组 index 是整个匹配开始的索引 input 是原始的解析的字符串 groups`MDN`给出的解释是即使有捕获组 需要定义命名捕获组的名称才会显示 不然就是`undefind`
+
+- 如果使用了 g 则不会返回捕获数组 而是返回正则匹配的所有的结果
+- 如果未使用 g 则会返回正则匹配的第一个值 而且会返回其相关的捕获数组
+- 捕获数组 第一个值是完整匹配 第二个值之后就是被捕获的数组 index 是整个匹配开始的索引 input 是原始的解析的字符串 groups`MDN`给出的解释是即使有捕获组 需要定义命名捕获组的名称才会显示 不然就是`undefind`
 
 ## 命名捕获组
 
@@ -273,8 +274,8 @@ console.log(str.replace(reg, '$<name>12'))
 console.log(str.replace(reg, '$112')) //上述的$<name>与$1等价
 ```
 
-* 使用命名捕获组 match 和 exec 会多个 groups 属性，里面存放着每个命名分组的名称以及它们匹配到的值，利用 ES6 的解构语法，可以方便的提取出想要的字段。注意这个 groups 属性只有在当前正则里至少存在一个命名分组的前提下才会存在。
-* 在 replace 中 第二个可以使用这个命名捕获组 而且如果第二个参数是个函数 实参列表的末尾会多传一个 groups 的对象 如果没有命名分组 这个参数会不存在 则为空字符串
+- 使用命名捕获组 match 和 exec 会多个 groups 属性，里面存放着每个命名分组的名称以及它们匹配到的值，利用 ES6 的解构语法，可以方便的提取出想要的字段。注意这个 groups 属性只有在当前正则里至少存在一个命名分组的前提下才会存在。
+- 在 replace 中 第二个可以使用这个命名捕获组 而且如果第二个参数是个函数 实参列表的末尾会多传一个 groups 的对象 如果没有命名分组 这个参数会不存在 则为空字符串
 
 ```javascript
 str = 'abababa ababab abbaba'
@@ -293,8 +294,7 @@ reg = /(?<names>ab)(?<names>ab)/ //会报错
 匹配出字母 p，但要求 p 前面不可以是 a，p 后面不可以是 z。
 
 ```javascript
-;
-/(?<!a)p(?!z)/
+;/(?<!a)p(?!z)/
 ```
 
 ## `.*` 踩坑

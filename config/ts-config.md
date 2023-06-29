@@ -2,7 +2,7 @@
 title: tsconfig.json 配置
 ---
 
- `tsconfig.json`
+`tsconfig.json`
 
 ```json
 {

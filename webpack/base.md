@@ -11,7 +11,7 @@ title: webpack 基本配置
 > 官方解释：
 > 先理解绝对路径和相对路径
 
-> 1.  绝对路径: 以斜杠开头 例如 `/`  `/docs` 等
+> 1.  绝对路径: 以斜杠开头 例如 `/` `/docs` 等
 
 > 2. 相对路径: 是从当前路径开始的路径 以 `./` 开头或者直接写文件夹名称也默认是相对路径 `docs` (严格写法应该是 `./docs` )
 
@@ -152,8 +152,6 @@ js 和 css 文件夹都是在 dist 的 js 和 css 下面
 > 如果 dist 文件内部的结构不变的话 则可以直接使用相对路径作为 publicPath 即可
 >
 > 此时客户端获取到 html 资源的时候 其他的 css 和 js 都是相对 index.html 的路径来获取的 因此不会出现路径找 404 的问题
->
->
 
 ```html
 >
@@ -176,7 +174,7 @@ js 和 css 文件夹都是在 dist 的 js 和 css 下面
 在 `webpack` 编译打包的时候获取
 
 ```js
-const env = process.env.NODE_ENV;
+const env = process.env.NODE_ENV
 ```
 
 ## 客户端的环境变量
@@ -185,21 +183,23 @@ const env = process.env.NODE_ENV;
 
 ```js
 plugins: [
-    new webpack.DefinePlugin({
-        'process.env': process.env.NODE_ENV === 'development' ?
-            require('./dev.env.js') : require('./prod.env.js'),
-    }),
-];
+  new webpack.DefinePlugin({
+    'process.env':
+      process.env.NODE_ENV === 'development'
+        ? require('./dev.env.js')
+        : require('./prod.env.js'),
+  }),
+]
 ```
 
 ```js
 //dev.env.js
-const merge = require('webpack-merge');
+const merge = require('webpack-merge')
 
 module.exports = merge({
-    NODE_ENV: '"development"',
-    api: 'xxxx',
-});
+  NODE_ENV: '"development"',
+  api: 'xxxx',
+})
 ```
 
 在客户端则可以通过 process.env 获取(编译之后的 process.env 等会是一个对象)

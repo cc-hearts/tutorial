@@ -22,8 +22,6 @@ var a interface{}
 
 1. 比较两个值的类型的时候 如果类型不等 则比较直接会是 false
 
-   
-
 ```go
    var a interface{}
 
@@ -32,7 +30,7 @@ var a interface{}
    	var b = 100
 
    	fmt.Println(a == b) // true
-   ```
+```
 
 2. 不能比较空接口中的动态值
 

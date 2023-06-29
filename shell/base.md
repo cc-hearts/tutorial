@@ -36,18 +36,18 @@ Ctrl + L: 清空 shell 打印内容。同命令 clear。
 Ctrl + D: 关闭 shell 会话。
 ```
 
-* [bash editing](https://www.gnu.org/software/bash/manual/html_node/Command-Line-Editing.html)
+- [bash editing](https://www.gnu.org/software/bash/manual/html_node/Command-Line-Editing.html)
 
 ## 历史记录
 
 `bash` 中 的 `~/.bash_history` 会记录用户执行过的历史记录
 
-* `!!` 指上一条命令
-* `!-n` 指带前第 n 条命令 比如`!-1` 表示`!!`
-* `!n` 指代 `history` 中的第 n 行命令
+- `!!` 指上一条命令
+- `!-n` 指带前第 n 条命令 比如`!-1` 表示`!!`
+- `!n` 指代 `history` 中的第 n 行命令
   除了命令，还能指代上一条命令的参数：
-`!$` : 上一个命令的最后一个参数。
-`!*` 上一个命令的所有参数。
+  `!$` : 上一个命令的最后一个参数。
+  `!*` 上一个命令的所有参数。
 
 ## 命令别名
 
@@ -92,9 +92,9 @@ echo "${val}__end"
 
 ### 变量的作用域
 
-* 环境变量：一般使用 `decalre -x` 或者 `export` 导出的变量
-* 全局变量： 只能当前的 shell 进程中使用
-* 局部变量： 只能在函数内部使用 使用 `local` 声明
+- 环境变量：一般使用 `decalre -x` 或者 `export` 导出的变量
+- 全局变量： 只能当前的 shell 进程中使用
+- 局部变量： 只能在函数内部使用 使用 `local` 声明
 
 ### declare 命令
 

@@ -8,3 +8,7 @@ title: buffer 常用案例
 const base64 = ''
 Buffer.from(base64, 'base64')
 ```
+
+## 参考资料
+
+- [hour learning nodeJs](https://www.youtube.com/watch?v=TlB_eWDSMt4&t=446s)

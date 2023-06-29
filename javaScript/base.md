@@ -46,7 +46,7 @@ Infinity === Infinity + 1 // true
 declare var NaN: number
 ```
 
-* 任何值与 NaN 比较 都会为 false（包括自己）
+- 任何值与 NaN 比较 都会为 false（包括自己）
 
 ```javascript
 NaN === NaN // false
@@ -107,11 +107,11 @@ boolean.toString()
 
 只有 true 和 false 两个值
 
-* 0 - false
-* "" - false
-* NaN - false
-* undefined - false
-* null - false
+- 0 - false
+- "" - false
+- NaN - false
+- undefined - false
+- null - false
   其余基本上转成 Boolean 都是 true
 
 ## undefined 类型
@@ -127,7 +127,7 @@ undefined 的类型为 undefined
 
 ```js
 const obj = {
-    0: 'foo',
+  0: 'foo',
 }
 
 obj[0] // foo
@@ -139,32 +139,32 @@ obj[0] // foo
 
 ```js
 let codes = {
-    '+49': 'Germany',
-    '+41': 'Switzerland',
-    '+44': 'Great Britain',
-    // ..,
-    '+1': 'USA',
+  '+49': 'Germany',
+  '+41': 'Switzerland',
+  '+44': 'Great Britain',
+  // ..,
+  '+1': 'USA',
 }
 
 for (let code in codes) {
-    alert(+code) // 49, 41, 44, 1
+  alert(+code) // 49, 41, 44, 1
 }
 ```
 
 ## 算术运算符
 
-* **任何值做 \* / - %都会变成 Number 类型（加号例外）**
-* **任何值和 NaN 运算都为 NaN**
-* **任何值和 string 做加法运算，都会转化成 string，都会转化成 string 类型，然后做拼串操作**
+- **任何值做 \* / - %都会变成 Number 类型（加号例外）**
+- **任何值和 NaN 运算都为 NaN**
+- **任何值和 string 做加法运算，都会转化成 string，都会转化成 string 类型，然后做拼串操作**
 
 ```javascript
 其他类型转化成string类型另外一种方法：
 var a = '这里是其他数据类型' + "" //空串; //这里相当于隐式类型转换string() a的类型是string类型
 ```
 
-* **对非 number 类值运算，会将这些值转换成 number 类型在运算 （加号的字符串运算不在内）**
+- **对非 number 类值运算，会将这些值转换成 number 类型在运算 （加号的字符串运算不在内）**
 
-* **+号在字符串前面可以进行转换成 number 类型**
+- **+号在字符串前面可以进行转换成 number 类型**
 
 ## 比较运算符
 
@@ -180,14 +180,14 @@ var a = '这里是其他数据类型' + "" //空串; //这里相当于隐式类�
 
 但是 (==) 不会转换 undefined 和 null 的值 因此 `null == 0` 为 `false`
 
-> `undefined == null`  `true` 他们有自己独特的相等判断
+> `undefined == null` `true` 他们有自己独特的相等判断
 
 ## 命名规范
 
-* `"get…"` —— 返回一个值，
-* `"calc…"` —— 计算某些内容，
-* `"create…"` —— 创建某些内容，
-* `"check…"` —— 检查某些内容并返回 boolean 值，等。
+- `"get…"` —— 返回一个值，
+- `"calc…"` —— 计算某些内容，
+- `"create…"` —— 创建某些内容，
+- `"check…"` —— 检查某些内容并返回 boolean 值，等。
 
 函数名通常是动词
 
@@ -248,9 +248,9 @@ weakMap 内存使用情况
 
 ```javascript
 function usedSize() {
-    // 获取堆内存使用情况
-    const used = process.memoryUsage().heapUsed
-    return Math.round((used / 1024 / 1024) * 100) / 100 + 'M'
+  // 获取堆内存使用情况
+  const used = process.memoryUsage().heapUsed
+  return Math.round((used / 1024 / 1024) * 100) / 100 + 'M'
 }
 
 global.gc()
@@ -284,14 +284,14 @@ tag`Hello ${a + b} world ${a * b}`
 tag(['Hello ', ' world ', ''], 15, 50)
 
 function invoke(express, ...rest) {
-    console.log(express, rest)
-    return express
-        .reduce((acc, cur, index) => {
-            acc.push(cur)
-            acc.push(rest[index])
-            return acc
-        }, [])
-        .join('')
+  console.log(express, rest)
+  return express
+    .reduce((acc, cur, index) => {
+      acc.push(cur)
+      acc.push(rest[index])
+      return acc
+    }, [])
+    .join('')
 }
 
 const name = 'Bob'
@@ -316,16 +316,16 @@ document.body.contentEditable = true
 try 如果是一个函数 return 了 但是 finally 还是会走
 
 ```js
-;
-(() => {
-    function log() {
-        console.log('log')
-    }
-    try {
-        return log()
-    } catch (e) {} finally {
-        console.log('finally')
-    }
+;(() => {
+  function log() {
+    console.log('log')
+  }
+  try {
+    return log()
+  } catch (e) {
+  } finally {
+    console.log('finally')
+  }
 })()
 ```
 
@@ -359,12 +359,12 @@ const list = await data.json() // 获取json数据
 const path = './icon.json'
 
 async function getJsonModule() {
-    const jsonModule = await import(path, {
-        assert: {
-            type: 'json'
-        },
-    })
-    return jsonModule
+  const jsonModule = await import(path, {
+    assert: {
+      type: 'json',
+    },
+  })
+  return jsonModule
 }
 ```
 
@@ -380,16 +380,14 @@ class ClassWithPrivateField {
 
 ## 解构
 
-* 如果对象的属性为 null 是不能解构出来的
+- 如果对象的属性为 null 是不能解构出来的
 
 ```javascript
 let obj = {
-    name: null,
+  name: null,
 }
 
-const {
-    name = 'name'
-} = obj
+const { name = 'name' } = obj
 
 console.log(name) // null
 ```
@@ -400,10 +398,10 @@ console.log(name) // null
 'use strict'
 
 var obj = {
-    name: null,
+  name: null,
 }
 var _obj$name = obj.name,
-    name = _obj$name === void 0 ? 'name' : _obj$name
+  name = _obj$name === void 0 ? 'name' : _obj$name
 ```
 
 由此可得

@@ -270,8 +270,8 @@ export function write(
 
 > 如果不清楚节点值 可以在 下面的 `在线ast转换` 网址中进行 对应的 `type` 查看
 
-* [在线 ast 转换](https://astexplorer.net/)
+- [在线 ast 转换](https://astexplorer.net/)
 
-* [babel ast type 类型节点](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md#exportnameddeclaration)
+- [babel ast type 类型节点](https://github.com/babel/babel/blob/master/packages/babel-parser/ast/spec.md#exportnameddeclaration)
 
-* [ast 分析](https://resources.jointjs.com/demos/rappid/apps/Ast/index.html)
+- [ast 分析](https://resources.jointjs.com/demos/rappid/apps/Ast/index.html)

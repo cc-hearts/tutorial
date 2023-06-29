@@ -30,33 +30,30 @@ module.exports = {
 > `plugins.js`
 
 ```js
-module.exports = function(babel) {
-    return {
-        visitor: {
-            VariableDeclaration({
-                node,
-                scope
-            }, state) {
-                // 重命名 变量名
-                node.declarations.forEach((each) => {
-                    scope.rename(each.id.name, scope.generateUidIdentifier('uid').name)
-                })
-            },
-        },
-    }
+module.exports = function (babel) {
+  return {
+    visitor: {
+      VariableDeclaration({ node, scope }, state) {
+        // 重命名 变量名
+        node.declarations.forEach((each) => {
+          scope.rename(each.id.name, scope.generateUidIdentifier('uid').name)
+        })
+      },
+    },
+  }
 }
 ```
 
 ## 案例 1 在代码的 return 中添加一个 console.log
 
-> `const CONSOLE_AST = babel.template.ast('console.log("执行完成")');`  `babel.template.ast` 可以根据代码生成 `ast`
+> `const CONSOLE_AST = babel.template.ast('console.log("执行完成")');` `babel.template.ast` 可以根据代码生成 `ast`
 
 ```js
 // code
 import React from 'react'
 
 function add() {
-    return a + b
+  return a + b
 }
 ```
 
@@ -115,6 +112,6 @@ console.log(newCode)
 
 ## 参考资料
 
-* [掘金 AST 数据结构与 babel](https://juejin.cn/post/7090396145230282783#heading-5)
+- [掘金 AST 数据结构与 babel](https://juejin.cn/post/7090396145230282783#heading-5)
 
-* [babel 学习指南](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-transformation-operations)
+- [babel 学习指南](https://github.com/jamiebuilds/babel-handbook/blob/master/translations/zh-Hans/plugin-handbook.md#toc-transformation-operations)

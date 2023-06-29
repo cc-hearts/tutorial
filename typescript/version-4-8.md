@@ -129,16 +129,16 @@ type bool = 'true' extends `${infer U extends boolean}` ? U : never
 
 > 注意: ts 会贪婪推断 infer 是否为一个字面量 下面就是去匹配 1.0 是否是一个数字类型
 >
-> typescript 推断出来的是一个 1.0 但是 String(Number('1.0')) 的值是 1。两个不相等 因此无法确定 则回朔为`number` 类型
->
-> ```ts
+> typescript 推断出来的是一个 1.0 但是 String(Number('1.0')) 的值是 1。两个不相等 因此无法确定 则回朔为 `number` 类型
+
+````ts
 > // JustNumber is `number` here because TypeScript parses out `"1.0"`, but `String(Number("1.0"))` is `"1"` and doesn't match.
 > type JustNumber = "1.0" extends `${infer T extends number}` ? T : never；
 > ```
 
 ## `===` 判断引用类型
 
-> 4.8 不能用`===` 比较一个引用类型
+> 4.8 不能用 `===` 比较一个引用类型
 
 ```ts
 const a = []
@@ -146,8 +146,4 @@ const a = []
 if (a === []) {
   // This condition will always return 'false' since JavaScript compares objects by reference, not value.
 }
-```
-
-## 参考资料
-
-- <https://devblogs.microsoft.com/typescript/announcing-typescript-4-8/>
+````

@@ -15,11 +15,12 @@ docker run -d --name <redis容器的名字> -p 6379:6379 redis --requirepass "pa
 ```
 
 # redis.conf
-* 允许外地连接
+
+- 允许外地连接
 
 > 注释了 bind 127.0.0.1
 
-* daemonize no
+- daemonize no
 
 > daemonize yes 注释起来或者 daemonize no 设置，因为该配置和 docker run 中-d 参数冲突，会导致容器一直启动失败
 

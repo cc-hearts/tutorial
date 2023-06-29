@@ -2,7 +2,7 @@
 title: Golang 学习
 ---
 
-* [基本语法介绍](./record.md)
+- [基本语法介绍](./record.md)
 
 ## 文档
 
@@ -87,14 +87,14 @@ gofmt -w main.go //会格式化.go文件
 
 ## 查看一个变量的数据类型和字节数
 
-* %T 查看数据类型
-* %d 数字类型
-* %c 字符类型
-* %s 字符串类型
-* %p 指针类型
-* %v 打印任意类型
-* %+v 打印类型的 key 和 value
-* %#v 打印类型以及构造的方式
+- %T 查看数据类型
+- %d 数字类型
+- %c 字符类型
+- %s 字符串类型
+- %p 指针类型
+- %v 打印任意类型
+- %+v 打印类型的 key 和 value
+- %#v 打印类型以及构造的方式
 
 ```go
 
@@ -452,4 +452,4 @@ func (this *MyQueue) inStack(val int) {
 
 ## 参考资料
 
-* [golang 设计模式](https://mp.weixin.qq.com/s/9iXdsgtuQh6pge5vSDPoQA)
+- [golang 设计模式](https://mp.weixin.qq.com/s/9iXdsgtuQh6pge5vSDPoQA)

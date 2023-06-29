@@ -306,8 +306,8 @@ export class FeiShuDto {
 
 ## 参考资料
 
-* [飞书调用平台 调用 API](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/get-#891619d5)
+- [飞书调用平台 调用 API](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/get-#891619d5)
 
-* [飞书调用平台 获取 tenant_access_token](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/tenant_access_token_internal)
+- [飞书调用平台 获取 tenant_access_token](https://open.feishu.cn/document/ukTMukTMukTM/ukDNz4SO0MjL5QzM/auth-v3/auth/tenant_access_token_internal)
 
-* [飞书调用平台 获取 openID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)
+- [飞书调用平台 获取 openID](https://open.feishu.cn/document/uAjLw4CM/ugTN1YjL4UTN24CO1UjN/trouble-shooting/how-to-obtain-openid)

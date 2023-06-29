@@ -6,13 +6,13 @@ Generator **生成器**
 
 ```javascript
 function* generator() {
-    let index: number = 0
-    var v = yield 2
-    while (true) {
-        console.log(v)
-        yield index * v
-        index++
-    }
+  let index: number = 0
+  var v = yield 2
+  while (true) {
+    console.log(v)
+    yield index * v
+    index++
+  }
 }
 const generators = generator()
 
@@ -25,8 +25,7 @@ console.log(generators.next(10)) //{value: 20, done: false}
 yield 关键字用来暂停和恢复一个生成器函数
 
 ```javascript
-;
-[rv] = yield [expression]
+;[rv] = yield[expression]
 ```
 
 **expression **定义通过迭代器协议从生成器函数返回的值。如果省略，则返回 undefined。
@@ -34,23 +33,23 @@ yield 关键字用来暂停和恢复一个生成器函数
 
 ```javascript
 function* generator() {
-    var created = yield
-    if (created instanceof Function) {
-        created.apply(this)
-    }
-    var mounted = yield
-    if (mounted instanceof Function) {
-        mounted.apply(this)
-    }
+  var created = yield
+  if (created instanceof Function) {
+    created.apply(this)
+  }
+  var mounted = yield
+  if (mounted instanceof Function) {
+    mounted.apply(this)
+  }
 }
 const v = generator()
 
 v.next()
 v.next(() => {
-    console.log('created')
+  console.log('created')
 })
 v.next(() => {
-    console.log('mounted')
+  console.log('mounted')
 })
 console.log(v.next())
 ```
@@ -69,10 +68,10 @@ console.log(v.next())
 但是 GeneratorFunction 并不是一个全局对象 需要获取
 
 ```javascript
-const GeneratorFunction = Object.getPrototypeOf(function*() {}).constructor
+const GeneratorFunction = Object.getPrototypeOf(function* () {}).constructor
 
 console.log(
-    Object.prototype.toString.call(new GeneratorFunction('a', 'b', 'yield a + b'))
+  Object.prototype.toString.call(new GeneratorFunction('a', 'b', 'yield a + b'))
 ) // [object GeneratorFunction]
 ```
 
@@ -81,8 +80,8 @@ console.log(
 
 ```javascript
 function* g() {
-    yield 2
-    return '1'
+  yield 2
+  return '1'
 }
 const gObj: Generator = g() // Generator {}
 
@@ -94,8 +93,8 @@ console.log(gObj.next(2)) // 向生成器发送一个值 2 并且返回下一个
 
 ```javascript
 function* g() {
-    yield 2
-    return '1'
+  yield 2
+  return '1'
 }
 const gObj: Generator = g() // Generator {}
 
@@ -110,14 +109,14 @@ console.log(gObj.return('1')) // 1
 
 ```javascript
 function* iterator() {
-    yield 1
-    yield 2
-    yield 3
+  yield 1
+  yield 2
+  yield 3
 }
 const i = iterator()
 for (const iterator of i) {
-    console.log(iterator)
-    // 1 2 3
+  console.log(iterator)
+  // 1 2 3
 }
 ```
 
@@ -127,24 +126,22 @@ for (const iterator of i) {
 // 多维数组变为一维数组
 
 function* isArr(arr: any[]) {
-    if (Array.isArray(arr)) {
-        for (const iterator of arr) {
-            yield* isArr(iterator)
-        }
-    } else {
-        yield arr
+  if (Array.isArray(arr)) {
+    for (const iterator of arr) {
+      yield* isArr(iterator)
     }
+  } else {
+    yield arr
+  }
 }
 
-const arr = ['a', ['b', 'c'],
-    ['d', ['e', 'f']]
-]
+const arr = ['a', ['b', 'c'], ['d', ['e', 'f']]]
 
 const i = isArr(arr)
 
 let result: any[] = []
 for (const iterator of i) {
-    result = [...result, iterator]
+  result = [...result, iterator]
 }
 console.log(result)
 ```

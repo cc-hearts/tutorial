@@ -58,4 +58,4 @@ function aesDecrypt(encrypted, key) {
 
 ## 参考资料
 
-* [如何在 Node.js 中加密和解密数据](https://cloud.tencent.com/developer/article/1732824)
+- [如何在 Node.js 中加密和解密数据](https://cloud.tencent.com/developer/article/1732824)

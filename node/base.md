@@ -40,9 +40,9 @@ SyntaxError: Cannot use import statement outside a module
 // import可以作为函数动态导入
 
 async function dynamicImport() {
-    const data = await import('./index.mjs')
+  const data = await import('./index.mjs')
 
-    console.log(data)
+  console.log(data)
 }
 ```
 
@@ -55,3 +55,16 @@ const buildModule = require('module')
 
 console.log(buildModule.builtinModules)
 ```
+
+社区网站分享:
+
+- [medium](https://medium.com/)
+- [dev.to](https://dev.to/)
+
+## 正则
+
+- https://regex101.com/
+
+## grid 布局
+
+- https://grid.layoutit.com/

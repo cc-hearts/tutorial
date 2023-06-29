@@ -31,7 +31,7 @@ const stop = watchEffect((onCleanup) => {
 stop()
 ```
 
- `onClearUp:`
+`onClearUp:`
 
 ```vue
 <script setup>
@@ -66,9 +66,40 @@ function add() {
 >
 > 如果想在侦听器回调中能访问被 Vue 更新**之后**的 DOM，你需要指明 `flush: 'post'`
 
->
 > 在响应式依赖发生改变时立即触发侦听器。这可以通过设置 `flush: 'sync'` 来实现
 >
 > [ `flush` 的运行时机(https://cn.vuejs.org/guide/essentials/watchers.html#callback-flush-timing)
 
 ## 调试模式
+
+## 动态监听 watch
+
+```js
+export default {
+  // 不能在beforeCreate中动态监听 因为此时的watch还没有初始化完成
+  create() {
+    // 动态watch的第一个参数可以接受为一个函数 第二个参数为触发事件的回调函数
+    // 第三个参数为是否深度监听等的配置参数
+    // 动态watch回返回一个函数 执行该函数可以销毁watch
+    const unWatch = this.$watch(
+      () => {
+        return dataValue.options
+      },
+      () => {
+        // callback
+      },
+      {
+        immediate: true,
+        deep: true,
+      }
+    )
+    this.unWatchList.push(unWatch)
+  },
+  beforeDestroy() {
+    // 销毁watch
+    this.unWatchList.forEach((unWatch) => {
+      unWatch()
+    })
+  },
+}
+```

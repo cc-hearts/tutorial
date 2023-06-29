@@ -10,8 +10,10 @@ vue.config.js 中的写法:
 
 ```js
 const webpack = require('webpack')
-config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin, [{
+config.plugin('chunkPlugin').use(webpack.optimize.LimitChunkCountPlugin, [
+  {
     maxChunks: 5, // 必须大于或等于 1，此处设置成最多生成5个chuank.js文件
     minChunkSize: 10000,
-}, ])
+  },
+])
 ```

@@ -5,8 +5,13 @@ title: svg
 > svg 代码都放在 svg 标签中
 
 ```html
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 50 50">
-    <circle id="mycircle" cx="50" cy="50" r="50" />
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="100"
+  height="100"
+  viewBox="0 0 50 50"
+>
+  <circle id="mycircle" cx="50" cy="50" r="50" />
 </svg>
 ```
 
@@ -30,9 +35,9 @@ title: svg
 
 ```css
 #mycircle {
-    fill: red; // fill:填充色
-    stroke: black; // stroke 描边色
-    stroke-wdith: 3pt; //stroke-width 边框宽度
+  fill: red; // fill:填充色
+  stroke: black; // stroke 描边色
+  stroke-wdith: 3pt; //stroke-width 边框宽度
 }
 ```
 
@@ -43,8 +48,19 @@ title: svg
 `<line>` 标签的 `x1` 属性和 `y1` 属性，表示线段起点的横坐标和纵坐标； `x2` 属性和 `y2` 属性，表示线段终点的横坐标和纵坐标； `style` 属性表示线段的样式
 
 ```html
-<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
-    <line x1="0" y1="0" x2="100" y2="100" style="stroke:rgb(0,0,0);stroke-width:5" />
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="100"
+  height="100"
+  viewBox="0 0 100 100"
+>
+  <line
+    x1="0"
+    y1="0"
+    x2="100"
+    y2="100"
+    style="stroke:rgb(0,0,0);stroke-width:5"
+  />
 </svg>
 ```
 
@@ -56,7 +72,10 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <polyline points="0,0 50,50 0,100" style="fill:red;stroke:black;stroke-width:5" />
+  <polyline
+    points="0,0 50,50 0,100"
+    style="fill:red;stroke:black;stroke-width:5"
+  />
 </svg>
 ```
 
@@ -68,7 +87,13 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <rect x="0" y="0" height="50" width="50" style="fill: none;stroke:aqua;stroke-width:1" />
+  <rect
+    x="0"
+    y="0"
+    height="50"
+    width="50"
+    style="fill: none;stroke:aqua;stroke-width:1"
+  />
 </svg>
 ```
 
@@ -80,7 +105,15 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
-    <ellipse cx="60" cy="60" ry="40" rx="20" stroke="black" stroke-width="5" fill="silver" />
+  <ellipse
+    cx="60"
+    cy="60"
+    ry="40"
+    rx="20"
+    stroke="black"
+    stroke-width="5"
+    fill="silver"
+  />
 </svg>
 ```
 
@@ -94,7 +127,12 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="300" height="300">
-    <polygon fill="red" stroke="black" stroke-width="1" points="0,0 100,0 100,100 0,100 90,0" />
+  <polygon
+    fill="red"
+    stroke="black"
+    stroke-width="1"
+    points="0,0 100,0 100,100 0,100 90,0"
+  />
 </svg>
 ```
 
@@ -106,18 +144,22 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <path d="
+  <path
+    d="
   M 0,0
   L 0,20
   L 20,20
   L 20,40
-  Z" fill="none" stroke="red" />
+  Z"
+    fill="none"
+    stroke="red"
+  />
 </svg>
 ```
 
-* M：移动到（moveto）
-* L：画直线到（lineto）
-* Z：闭合路径
+- M：移动到（moveto）
+- L：画直线到（lineto）
+- Z：闭合路径
 
 ## text
 
@@ -127,7 +169,7 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <text class="text" x="10" y="50">hello world</text>
+  <text class="text" x="10" y="50">hello world</text>
 </svg>
 ```
 
@@ -139,8 +181,8 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <circle id="myCircle" cx="5" cy="5" r="4" />
-    <use href="#myCircle" x="30" y="30" fill="blue" />
+  <circle id="myCircle" cx="5" cy="5" r="4" />
+  <use href="#myCircle" x="30" y="30" fill="blue" />
 </svg>
 ```
 
@@ -152,11 +194,11 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <g id="myCircle">
-        <text x="30" y="20">圆形</text>
-        <circle cx="15" cy="15" r="4" />
-    </g>
-    <use href="#myCircle" x="30" y="30" fill="blue" />
+  <g id="myCircle">
+    <text x="30" y="20">圆形</text>
+    <circle cx="15" cy="15" r="4" />
+  </g>
+  <use href="#myCircle" x="30" y="30" fill="blue" />
 </svg>
 ```
 
@@ -166,13 +208,13 @@ title: svg
 
 ```html
 <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100">
-    <defs>
-        <g id="myCircle">
-            <text x="30" y="20">圆形</text>
-            <circle cx="15" cy="15" r="4" />
-        </g>
-    </defs>
-    <use href="#myCircle" x="10" y="10"></use>
+  <defs>
+    <g id="myCircle">
+      <text x="30" y="20">圆形</text>
+      <circle cx="15" cy="15" r="4" />
+    </g>
+  </defs>
+  <use href="#myCircle" x="10" y="10"></use>
 </svg>
 ```
 
@@ -184,12 +226,19 @@ title: svg
 
 ```html
 <svg width="500" height="500">
-    <defs>
-        <pattern id="dots" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-            <circle fill="#bee9e8" cx="50" cy="50" r="35" />
-        </pattern>
-    </defs>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#dots)" />
+  <defs>
+    <pattern
+      id="dots"
+      x="0"
+      y="0"
+      width="50"
+      height="50"
+      patternUnits="userSpaceOnUse"
+    >
+      <circle fill="#bee9e8" cx="50" cy="50" r="35" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#dots)" />
 </svg>
 ```
 
@@ -199,7 +248,7 @@ title: svg
 
 ```html
 <svg viewBox="0 0 100 100" width="100" height="100">
-    <image xlink:href="path/to/image.jpg" width="50%" height="50%" />
+  <image xlink:href="path/to/image.jpg" width="50%" height="50%" />
 </svg>
 ```
 
@@ -213,23 +262,42 @@ title: svg
 
 ```html
 <svg width="500" height="500">
-    <defs>
-        <pattern id="dots" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-            <circle fill="#bee9e8" cx="50" cy="50" r="35" />
-        </pattern>
-    </defs>
-    <rect x="0" y="0" width="100%" height="100%" fill="url(#dots)">
-        <animate attributeName="x" from="0" to="100%" dur="2s" repeatCount="indefinite"></animate>
-        <animate attributeName="y" from="0" to="100%" dur="2s" repeatCount="indefinite"></animate>
-    </rect>
+  <defs>
+    <pattern
+      id="dots"
+      x="0"
+      y="0"
+      width="50"
+      height="50"
+      patternUnits="userSpaceOnUse"
+    >
+      <circle fill="#bee9e8" cx="50" cy="50" r="35" />
+    </pattern>
+  </defs>
+  <rect x="0" y="0" width="100%" height="100%" fill="url(#dots)">
+    <animate
+      attributeName="x"
+      from="0"
+      to="100%"
+      dur="2s"
+      repeatCount="indefinite"
+    ></animate>
+    <animate
+      attributeName="y"
+      from="0"
+      to="100%"
+      dur="2s"
+      repeatCount="indefinite"
+    ></animate>
+  </rect>
 </svg>
 ```
 
-* attributeName：发生动画效果的属性名。
-* from：单次动画的初始值。
-* to：单次动画的结束值。
-* dur：单次动画的持续时间。
-* repeatCount：动画的循环模式。
+- attributeName：发生动画效果的属性名。
+- from：单次动画的初始值。
+- to：单次动画的结束值。
+- dur：单次动画的持续时间。
+- repeatCount：动画的循环模式。
 
 ## animateTransform
 
@@ -237,13 +305,21 @@ title: svg
 
 ```html
 <svg width="500px" height="500px">
-    <!-- <animateTransform>的效果为旋转（rotate），
+  <!-- <animateTransform>的效果为旋转（rotate），
     这时from和to属性值有三个数字，第一个数字是角度值，第二个值和第三个值是旋转中心的坐标。
     from="0 200 200"表示开始时，角度为0，围绕(200, 200)开始旋转；
     to="360 400 400"表示结束时，角度为360，围绕(400, 400)旋转 -->
-    <rect x="250" y="250" width="50" height="50" fill="#4bc0c8">
-        <animateTransform attributeName="transform" type="rotate" begin="0s" dur="10s" from="0 200 200" to="360 400 400" repeatCount="indefinite" />
-    </rect>
+  <rect x="250" y="250" width="50" height="50" fill="#4bc0c8">
+    <animateTransform
+      attributeName="transform"
+      type="rotate"
+      begin="0s"
+      dur="10s"
+      from="0 200 200"
+      to="360 400 400"
+      repeatCount="indefinite"
+    />
+  </rect>
 </svg>
 ```
 
@@ -252,22 +328,22 @@ title: svg
 > 创建一个矩阵
 
 ```js
-const btn = document.getElementById('btn');
-const svg = document.getElementById('svg');
+const btn = document.getElementById('btn')
+const svg = document.getElementById('svg')
 
 function handleClick() {
-    const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
-    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    rect.setAttribute('width', '100');
-    rect.setAttribute('height', '100');
-    rect.setAttribute('fill', 'red');
-    rect.setAttribute('x', '0');
-    rect.setAttribute('y', '0');
-    g.appendChild(rect);
-    svg?.appendChild(g);
+  const g = document.createElementNS('http://www.w3.org/2000/svg', 'g')
+  const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect')
+  rect.setAttribute('width', '100')
+  rect.setAttribute('height', '100')
+  rect.setAttribute('fill', 'red')
+  rect.setAttribute('x', '0')
+  rect.setAttribute('y', '0')
+  g.appendChild(rect)
+  svg?.appendChild(g)
 }
 if (btn) {
-    btn.addEventListener('click', handleClick, false);
+  btn.addEventListener('click', handleClick, false)
 }
 ```
 

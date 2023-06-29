@@ -1,8 +1,8 @@
 ---
-title:  pm2 的一些基本命令
+title: pm2 的一些基本命令
 ---
 
-## pm2一些基本命令
+## pm2 一些基本命令
 
 ```bash
 $ npm install pm2 -g     # 命令行安装 pm2

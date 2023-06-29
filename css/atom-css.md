@@ -2,7 +2,7 @@
 title: 原子化css
 ---
 
-##  tailwindcss 配置
+## tailwindcss 配置
 
 > [vscode 插件](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
 
@@ -24,12 +24,12 @@ npx tailwindcss init
 
 ```js
 module.exports = () => {
-    return {
-        plugins: {
-            tailwindcss: {},
-        },
-    };
-};
+  return {
+    plugins: {
+      tailwindcss: {},
+    },
+  }
+}
 ```
 
 > 在 webpack 中配置： postcss

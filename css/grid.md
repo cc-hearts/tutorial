@@ -6,49 +6,49 @@ title: Grid 布局
 
 ```html
 <div class="grid">
-    <div class="container">1</div>
-    <div class="container">2</div>
-    <div class="container">3</div>
-    <div class="container">4</div>
-    <div class="container">5</div>
+  <div class="container">1</div>
+  <div class="container">2</div>
+  <div class="container">3</div>
+  <div class="container">4</div>
+  <div class="container">5</div>
 </div>
 ```
 
 ```css
 .grid {
-    display: grid;
+  display: grid;
 }
 
 .container {
-    height: 50px;
-    border: 1px solid #eee;
+  height: 50px;
+  border: 1px solid #eee;
 }
 ```
 
 ```css
 .grid {
-    display: grid;
-    /* grid-template-columns: 100px 100px 100px; */
-    /* fr 单位的灵活网格 */
-    /* 定义每一列的宽度*/
-    grid-template-columns: 100px 100px 100px;
-    /* 定义每一个行的高度*/
-    grid-template-rows: repeat(3, 100px);
+  display: grid;
+  /* grid-template-columns: 100px 100px 100px; */
+  /* fr 单位的灵活网格 */
+  /* 定义每一列的宽度*/
+  grid-template-columns: 100px 100px 100px;
+  /* 定义每一个行的高度*/
+  grid-template-rows: repeat(3, 100px);
 
-    /* 定义行列之间的间隔*/
-    /* 各个行之间的空隙 */
-    row-gap: 20px;
-    /* 各个列之间的空间 */
-    column-gap: 20px;
-    /* 简介写法：*/
-    /* gap: 20px */
+  /* 定义行列之间的间隔*/
+  /* 各个行之间的空隙 */
+  row-gap: 20px;
+  /* 各个列之间的空间 */
+  column-gap: 20px;
+  /* 简介写法：*/
+  /* gap: 20px */
 }
 ```
 
 ```css
 /**  列开始位置 但是不会超过该列 */
 .container:nth-of-type(1) {
-    grid-column-start: 2;
+  grid-column-start: 2;
 }
 ```
 
@@ -56,7 +56,7 @@ title: Grid 布局
 
 ```css
 .container:nth-of-type(1) {
-    grid-column-start: 9;
+  grid-column-start: 9;
 }
 ```
 
@@ -66,10 +66,10 @@ title: Grid 布局
 
 ```css
 .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-auto-rows: minmax(100px, auto);
-    grid-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-auto-rows: minmax(100px, auto);
+  grid-gap: 20px;
 }
 ```
 
@@ -335,5 +335,5 @@ place-self: <align-self> <justify-self>;
 
 > grid 布局在线网址: <https://grid.layoutit.com/>
 
-* <https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html>
-* <https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout>
+- <https://www.ruanyifeng.com/blog/2019/03/grid-layout-tutorial.html>
+- <https://developer.mozilla.org/zh-CN/docs/Web/CSS/CSS_Grid_Layout>

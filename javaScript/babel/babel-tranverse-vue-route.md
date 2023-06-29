@@ -7,19 +7,23 @@ title: babel 转译 vue-route 文件结构
 一般的 `vue.router` 的结构 一般为
 
 ```js
-export default [{
+export default [
+  {
     path: '/',
     component: Layout,
     redirect: 'dashboard',
-    children: [{
+    children: [
+      {
         path: 'dashboard',
         component: () => import('@/views/academicAffairs/dashboard'),
         name: 'Dashboard',
         meta: {
-            title: '首页'
+          title: '首页',
         },
-    }, ],
-}, ]
+      },
+    ],
+  },
+]
 ```
 
 新建一个 `index.ts` 文件 引入 `babel` 进行词法解析

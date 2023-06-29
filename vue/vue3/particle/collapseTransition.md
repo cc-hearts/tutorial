@@ -4,7 +4,7 @@ title: collapse transition 实现
 
 ## 源代码
 
- `shard.js`
+`shard.js`
 
 ```js
 /**
@@ -13,7 +13,7 @@ title: collapse transition 实现
  * @param { String } className
  */
 export function addClassName(el, className) {
-    el.classList.add(className)
+  el.classList.add(className)
 }
 
 /**
@@ -22,7 +22,7 @@ export function addClassName(el, className) {
  * @param { String } className
  **/
 export function removeClassName(el, className) {
-    el.classList.remove(className)
+  el.classList.remove(className)
 }
 ```
 
@@ -100,7 +100,6 @@ function afterLeave(el) {
   el.style.paddingBottom = el.dataset.oldPaddingBottom
 }
 </script>
-
 ```
 
 ## 实现 expandCard
@@ -243,7 +242,6 @@ function handleToggleExpand() {
 //   overflow: hidden;
 // }
 </style>
-
 ```
 
 ## 参考资料

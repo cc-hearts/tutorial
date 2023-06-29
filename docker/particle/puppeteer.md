@@ -40,6 +40,6 @@ export default async function xnLogin(id: number | string) {
 
 ## 参考资料
 
-* [puppeteer guides docker](https://pptr.dev/guides/docker#usage)
-* [puppeteer](https://www.npmjs.com/package/puppeteer)
-* [How to solve Puppeteer TimeoutError: Navigation timeout of 30000 ms exceeded](https://ourcodeworld.com/articles/read/1106/how-to-solve-puppeteer-timeouterror-navigation-timeout-of-30000-ms-exceeded)
+- [puppeteer guides docker](https://pptr.dev/guides/docker#usage)
+- [puppeteer](https://www.npmjs.com/package/puppeteer)
+- [How to solve Puppeteer TimeoutError: Navigation timeout of 30000 ms exceeded](https://ourcodeworld.com/articles/read/1106/how-to-solve-puppeteer-timeouterror-navigation-timeout-of-30000-ms-exceeded)

@@ -16,7 +16,7 @@ const selection = window.getSelection()
 
 ```html
 <div id="app">
-    <pre>
+  <pre>
       <code>
         footer = document.getElementById("footer");
         window.getSelection().selectAllChildren(footer);
@@ -32,13 +32,13 @@ const app = document.getElementById('app')
 
 const btn = document.getElementById('btn')
 
-btn.onclick = function() {
-    // https://developer.mozilla.org/zh-CN/docs/Web/API/Selection
-    const selection = window.getSelection()
-    // 高亮选中的区域
-    selection.selectAllChildren(app)
-    // 拷贝
-    navigator.clipboard.writeText(selection.toString())
+btn.onclick = function () {
+  // https://developer.mozilla.org/zh-CN/docs/Web/API/Selection
+  const selection = window.getSelection()
+  // 高亮选中的区域
+  selection.selectAllChildren(app)
+  // 拷贝
+  navigator.clipboard.writeText(selection.toString())
 }
 ```
 

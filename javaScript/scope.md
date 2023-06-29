@@ -23,8 +23,8 @@ JavaScript 中的 eval(..) 函数可以接受一个字符串为参数，并将�
 
 ```javascript
 function foo(str, a) {
-    eval(str)
-    console.log(a, b)
+  eval(str)
+  console.log(a, b)
 }
 var b = 2
 foo('var b = 3', 1) //1,3
@@ -34,9 +34,9 @@ foo('var b = 3', 1) //1,3
 
 ```javascript
 function foo(str, a) {
-    'use strict'
-    eval(str)
-    console.log(a, b)
+  'use strict'
+  eval(str)
+  console.log(a, b)
 }
 var b = 2
 foo('let b = 3', 1) //1,2
@@ -50,13 +50,13 @@ foo('let b = 3', 1) //1,2
 
 javascript 中还有一些其他的函数也有这样的效果
 
-* setTimeout
+- setTimeout
 
 ```javascript
 setTimeout('var a = 3; console.log(3)', 200)
 ```
 
-* setInterval
+- setInterval
 
 ```javascript
 setInterval('var a =4; console.log(4)', 1000)
@@ -64,7 +64,7 @@ setInterval('var a =4; console.log(4)', 1000)
 
 第一个参数可以是字符串，字符串的内容可以被解释为一段动态生成的 函数代码。
 
-* new Function()
+- new Function()
 
 ### with
 
@@ -74,13 +74,13 @@ with 可以将一个没有或有多个属性的对象处理为一个完全隔离
 
 ```javascript
 let obj = {
-    a: 1,
-    b: 2,
+  a: 1,
+  b: 2,
 }
-with(obj) {
-    a = 2
-    b = 3
-    c = 1
+with (obj) {
+  a = 2
+  b = 3
+  c = 1
 }
 console.log(obj.a) // 2
 console.log(obj.b) // 3
@@ -111,8 +111,8 @@ console.log(c) // 1
 匿名函数表达式
 
 ```javascript
-setTimeout(function() {
-    console.log('I waited 1 second!')
+setTimeout(function () {
+  console.log('I waited 1 second!')
 }, 1000)
 ```
 
@@ -123,10 +123,10 @@ setTimeout(function() {
 IIFE，代表立即执行函数表达式 (Immediately Invoked Function Expression)
 
 ```javascript
-var a = 2;
-(function foo() {
-    var a = 3
-    console.log(a) // 3
+var a = 2
+;(function foo() {
+  var a = 3
+  console.log(a) // 3
 })()
 console.log(a) // 2
 ```
@@ -134,12 +134,11 @@ console.log(a) // 2
 许多场景中都有广泛使用这种模式 例如(express 中的 function 中都可以调用\_\_dirname)
 
 ```javascript
-;
-(function IIFE(def) {
-    def(window)
+;(function IIFE(def) {
+  def(window)
 })(function def(global) {
-    var a = 3
-    console.log(a) // 3 console.log( global.a ); // 2
+  var a = 3
+  console.log(a) // 3 console.log( global.a ); // 2
 })
 ```
 
@@ -151,5 +150,5 @@ console.log(a) // 2
 }
 ```
 
-* try/catch
-* with
+- try/catch
+- with

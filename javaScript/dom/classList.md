@@ -21,4 +21,4 @@ console.log(app.dataset)
 
 ### 参考资料
 
-* <https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/data>-\*
+- <https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/data>-\*

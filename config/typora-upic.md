@@ -20,7 +20,6 @@ brew install bigwig-club/brew/upic --cask
 
 打开 `typora` 的设置上传图片并且指定上传为 `uPic`
 
-
 ![image-20230416232239434](http://www.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-04-16/image-20230416232239434.png)
 
 设置 `upic` 图床

@@ -92,4 +92,4 @@ const bodyInnerHTML = await page.$eval('body', (dom) => dom.innerHTML)
 
 ## 参考资料
 
-* [Puppeteer](https://www.qikegu.com/docs/4559)
+- [Puppeteer](https://www.qikegu.com/docs/4559)

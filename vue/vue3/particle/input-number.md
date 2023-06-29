@@ -63,5 +63,4 @@ function handleInputChange(e: Event) {
   border: 1px solid;
 }
 </style>
-
 ```

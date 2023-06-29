@@ -77,9 +77,9 @@ export default App
 
 ## react 自动引入
 
-* @babel/plugin-syntax-jsx
-  + @babel/plugin-syntax-jsx ： 使用这个插件，能够让 Babel 有效的解析 JSX 语法。
-* @babel/plugin-transform-react-jsx：这个插件内部调用了 @babel/plugin-syntax-jsx，可以把 React JSX 转化成 JS 能够识别的 createElement 格式。
+- @babel/plugin-syntax-jsx
+  - @babel/plugin-syntax-jsx ： 使用这个插件，能够让 Babel 有效的解析 JSX 语法。
+- @babel/plugin-transform-react-jsx：这个插件内部调用了 @babel/plugin-syntax-jsx，可以把 React JSX 转化成 JS 能够识别的 createElement 格式。
 
   > 需要在.babelrc 中设置  runtime: automatic
 

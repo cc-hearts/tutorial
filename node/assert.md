@@ -21,20 +21,28 @@ assert.deepEqual([1, 2, 3], [1, 2, 3], 'error')
 assert.strictEqual(1, 1, 'error')
 
 // deepStrictEqual 深层次的比较
-assert.deepStrictEqual({
-    a: 1
-}, {
-    a: 1
-}, 'error')
+assert.deepStrictEqual(
+  {
+    a: 1,
+  },
+  {
+    a: 1,
+  },
+  'error'
+)
 
 // 不想等
 assert.notEqual(1, '2', 'error')
 
-assert.notDeepEqual({
-    a: 1
-}, {
-    a: 2
-}, 'error')
+assert.notDeepEqual(
+  {
+    a: 1,
+  },
+  {
+    a: 2,
+  },
+  'error'
+)
 
 // notStrictEqual notDeepStrictEqual 相似
 

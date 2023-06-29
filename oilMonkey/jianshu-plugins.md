@@ -15,22 +15,21 @@ title: 简书去除广告插件
 // @run-at       document-end
 // ==/UserScript==
 
-;
-(function() {
-    'use strict'
-    window.onload = () => {
-        const elList = document.body.childNodes
-        const filterNodes = []
-        for (let i = elList.length - 1; i >= 0; i--) {
-            const el = elList[i]
-            if (el.nodeName === 'SCRIPT') break
-            filterNodes.push(el)
-        }
-        filterNodes.forEach((node) => node.parentNode.removeChild(node))
+;(function () {
+  'use strict'
+  window.onload = () => {
+    const elList = document.body.childNodes
+    const filterNodes = []
+    for (let i = elList.length - 1; i >= 0; i--) {
+      const el = elList[i]
+      if (el.nodeName === 'SCRIPT') break
+      filterNodes.push(el)
     }
+    filterNodes.forEach((node) => node.parentNode.removeChild(node))
+  }
 })()
 ```
 
 ## 参考资料
 
-* [【轻松上手】油猴脚本开发](https://juejin.cn/post/7022654292880424991)
+- [【轻松上手】油猴脚本开发](https://juejin.cn/post/7022654292880424991)

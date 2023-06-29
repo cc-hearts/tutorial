@@ -8,25 +8,26 @@ title: redux 的使用
 
 ```js
 // createStore 已经被废弃 推荐使用 @reduxjs/toolkit 包
-import {
-    createStore
-} from 'redux'
+import { createStore } from 'redux'
 
-function counterReducer(state = {
-    value: 0
-}, action) {
-    switch (action.type) {
-        case 'counter/incremented':
-            return {
-                value: state.value + 1
-            }
-            case 'counter/decremented':
-                return {
-                    value: state.value - 1
-                }
-                default:
-                    return state
-    }
+function counterReducer(
+  state = {
+    value: 0,
+  },
+  action
+) {
+  switch (action.type) {
+    case 'counter/incremented':
+      return {
+        value: state.value + 1,
+      }
+    case 'counter/decremented':
+      return {
+        value: state.value - 1,
+      }
+    default:
+      return state
+  }
 }
 // createStore(counterReducer)的 API 有 { subscribe, dispatch, getState }.
 export default createStore(counterReducer)
@@ -70,72 +71,62 @@ pnpm add @reduxjs/toolkit
 使用 `createAction` 、 `createReducer` API 创建 `action` 、 `reducer`
 
 ```js
-import {
-    createAction,
-    createReducer,
-    configureStore
-} from '@reduxjs/toolkit'
+import { createAction, createReducer, configureStore } from '@reduxjs/toolkit'
 // # 创建 action
 const increment = createAction('INCREMENT')
 const decrement = createAction('DECREMENT')
 // increment() ===> {type: 'INCREMENT', payload:undefined }
 // # 创建reducer
-const counter = createReducer({
-    value: 0
-}, {
+const counter = createReducer(
+  {
+    value: 0,
+  },
+  {
     // 不能直接使用 [increment] 作为key  函数作为key可能无法正常工作
     [increment().type]: (state) => {
-        state.value += 1
+      state.value += 1
     },
     [decrement().type]: (state) => {
-        state.value -= 1
+      state.value -= 1
     },
-})
-export {
-    increment,
-    decrement
-}
+  }
+)
+export { increment, decrement }
 export default configureStore({
-    reducer: counter,
+  reducer: counter,
 })
 ```
 
 使用 `createSlice` 优化 `createAction` 、 `createReducer` :
 
 ```js
-import {
-    createSlice,
-    configureStore
-} from '@reduxjs/toolkit'
+import { createSlice, configureStore } from '@reduxjs/toolkit'
 
 const counterSlice = createSlice({
-    name: 'counter',
-    initialState: {
-        value: 0,
+  name: 'counter',
+  initialState: {
+    value: 0,
+  },
+  reducers: {
+    // Redux Toolkit 允许在 reducers 中编写 "mutating" 逻辑。
+    // 使用Immer 库 检测到state中的状态变化 会生成一个新的不可变的state
+    incremented(state) {
+      state.value += 1
     },
-    reducers: {
-        // Redux Toolkit 允许在 reducers 中编写 "mutating" 逻辑。
-        // 使用Immer 库 检测到state中的状态变化 会生成一个新的不可变的state
-        incremented(state) {
-            state.value += 1
-        },
-        decremented(state) {
-            state.value -= 1
-        },
+    decremented(state) {
+      state.value -= 1
     },
+  },
 })
 
 // {caseReducers,getInitialState,actions,name,reducer}
 console.log(counterSlice)
 
 // 导出actions的操作
-export const {
-    incremented,
-    decremented
-} = counterSlice.actions
+export const { incremented, decremented } = counterSlice.actions
 // console.log(counterSlice.getInitialState() === counterSlice.getInitialState()); // true
 export default configureStore({
-    reducer: counterSlice.reducer,
+  reducer: counterSlice.reducer,
 })
 ```
 
@@ -144,45 +135,41 @@ export default configureStore({
 > createAsyncThunk() 创建一个 thunk，接受一个动作类型字符串和一个 Promise 的函数
 
 ```js
-import {
-    createAsyncThunk,
-    createSlice,
-    configureStore
-} from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice, configureStore } from '@reduxjs/toolkit'
 
 function fetchById() {
-    return new Promise(function(resolve, reject) {
-        setTimeout(() => {
-            resolve(Math.random())
-        })
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve(Math.random())
     })
+  })
 }
 
 // First, create the thunk
 export const fetchUserById = createAsyncThunk(
-    'users/fetchByIdStatus',
-    async (userId, thunkAPI) => {
-        const response = await fetchById(userId)
-        return response
-    }
+  'users/fetchByIdStatus',
+  async (userId, thunkAPI) => {
+    const response = await fetchById(userId)
+    return response
+  }
 )
 const initialState = {
-    entities: [],
+  entities: [],
 }
 
 const counterReducer = createSlice({
-    name: 'users',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchUserById.fulfilled, (state, action) => {
-            state.entities.push(action.payload)
-        })
-    },
+  name: 'users',
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(fetchUserById.fulfilled, (state, action) => {
+      state.entities.push(action.payload)
+    })
+  },
 })
 
 export default configureStore({
-    reducer: counterReducer.reducer,
+  reducer: counterReducer.reducer,
 })
 ```
 
@@ -219,6 +206,6 @@ export default () => {
 
 ## 参考资料
 
-* [redux 中文网](https://cn.redux.js.org/)
-* [redux toolkit](https://redux-toolkit.js.org/)
-* [Redux 最佳实践 Redux Toolkit](https://juejin.cn/post/7101688098781659172)
+- [redux 中文网](https://cn.redux.js.org/)
+- [redux toolkit](https://redux-toolkit.js.org/)
+- [Redux 最佳实践 Redux Toolkit](https://juejin.cn/post/7101688098781659172)

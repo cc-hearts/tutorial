@@ -8,22 +8,22 @@ title: less 基本语法
 
 ```html
 <style>
-    #container {
-        width: 100vw;
-        height: 100vh;
-        display: flex;
-    }
+  #container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
 
-    #box {
-        width: 50px;
-        height: 50px;
-        margin: auto;
-        background-color: red;
-    }
+  #box {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    background-color: red;
+  }
 </style>
 <!-- ... -->
 <div id="container">
-    <div id="box"></div>
+  <div id="box"></div>
 </div>
 ```
 

@@ -22,26 +22,26 @@ Promise.resolve(thenable).then((res) => {
 ## resolve 一个 `Promise` 会发生什么?
 
 ```js
-const p1 = new Promise(function(resolve) {
-    resolve('ok')
+const p1 = new Promise(function (resolve) {
+  resolve('ok')
 })
-var p2 = new Promise(function(resolve) {
-    resolve(p1) //resolve了一个promise
+var p2 = new Promise(function (resolve) {
+  resolve(p1) //resolve了一个promise
 })
 
 console.log(p1) //Promise { ok }
 console.log(p2) //Promise { <pending> }
 
-p2.then(function(res) {
-    console.log(res) //“ok"
+p2.then(function (res) {
+  console.log(res) //“ok"
 })
 ```
 
 当 `p2` 的 `execute` 执行之后 `resolve` 了 一个 `Promise` 相当于进行了
 
 ```js
-var p2 = new Promise(function(resolve) {
-    p1.then(resolve)
+var p2 = new Promise(function (resolve) {
+  p1.then(resolve)
 })
 ```
 
@@ -49,9 +49,9 @@ var p2 = new Promise(function(resolve) {
 
 ## Promise.allSettled()
 
-* https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled
+- https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled
 
 ## 参考资料
 
-* [resolve 一个 promise 时候发生了什么](https://zhuanlan.zhihu.com/p/81643188)
-* [What's the difference between resolve(thenable) and resolve('non-thenable-object')?](https://stackoverflow.com/questions/53894038/whats-the-difference-between-resolvethenable-and-resolvenon-thenable-object)
+- [resolve 一个 promise 时候发生了什么](https://zhuanlan.zhihu.com/p/81643188)
+- [What's the difference between resolve(thenable) and resolve('non-thenable-object')?](https://stackoverflow.com/questions/53894038/whats-the-difference-between-resolvethenable-and-resolvenon-thenable-object)
