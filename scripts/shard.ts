@@ -1,16 +1,16 @@
-import glob from 'glob'
+import {glob} from 'glob'
 import { resolve } from 'path'
 
 export function getMarkdownPath(filePath: string): Promise<Array<string>> {
-  return new Promise((res) => {
+  return new Promise(async (res) => {
+
     const path = resolve(process.cwd(), filePath, '**/*.{md,}')
-    glob(path, (err, files) => {
-      if (err) {
-        console.log(err)
-        return
-      }
-      console.log(`${path} is:`, files)
+    try {
+      console.log(path);
+      const files = await glob(path)
       res(files)
-    })
+    } catch(e) {
+      console.log('error', e);
+    }
   })
 }
