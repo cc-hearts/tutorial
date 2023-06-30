@@ -1,5 +1,5 @@
-var { distanceBetweenBusStops } = require('../code/distanceBetweenBusStops')
-
+import { distanceBetweenBusStops } from '../code/distanceBetweenBusStops'
+import { describe, it, expect, test } from 'vitest'
 describe('distanceBetweenBusStops case', () => {
   it('distance = [1,2,3,4], start = 0, destination = 1', () => {
     expect(distanceBetweenBusStops([1, 2, 3, 4], 0, 1)).toBe(1)
