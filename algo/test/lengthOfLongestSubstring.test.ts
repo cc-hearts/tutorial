@@ -1,4 +1,4 @@
-import { lengthOfLongestSubstring } from "../code/lengthOfLongestSubstring"
+import { lengthOfLongestSubstring } from '../code/lengthOfLongestSubstring'
 import { expect, test } from 'vitest'
 test('abcabcbb is result 3', () => {
   expect(lengthOfLongestSubstring('abcabcbb')).toBe(3)

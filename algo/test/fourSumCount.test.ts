@@ -1,4 +1,4 @@
-import { fourSumCount } from "../code/fourSumCount"
+import { fourSumCount } from '../code/fourSumCount'
 import { it, expect } from 'vitest'
 it('case 1', () => {
   expect(fourSumCount([1, 2], [-2, -1], [-1, 2], [0, 2])).toBe(2)

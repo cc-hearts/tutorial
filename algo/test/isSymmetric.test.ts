@@ -1,5 +1,5 @@
-import { TreeNode } from "../code/trie/trieClass"
-import { isSymmetric } from "../code/isSymmetric"
+import { TreeNode } from '../code/trie/trieClass'
+import { isSymmetric } from '../code/isSymmetric'
 import { describe, it, expect } from 'vitest'
 describe('case', () => {
   it('[1,2,2,null,3,null,3]', () => {
