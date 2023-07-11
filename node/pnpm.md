@@ -122,6 +122,28 @@ pnpm i @repo/utils -r --filter @repo/vue2-template@*
 pnpm why -r
 ```
 
+## pnpm link
+
+```shell
+pnpm link --global  # 将当前的包link 到全局中
+```
+
+在需要`link`的包中使用`link` 链接到当前的包中
+
+```shell
+pnpm link --global <package_name>
+# pnpm link --global @cc-heart/gen-index-export
+```
+
+如果使用完成 需要卸载 可以使用
+
+```shell
+pnpm unlink <package_name>
+# pnpm unlink @cc-heart/gen-index-export
+```
+
+
+
 ## 参考资料
 
 - [pnpm 文档](https://pnpm.io/zh/)
