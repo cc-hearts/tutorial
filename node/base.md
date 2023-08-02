@@ -56,6 +56,14 @@ const buildModule = require('module')
 console.log(buildModule.builtinModules)
 ```
 
+## 第三方资料
+
+https://www.yuque.com/sunluyong/node
+
+https://www.yuque.com/egg/nodejs/xf5gaheg68v0e86g
+
+
+
 社区网站分享:
 
 - [medium](https://medium.com/)

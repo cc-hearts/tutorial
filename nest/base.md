@@ -42,3 +42,21 @@ async function bootstrap() {
   await app.listen(env.PORT || 3664)
 }
 ```
+
+## ModuleRef
+
+`moduleRef`可以获取到当前模块的provider 对象
+
+```ts
+@Controller('form')
+export class FormController {
+    private readonly moduleRef: ModuleRef,
+  ) { }
+
+  @Get()
+  getValue() {
+    console.log(this.moduleRef.get(DddService).findAll()); // This action returns all ddd
+  }
+}
+```
+

@@ -135,11 +135,19 @@ pnpm link --global <package_name>
 # pnpm link --global @cc-heart/gen-index-export
 ```
 
-如果使用完成 需要卸载 可以使用
+如果使用完成  可以使用 `unlink` 解除绑定
+
+```js
+pnpm unlink --global <package_name>
+```
+
+> 注意： `npm unlink `  与`npm rm` 都是 `npm uninstall` 的别名
+
+需要卸载 可以使用
 
 ```shell
-pnpm unlink <package_name>
-# pnpm unlink @cc-heart/gen-index-export
+pnpm rm --global <package_name>
+# pnpm rm --global @cc-heart/gen-index-export
 ```
 
 

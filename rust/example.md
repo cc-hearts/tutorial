@@ -98,3 +98,38 @@ fn main() {
     }
 }
 ```
+
+main.rs
+
+```rust
+use std::env;
+use grep::*;
+use std::ffi::OsString;
+use std::process;
+fn main() {
+    // args 不是 utf-8的字符 会跑出 panic
+    // let args: Vec<String> = env::args().collect();
+    let os_args: Vec<OsString> = env::args_os().collect();
+    // 如果执行的结果是 Error 则会 调用 unwrap_or_else 中的 closure(闭包)
+    let config = Config::new(&os_args).unwrap_or_else(|err| {
+        println!("Problem parsing argumens: {}", err);
+        process::exit(1);
+    });
+
+    if let Err(e) = run(&config) {
+        println!("Application error: {}", e);
+        process::exit(1);
+    }
+    match run(&config) {
+        Ok(content) => {
+            let result = search(&os_string_to_string(&config.query), &content, config.is_sensitive);
+            println!("result is {:?}", result);
+        }
+        Err(e) =>{
+            println!("Application error: {}", e);
+            process::exit(1);
+        }
+    }
+}
+```
+
