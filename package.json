@@ -7,16 +7,24 @@
   "scripts": {
     "docs": "ts-node-esm scripts/generatorNavigator.ts",
     "test": "vitest",
-    "prettier": "prettier --write ."
+    "gen": "ts-node-esm .vitepress/utils/generatorReadme.ts",
+    "prettier": "prettier --write .",
+    "docs:dev": "vitepress dev",
+    "docs:build": "vitepress build",
+    "docs:preview": "vitepress preview"
   },
   "keywords": [],
   "author": "heart",
   "license": "MIT",
   "dependencies": {
-    "@types/node": "^20.3.2",
-    "glob": "^10.3.1",
+    "@types/node": "^20.4.8",
+    "glob": "^10.3.3",
+    "gray-matter": "^4.0.3",
     "prettier": "^2.8.8",
-    "typescript": "^5.1.5",
-    "vitest": "^0.32.2"
+    "typescript": "^5.1.6",
+    "vitest": "^0.32.4"
+  },
+  "devDependencies": {
+    "vitepress": "1.0.0-beta.7"
   }
 }
