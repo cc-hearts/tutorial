@@ -1,0 +1,22 @@
+---
+title: rust
+---
+- [智能指针](./point.md)
+- [迭代器 iter](./iter.md)
+- [example](./example.md)
+- [常用的std](./common-std.md)
+- [closure 闭包](./closure.md)
+- [cargo](./cargo-relese.md)
+- [Result 处理可修复panic](./9.result.md)
+- [8.vec](./8.vec.md)
+- [模块系统](./7.package.md)
+- [枚举类型](./6.enum.md)
+- [sruct](./5.stuct.md)
+- [slice 切片](./4.slice.md)
+- [String](./3.string.md)
+- [序列 range](./2.range.md)
+- [rust test 运行](./13.test.md)
+- [trait 特征](./12.trait.md)
+- [partten 范型](./11.partten.md)
+- [panic](./10.painc.md)
+- [基本数据类型](./1.base-data-type.md)

@@ -28,7 +28,7 @@ async function grepMdFile(path: string) {
       return { path: relativePath, title }
     })
   )
-  const ctx = fileInfo.map((item) => `[${item.title}](${item.path})`)
+  const ctx = fileInfo.map((item) => `- [${item.title}](${item.path})`)
   const [titleName] = path.split('/').slice(-1)
   const md =
     `---

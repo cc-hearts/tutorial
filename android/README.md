@@ -1,29 +1,19 @@
 ---
-title: '安卓'
+title: android
 ---
-
-[开发者指南](https://developer.android.google.cn/guide?hl=zh-cn)
-
-## TextView 组件
-
-[textView](./textView.md)
-
-[Drawable](./Drawable.md)
-
-[Button](./button.md)
-
-[progress](./progressBar.md)
-
-[imageView](./imageView.md)
-
-[editText](./editText.md)
-
-[notification](./notification.md)
-
-[toolBar](./toolBar.md)
-
-[dialog](./dialog.md)
-
-[popupWindow](./popupWindow.md)
-
-[LinearLayout](./LinearLayout.md)
+- [Android 开发者指南](./toturial.md)
+- [toolBar](./toolBar.md)
+- [textView](./textView.md)
+- [progress](./progressBar.md)
+- [popupWindow](./popupWindow.md)
+- [notification](./notification.md)
+- [ImageView](./imageView.md)
+- [editText](./editText.md)
+- [dialog](./dialog.md)
+- [Button](./button.md)
+- [view](./View.md)
+- [ReactiveLayout](./RelativeLayout.md)
+- [RadioGroup](./RadioGroup.md)
+- [LinearLayout布局](./LinearLayout.md)
+- [FrameLayout](./FrameLayout.md)
+- [Drawable](./Drawable.md)

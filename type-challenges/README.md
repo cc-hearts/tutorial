@@ -1,5 +1,4 @@
 ---
-title: 'type-challenges'
+title: type-challenges
 ---
-
 - [trim](./trim.md)
