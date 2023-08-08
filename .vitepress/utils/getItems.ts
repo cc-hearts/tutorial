@@ -11,6 +11,5 @@ export async function getDirectory(path: string = '') {
 }
 export async function getItems() {
   const dirs = await getDirectory()
-  console.log(dirs)
   return dirs.map((val) => ({ text: val.name, link: `/${val.name}/README.md` }))
 }

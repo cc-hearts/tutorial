@@ -11,7 +11,7 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       {
         text: 'tutorial',
-        items: await getItems(),
+        items: [{ text: 'javaScript', link: '/javaScript/README.md' }],
       },
     ],
     socialLinks: [
