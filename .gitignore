@@ -5,3 +5,4 @@ dist
 upload.sh
 yarn.lock
 cache
+pnpm-lock.yaml
