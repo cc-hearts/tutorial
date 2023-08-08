@@ -7,7 +7,7 @@ title: vertical-align 对齐
 vertical-align 的所有属性值：
 
 1. baseline **根据父级元素的基线定位，那么父级元素的基线位置怎么确定呢？这里要涉及到神奇的小写字母 x，标准规定，基线的位置在小写字母 x 的底部所在直线的位置**
-   ![image.png](../../assets/img/FE/css/gl59sz/1643211002182-89ec0ac1-54e2-4772-b219-24a5df93b8a1.png)
+   ![image.png](./../assets/img/FE/css/gl59sz/1643211002182-89ec0ac1-54e2-4772-b219-24a5df93b8a1.png)
 2. top 使元素及其后代元素的顶部与整行的顶部对齐。
 3. middle 使元素的中部与父元素的基线加上父元素 x-height（译注：[x 高度](https://www.zhangxinxu.com/wordpress/2015/06/about-letter-x-of-css/)）的一半对齐。
 4. bottom 使元素及其后代元素的底部与整行的底部对齐。

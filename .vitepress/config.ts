@@ -14,7 +14,6 @@ export default defineConfig({
         items: await getItems(),
       },
     ],
-
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cc-hearts/tutorial' },
     ],

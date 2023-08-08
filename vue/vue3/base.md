@@ -515,7 +515,7 @@ export default {
 
 其他的钩子和 v2 中的一样
 
-<img src="/images/lifecycle3.png">
+<https://vuejs.org/guide/essentials/lifecycle.html#lifecycle-diagram>
 
 ### 组合式 api 的钩子
 

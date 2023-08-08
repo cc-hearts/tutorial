@@ -124,10 +124,6 @@ CMD npm run start:prod
 
 之后使用 `docker run -p 30002:30002 -v /opt/nest-pic/nest-pic/file:/usr/nest-pic/file --name nest-pic -d nest-pic:1.0.0` 启动一个图床的容器。
 
-## Typora 对接图床
-
-参考[typora 配合 upic 搭建图床](../configuration/typora-upic.md)
-
 ## 参考资料
 
 - [uPic 图床配置教程 - 自定义](https://blog.svend.cc/upic/tutorials/custom/)

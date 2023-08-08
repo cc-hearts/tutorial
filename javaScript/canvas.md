@@ -220,8 +220,6 @@ if (ctx !== null) {
 }
 ```
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641890080246-c4d7095f-3920-47f7-ac89-2c0fcd4c88e2.png)
-
 2. **arcTo(x1, y1, x2, y2, radius)**: 根据给定的控制点和半径画一段圆弧，最后再以直线连接两个控制点。
 
 ```typescript
@@ -249,7 +247,7 @@ if (ctx !== null) {
 }
 ```
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641890151290-1ee199b8-70d8-4c8e-afee-681dd537afce.png)
+![image.png](../assets/img/FE/javaScript/avdgyb/1641890151290-1ee199b8-70d8-4c8e-afee-681dd537afce.png)
 
 ## 绘制贝塞尔曲线
 
@@ -530,7 +528,7 @@ function lineStyle<T extends HTMLCanvasElement>(canvas: T): void {
 }
 ```
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641952362690-cdd482dc-803c-4e03-8aab-2048bd2ad304.png)
+![image.png](../assets/img/FE/javaScript/avdgyb/1641952362690-cdd482dc-803c-4e03-8aab-2048bd2ad304.png)
 
 ## lineCap 线条末端样式
 
@@ -548,7 +546,7 @@ function lineStyle<T extends HTMLCanvasElement>(canvas: T): void {
 2. bevel 在相连部分的末端填充一个额外的以三角形为底的区域， 每个部分都有各自独立的矩形拐角。
 3. miter(默认) 通过延伸相连部分的外边缘，使其相交于一点，形成一个额外的菱形区域。
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641971704115-c6e139ba-d0f6-4e5b-a7ba-366cff8b230e.png)
+![image.png](../assets/img/FE/javaScript/avdgyb/1641971704115-c6e139ba-d0f6-4e5b-a7ba-366cff8b230e.png)
 
 ## 虚线
 
@@ -618,7 +616,7 @@ function canvasImg<T extends HTMLCanvasElement>(canvas: T): void {
 > 使用 webpack5 加载图片不再是 url-loader file-loader row-loader 等了 而是内置了 asset 模块
 > @see <https://webpack.docschina.org/guides/asset-modules/>
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641978974783-514dc9aa-fddd-412b-99d3-05e11209f251.png)
+![image.png](../assets/img/FE/javaScript/avdgyb/1641978974783-514dc9aa-fddd-412b-99d3-05e11209f251.png)
 
 ## 切片(slice)
 
@@ -671,7 +669,7 @@ function saveAndRestore<T extends HTMLCanvasElement>(canvas: T): void {
 translate 方法接受两个参数。x 是左右偏移量，y 是上下偏移量
 translate 移动的是 canvas 的坐标原点(坐标变换)。
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641981240780-d6092f87-6b17-4039-ab75-71654fb6869c.png)![image.png](../../assets/img/FE/javaScript/avdgyb/1641981284221-951c8b8e-cecf-49b0-9787-e8b5f0bfc0d5.png)
+![image.png](../assets/img/FE/javaScript/avdgyb/1641981240780-d6092f87-6b17-4039-ab75-71654fb6869c.png)![image.png](../assets/img/FE/javaScript/avdgyb/1641981284221-951c8b8e-cecf-49b0-9787-e8b5f0bfc0d5.png)
 
 ```typescript
 ctx.save() //保存坐原点平移之前的状态
@@ -764,7 +762,7 @@ function clip<T extends HTMLCanvasElement>(canvas: T): void {
 }
 ```
 
-![image.png](../../assets/img/FE/javaScript/avdgyb/1641983494425-b6b66f11-d370-4f7a-9b2b-33f0cb051cd0.png)
+![image.png](../assets/img/FE/javaScript/avdgyb/1641983494425-b6b66f11-d370-4f7a-9b2b-33f0cb051cd0.png)
 
 ## demo1 太阳系
 

@@ -2,7 +2,7 @@
 title: Golang 学习
 ---
 
-- [基本语法介绍](./record.md)
+- [基本语法介绍](./base.md)
 
 ## 文档
 

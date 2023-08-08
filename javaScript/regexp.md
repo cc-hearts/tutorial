@@ -54,7 +54,7 @@ const reg = /a[a-z]d/
 
 # 常见的简写形式
 
-![image.png](../../../assets/img/FE/javaScript/giqmtb/1644904387554-9b17ed92-e568-4a2a-bf8d-afa3b75e73e0.png)
+![image.png](../assets/img/FE/javaScript/giqmtb/1644904387554-9b17ed92-e568-4a2a-bf8d-afa3b75e73e0.png)
 
 > JavaScript 正则表达式迷你书
 
@@ -62,13 +62,13 @@ const reg = /a[a-z]d/
 
 量词也称重复
 
-![image.png](../../../assets/img/FE/javaScript/giqmtb/1644904465659-c148b4ba-83b8-4d96-b506-b2eba36e3a3b.png)
+![image.png](../assets/img/FE/javaScript/giqmtb/1644904465659-c148b4ba-83b8-4d96-b506-b2eba36e3a3b.png)
 
 ## 贪婪量词 与 惰性量词
 
 > 通过在量词后面加个问号就能实现惰性匹配
 
-![image.png](../../../assets/img/FE/javaScript/giqmtb/1644904803329-32e81e67-95be-447c-9437-f0e88057a105.png)
+![image.png](../assets/img/FE/javaScript/giqmtb/1644904803329-32e81e67-95be-447c-9437-f0e88057a105.png)
 
 # 排除字符组
 
@@ -220,7 +220,7 @@ console.log('1231231233'.match(reg))
 // \1 = 123 \2 = 1 \3 = 23 \4 = 3
 ```
 
-![image.png](../../../assets/img/FE/javaScript/giqmtb/1645150773525-887bc097-b984-4361-a7c2-977fa40a39a3.png)
+![image.png](../assets/img/FE/javaScript/giqmtb/1645150773525-887bc097-b984-4361-a7c2-977fa40a39a3.png)
 
 ```javascript
 如果真要匹配\ 1 和 0 的话， 请使用( ? : \1) 0 或者\ 1( ? : 0)。
