@@ -4,21 +4,24 @@ layout: home
 
 hero:
   name: 'cc tutorial'
-  text: 'a tutorial'
-  tagline: My great project tagline
+
+  tagline: Empowering Learning and Collaboration
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
+      text: Get Started
+      link: /javaScript/README.md
     - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: View on Github
+      link: https://github.com/cc-hearts/tutorial
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: Multi-Platform Synchronization
+    details: CC Tutorial supports multi-platform synchronization whether you are using a computer, tablet or cell phone.
+    icon: 🌐
+  - title: Organized Knowledge Base
+    details: Create and maintain a structured and searchable knowledge base with easy-to-use note organization and tagging features.
+    icon: 📚
+  - title: Rich Text Support
+    details: notes with multimedia elements such as images, and code snippets, making them more interactive and engaging.
+    icon: 📦
 ---
