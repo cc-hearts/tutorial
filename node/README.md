@@ -27,7 +27,7 @@ title: node
 - [nodeJs 基础](./base.md)
 - [assert 断言](./assert.md)
 - [puppeteer 使用](./puppteer/base.md)
-- [esm 转换ECMA 在cjs中运行](./lib/esm.md)
 - [glob 使用](./glob/base.md)
+- [esm 转换ECMA 在cjs中运行](./lib/esm.md)
 - [gulp 案例](./gulp/example.md)
 - [gulp使用](./gulp/base.md)

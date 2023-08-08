@@ -1,7 +1,7 @@
 import { readdir } from 'node:fs/promises'
 import { join } from 'node:path'
 export async function getDirectory(path: string = '') {
-  const filterDirNames = ['docs', 'node_modules', 'assets', 'rust']
+  const filterDirNames = ['docs', 'node_modules', 'assets']
   let dirs = await readdir(join(process.cwd(), path), { withFileTypes: true })
   return dirs
     .filter((dir) => dir.isDirectory())
