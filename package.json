@@ -7,7 +7,7 @@
   "scripts": {
     "prepare": "npx husky install",
     "docs": "ts-node-esm scripts/generatorNavigator.ts",
-    "test": "vitest",
+    "test": "vitest --watch=false",
     "gen": "ts-node-esm .vitepress/utils/generatorReadme.ts",
     "prettier": "prettier --write .",
     "docs:dev": "vitepress dev",
@@ -22,6 +22,7 @@
     "glob": "^10.3.3",
     "gray-matter": "^4.0.3",
     "husky": "^8.0.3",
+    "lint-staged": "^13.2.3",
     "markdownlint": "^0.29.0",
     "prettier": "^2.8.8",
     "typescript": "^5.1.6",
