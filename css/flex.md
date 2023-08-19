@@ -52,3 +52,11 @@ flex {
 ```
 
 > flex: 1 会导致父元素宽度自动变为 100%
+
+## flex 嵌套撑开容器问题
+
+flex-item 在非滚动容器的时候 他的最小自动尺寸就是它本身的值，而在滚动容器中，自动最小尺寸是 0
+
+> <https://www.w3.org/TR/css-flexbox-1/#min-size-auto>
+
+因此 解决 flex 嵌套撑开的问题 添加`min-width: 0` 或者`min-height: 0` 即可解决。
