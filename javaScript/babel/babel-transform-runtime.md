@@ -1,5 +1,5 @@
 ---
-title: @babel/plugin-transform-runtime
+title: babel/plugin-transform-runtime
 ---
 
 结论：
