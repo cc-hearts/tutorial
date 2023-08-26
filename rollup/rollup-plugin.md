@@ -7,3 +7,4 @@ title: 常见的 rollup 的插件
 - `@rollup/plugin-replace`
 - `@rollup/plugin-json` 令 Rollup 从 JSON 文件中读取数据
 - `@rollup/plugin-typescript` 导入`ts`文件
+- `@rollup/plugin-alias` 处理 `path` 别名
