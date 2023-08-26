@@ -34,3 +34,7 @@ title: project references
 ```
 
 根据配置可以看出， `tsconfig.node.json` 这个配置文件所覆盖的范围是 `vite.config.ts` 这个文件。
+
+## 参考文章
+
+<https://www.typescriptlang.org/docs/handbook/project-references.html>
