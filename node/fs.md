@@ -2,7 +2,7 @@
 title: fs Modules
 ---
 
->  node:fs 是node的内置模块， fs是node:fs的一个包装，提供了更好的api
+> node:fs 是 node 的内置模块， fs 是 node:fs 的一个包装，提供了更好的 api
 
 ## 常用 API
 
@@ -101,22 +101,18 @@ realpath('./', (err, resolvePath) => {
 })
 ```
 
-## 🌰 删除所有的node_modules
+## 🌰 删除所有的 node_modules
 
 ```js
 /**
  * 删除全局的node_modules
  */
-import { readdir, access, constants, writeFile, rm } from "fs/promises";
-import { dirname, join } from "node:path";
-import { fileURLToPath } from "node:url";
-import { homedir } from "os";
+import { readdir, access, constants, writeFile, rm } from 'fs/promises'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { homedir } from 'os'
 import ora from 'ora'
-const filterPathName = [
-  'Library',
-  'Applications',
-  'Downloads'
-]
+const filterPathName = ['Library', 'Applications', 'Downloads']
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const cacheNodeModulesPaths = []
 async function write(fileName, data) {
@@ -131,7 +127,7 @@ async function searchNodeModules(path) {
   try {
     await access(path, constants.R_OK)
     let dirs = await readdir(path, { withFileTypes: true })
-    dirs = dirs.filter(dir => dir.isDirectory())
+    dirs = dirs.filter((dir) => dir.isDirectory())
     // 判断是否是一个文件夹
     for (let i = 0; i < dirs.length; i++) {
       const name = dirs[i].name
@@ -142,8 +138,7 @@ async function searchNodeModules(path) {
       }
       await searchNodeModules(join(path, name))
     }
-  } catch (e) {
-  }
+  } catch (e) {}
 }
 async function bootstrap() {
   const spinner = ora('开始搜索node_modules').start()
@@ -152,19 +147,21 @@ async function bootstrap() {
   await write('cache.json', JSON.stringify(cacheNodeModulesPaths))
   spinner.succeed('写入完成, 进行递归删除node_modules')
   const succeedRemovePath = []
-  await Promise.all(cacheNodeModulesPaths.map(async path => {
-    try {
-      await access(path, constants.R_OK)
-      await removeNodeModules(path)
-      succeedRemovePath.push(path)
-      console.log(`删除 ${path} 成功`);
-    } catch (e) {
-    }
-  }))
+  await Promise.all(
+    cacheNodeModulesPaths.map(async (path) => {
+      try {
+        await access(path, constants.R_OK)
+        await removeNodeModules(path)
+        succeedRemovePath.push(path)
+        console.log(`删除 ${path} 成功`)
+      } catch (e) {}
+    })
+  )
   await write('succeed.json', JSON.stringify(succeedRemovePath))
-  spinner.succeed(`删除完成, 共删除${succeedRemovePath.length}个node_modules， 数据写入到 success.json 中`)
+  spinner.succeed(
+    `删除完成, 共删除${succeedRemovePath.length}个node_modules， 数据写入到 success.json 中`
+  )
 }
 
 bootstrap()
 ```
-

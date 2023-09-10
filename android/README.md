@@ -1,6 +1,7 @@
 ---
 title: android
 ---
+
 - [Android 开发者指南](./toturial.md)
 - [toolBar](./toolBar.md)
 - [textView](./textView.md)
@@ -14,6 +15,6 @@ title: android
 - [view](./View.md)
 - [ReactiveLayout](./RelativeLayout.md)
 - [RadioGroup](./RadioGroup.md)
-- [LinearLayout布局](./LinearLayout.md)
+- [LinearLayout 布局](./LinearLayout.md)
 - [FrameLayout](./FrameLayout.md)
 - [Drawable](./Drawable.md)

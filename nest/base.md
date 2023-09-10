@@ -45,7 +45,7 @@ async function bootstrap() {
 
 ## ModuleRef
 
-`moduleRef`可以获取到当前模块的provider 对象
+`moduleRef`可以获取到当前模块的 provider 对象
 
 ```ts
 @Controller('form')
@@ -59,4 +59,3 @@ export class FormController {
   }
 }
 ```
-

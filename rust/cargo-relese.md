@@ -2,8 +2,6 @@
 title: cargo
 ---
 
-
-
 ## 配置 cargo profile
 
 > 每个 profile 的配置都独立于其它的 profile
@@ -31,14 +29,12 @@ opt-level = 3
 
 ```
 
-
-
 ## 文档注释
 
-使用 `///` 可以给函数等添加注释 可以生成example 
+使用 `///` 可以给函数等添加注释 可以生成 example
 
-```rust
-/// add nums 
+````rust
+/// add nums
 /// # Examples
 ///
 /// ```
@@ -50,19 +46,15 @@ opt-level = 3
 pub fn add (a: i32, b: i32) -> i32 {
     a + b
 }
-```
-
-
+````
 
 ## 文档注释
 
 使用`//！`，为包含注释的项添加文档注释，这类注释通常用描述 crate 和模块，crate root（按惯例 src/lib.rs)，在一个模块内，将 crate 或模块作为一个整体进行记录
 
+## 版本发布
 
-
-## 版本发布 
-
-需要先去cargo 官方获取 token 并且验证邮箱 才能发布。
+需要先去 cargo 官方获取 token 并且验证邮箱 才能发布。
 
 ```rust
 cargo publish # 发布版本
@@ -87,8 +79,6 @@ yank 意味着：
 ```shell
 cargo run -p <package_name> # 运行指定工作空间的代码
 ```
-
-
 
 ## 从 CRATES.!O 安装二进制 crate
 

@@ -7,16 +7,16 @@ title: 文件上传
 单文件上传案例:
 
 ```ts
-export class FormController { 
-@Post('formData')
+export class FormController {
+  @Post('formData')
   @UseInterceptors(
-		// 指定文件的字段名
-    FileInterceptor('file1'),
+    // 指定文件的字段名
+    FileInterceptor('file1')
   )
   createFormData(@UploadedFile() data, @Body() b) {
-    console.log(data);
-    console.log(b);
-    return 200;
+    console.log(data)
+    console.log(b)
+    return 200
   }
 }
 ```
@@ -30,13 +30,13 @@ export class FormController {
 > 注意 单文件上传和多文件上传的拦截器和注解都不同
 
 ```ts
-export class FormController { 
-@Post('formData')
+export class FormController {
+  @Post('formData')
   @UseInterceptors(FilesInterceptor('files'))
   createFormData(@UploadedFiles() data, @Body() b) {
-    console.log(data);
-    console.log(b);
-    return 200;
+    console.log(data)
+    console.log(b)
+    return 200
   }
 }
 ```
@@ -45,8 +45,8 @@ export class FormController {
 
 ```html
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
   <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
 </head>
@@ -54,19 +54,18 @@ export class FormController {
 <body>
   <input id="fileInput" type="file" multiple />
   <script>
-    const fileInput = document.querySelector('#fileInput');
+    const fileInput = document.querySelector('#fileInput')
     async function formData() {
       const data = new FormData()
-      console.log(fileInput.files);
+      console.log(fileInput.files)
       data.append('files', fileInput.files[0])
       data.append('files', fileInput.files[1])
 
       await axios.post('http://localhost:3000/form/formData', data, {
-        headers: { 'Content-Type': 'multipart/form-data' }
-      });
+        headers: { 'Content-Type': 'multipart/form-data' },
+      })
     }
     fileInput.onchange = formData
-
   </script>
 </body>
 ```
@@ -76,28 +75,28 @@ export class FormController {
 > 使用`FileFieldsInterceptor` 拦截器获取字段值
 
 ```ts
-export class FormController { 
-	@Post('formData')
+export class FormController {
+  @Post('formData')
   @UseInterceptors(
     FileFieldsInterceptor([
       { name: 'file1', maxCount: 1 },
       { name: 'file2', maxCount: 1 },
-    ]),
+    ])
   )
   createFormData(@UploadedFiles() data: Array<Express.Multer.File>, @Body() b) {
-    console.log(data);
-    console.log(b);
-    return 200;
+    console.log(data)
+    console.log(b)
+    return 200
   }
 }
 ```
 
 ## 接收任意文件上传
 
-`AnyFilesInterceptor ` 接收任意文件上传 
+`AnyFilesInterceptor ` 接收任意文件上传
 
 ```ts
-export class FormController { 
+export class FormController {
 	@Post('formData')
   @UseInterceptors(
   AnyFilesInterceptor({

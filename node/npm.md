@@ -2,6 +2,12 @@
 title: npm 基本使用
 ---
 
+## 初始化
+
+```shell
+npm init --scope=<scope_name> # 初始化项目的时候使用命令行添加 scope
+```
+
 ## 发布包
 
 ```shell

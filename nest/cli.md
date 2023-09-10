@@ -33,11 +33,9 @@ npx nest resource|res [module_name]
 > - `flat` `no-flat` 是否生成对应目录
 > - `dry-run` 交互式命令运行 但不写入文件到磁盘中
 
-
-
 ## build
 
-`nest build` 可以指定编译方式是由`webpack`编译还是由`tsc`编译， 如果需要webpack 编译 使用`--webpack`
+`nest build` 可以指定编译方式是由`webpack`编译还是由`tsc`编译， 如果需要 webpack 编译 使用`--webpack`
 
 ![image-20230717133612185](http://114.55.225.186:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-07-17/image-20230717133612185.png)
 
@@ -46,4 +44,3 @@ npx nest resource|res [module_name]
 ```shell
 nest info # 查看npm nest 依赖版本
 ```
-

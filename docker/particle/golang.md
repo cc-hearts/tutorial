@@ -1,8 +1,6 @@
 ---
-tilte: golang docker 
+tilte: golang docker
 ---
-
-
 
 ```dockerfile
 # golang运行环境配置
@@ -31,4 +29,3 @@ EXPOSE 80
 
 CMD /bin/bash
 ```
-

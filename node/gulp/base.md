@@ -16,7 +16,4 @@ title: gulp使用
 
 3. ~~运行`npx gulp` 即可运行任务~~
 
-
-
 创建文件`gulpfile.mjs` 即可 （参考<https://gitlab.com/rawsec/rawsec-cybersecurity-list/-/blob/89e758c91474c426f9281c48ff1218d822f6ca48/package.json>）
-

@@ -1,6 +1,7 @@
 ---
 title: typescript
 ---
+
 - [typescript 4.8 更新](./version-4-8.md)
 - [类型](./type.md)
 - [tsconfig 配置](./tsconfig.md)
@@ -13,4 +14,4 @@ title: typescript
 - [enum](./enum.md)
 - [装饰器](./decorator.md)
 - [逆变 和 协变](./contravariant-and-covariant.md)
-- [ts内置的工具类型](./build-in-types-func.md)
+- [ts 内置的工具类型](./build-in-types-func.md)

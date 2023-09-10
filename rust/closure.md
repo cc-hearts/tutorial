@@ -2,8 +2,6 @@
 title: closure 闭包
 ---
 
-
-
 ## 函数声明
 
 ```rust
@@ -12,7 +10,7 @@ let closure = |num: i32| -> i32 {
 }
 ```
 
-## example: 实现cahcer
+## example: 实现 cahcer
 
 ```rust
 use std::collections::HashMap;
@@ -71,19 +69,20 @@ mod tests {
 
 闭包从所在环境捕获值的方式
 与函数获得参数的三种方式一样：
+
 1. 取得所有权：FnOnce
 
 2. 可变借用：FnMut
 
 3. 不可变借用：Fn
-  创建闭包时，通过闭包对环境值的使用，Rust 推断出具体使用哪个 trait：
+   创建闭包时，通过闭包对环境值的使用，Rust 推断出具体使用哪个 trait：
 
-  - 所有的闭包都实现了 FnOnce
+- 所有的闭包都实现了 FnOnce
 
-  - 没有移动捕获变量的实现了 FnMut
-  - 无需可变访问捕获变量的闭包实现了 Fn
+- 没有移动捕获变量的实现了 FnMut
+- 无需可变访问捕获变量的闭包实现了 Fn
 
-  因此严格关系为： FnOnce >>> FnMut >>> Fn
+因此严格关系为： FnOnce >>> FnMut >>> Fn
 
 ## move 关键字
 
@@ -94,7 +93,7 @@ mod tests {
 ```rust
 
 fn main() {
-    let z = String::from("data"); 
+    let z = String::from("data");
     let closure =  move || {
         z
     };
@@ -102,4 +101,3 @@ fn main() {
 }
 
 ```
-

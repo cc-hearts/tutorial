@@ -2,14 +2,14 @@
 title: provider全量解析
 ---
 
-Nest 自带的IOC容器可以根据依赖关系将provider注入到目标对象中
+Nest 自带的 IOC 容器可以根据依赖关系将 provider 注入到目标对象中
 
 常见的 provider 注入的方式：
 
 ```typescript
 @Module({
   controllers: [FormController],
-  providers: [FormService]
+  providers: [FormService],
 })
 export class FormModule {}
 ```
@@ -19,19 +19,19 @@ export class FormModule {}
 ```ts
 @Module({
   controllers: [FormController],
-  providers: [{
-    provide: FormService,
-    useClass: FormService
-  }]
+  providers: [
+    {
+      provide: FormService,
+      useClass: FormService,
+    },
+  ],
 })
 export class FormModule {}
 ```
 
-useClass指定要注入的实例化对象（先实例化在注入）
+useClass 指定要注入的实例化对象（先实例化在注入）
 
-
-
-provide 指定要注入的token，可以是字符串，或者是Class。（如果是字符串，需要使用`@inject`指定token注入，class可以直接注入）
+provide 指定要注入的 token，可以是字符串，或者是 Class。（如果是字符串，需要使用`@inject`指定 token 注入，class 可以直接注入）
 
 ```ts
  providers: [
@@ -47,7 +47,7 @@ provide 指定要注入的token，可以是字符串，或者是Class。（如�
 + constructor(@Inject('form') private readonly formService: FormService) { }
 ```
 
-除了使用 useClass 还可以使用useValue 提供注入的对象值
+除了使用 useClass 还可以使用 useValue 提供注入的对象值
 
 ```diff
 @Module({
@@ -85,13 +85,13 @@ useFactory 可以动态的注入值
       async useFactory(FormDataService) {
         return Promise.resolve({
           data: 'this is form data',
-        });
+        })
       },
-      inject: [FormDataService]
+      inject: [FormDataService],
     },
   ],
 })
-export class FormModule { }
+export class FormModule {}
 ```
 
 ## useExisting
@@ -104,10 +104,9 @@ useExisting 用于别名
   providers: [
     {
       provide: 'form',
-      useExisting: 'form-data' // 如果@inject('form') 会注入@inject('form-data') 的对象 
+      useExisting: 'form-data', // 如果@inject('form') 会注入@inject('form-data') 的对象
     },
   ],
 })
-export class FormModule { }
+export class FormModule {}
 ```
-

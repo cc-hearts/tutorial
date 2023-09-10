@@ -1,12 +1,13 @@
 ---
 title: nest
 ---
+
 - [版本控制](./version.md)
 - [typeOrm 使用](./typeorm.md)
 - [swagger 文档生成](./swagger.md)
 - [静态资源配置](./static.md)
-- [七牛云的oss对接](./qiuniu-oss.md)
-- [provider全量解析](./provider.md)
+- [七牛云的 oss 对接](./qiuniu-oss.md)
+- [provider 全量解析](./provider.md)
 - [前缀基本使用](./prefix.md)
 - [mysql 配置](./mysqlProvider.md)
 - [生命周期](./lifecycle.md)
@@ -21,7 +22,7 @@ title: nest
 - [自定义装饰器](./custom-decorators.md)
 - [跨域配置](./cors.md)
 - [Nest cli 命令详解](./cli.md)
-- [class-validator 基础api介绍](./class-validator.md)
+- [class-validator 基础 api 介绍](./class-validator.md)
 - [class-transformer](./class-transformer.md)
 - [cache 缓存模块](./cache.md)
 - [base nest](./base.md)

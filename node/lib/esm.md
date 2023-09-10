@@ -2,8 +2,6 @@
 title: esm 转换ECMA 在cjs中运行
 ---
 
-
-
 安装
 
 ```shell
@@ -12,19 +10,19 @@ pnpm install esm
 
 使用 `node -r esm index.js` 去编译 `mjs` 的文件
 
-或者使用 esm提供的module方法
+或者使用 esm 提供的 module 方法
 
 ```js
-require = require("esm")(module /*, options*/);
+require = require('esm')(module /*, options*/)
 
-console.log(require("./a"));
+console.log(require('./a'))
 ```
 
 `a.js`
 
 ```js
-const a = 1;
-export default a;
+const a = 1
+export default a
 ```
 
 ## 参考资料

@@ -1,13 +1,14 @@
 ---
 title: rust
 ---
+
 - [智能指针](./point.md)
 - [迭代器 iter](./iter.md)
 - [example](./example.md)
-- [常用的std](./common-std.md)
+- [常用的 std](./common-std.md)
 - [closure 闭包](./closure.md)
 - [cargo](./cargo-relese.md)
-- [Result 处理可修复panic](./9.result.md)
+- [Result 处理可修复 panic](./9.result.md)
 - [8.vec](./8.vec.md)
 - [模块系统](./7.package.md)
 - [枚举类型](./6.enum.md)

@@ -20,7 +20,7 @@ fn main() {
     for val in ve {
         println!("{}", val)
     }
-    
+
     // 上述的情况相当于使用迭代器下面的情况：
     let ve1 = vec![1,2,3];
     let mut iter = ve1.iter();
@@ -31,6 +31,7 @@ fn main() {
 ```
 
 ## 几个迭代方法
+
 iter 方法：在不可变引用上创建迭代器（只是不可变的引用上 不是变量）
 into_iter 方法：创建的迭代器会获得所有权
 iter mut 方法：迭代可变的引用
@@ -46,6 +47,7 @@ iter mut 方法：迭代可变的引用
 - 因为调用它们会把迭代器消耗尽
 
 ## 产生其它迭代器的方法
+
 定义在 Iterator trait 上的另外一些方法叫做“迭代器适配器”
 
 - 把迭代器转换为不同种类的迭代器
@@ -58,11 +60,11 @@ fn main() {
     // collect 方法 也是消耗型适配器，可以把迭代器收集到一个集合类型中
     let result: Vec<_> = ve1.iter().map(|x| x + 2).collect();
     let mut iter = ve1.iter().map(|x| x +1);
-    
+
     for val in iter {
         println!("{}", val)
     }
-    
+
     for val in result {
         println!("{}", val)
     }
@@ -80,7 +82,7 @@ pub struct Counter {
 
 impl Iterator for Counter {
     type Item = i32;
-    
+
     fn next(&mut self)  -> Option<Self::Item> {
         if self.count < 5 {
             let result = self.count;
@@ -98,4 +100,3 @@ impl Counter {
     }
 }
 ```
-
