@@ -3,9 +3,9 @@ title: 作用域
 categories: JavaScript
 ---
 
-# 词法作用域
+## 词法作用域
 
-> 词法作用域是由你在写 代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域 不变(大部分情况下是这样的)。
+> 词法作用域是由你在写代码时将变量和块作用域写在哪里来决定的，因此当词法分析器处理代码时会保持作用域不变(大部分情况下是这样的)。
 
 无论函数在哪里被调用，也无论它如何被调用，它的词法作用域都只由函数被声明时所处 的位置决定。
 词法作用域只会查找一级标识符 比如 a, b, c 如果代码中引用了 foo.bar.baz， 词法作用域查找只会试图查找 foo 标识符，找到这个变量后，对象属性访问规则会分别接 管对 bar 和 baz 属性的访问。
@@ -14,7 +14,7 @@ categories: JavaScript
 
 （欺骗词法作用域）
 
-> 欺骗词法作用域会导致性能 下降。
+> 欺骗词法作用域会导致性能下降。
 
 ### eval
 
@@ -84,13 +84,13 @@ with (obj) {
 }
 console.log(obj.a) // 2
 console.log(obj.b) // 3
-console.log(obj.c) // undefind
+console.log(obj.c) // undefined
 console.log(c) // 1
 ```
 
-这里的 obj.c 会为 undefind 但是 全局的 c 会为 1 解释：
+这里的 obj.c 会为 undefined 但是全局的 c 会为 1
 
-因为 with 会将对象的属性进行一个特殊处理的词法作用域 因此在找不到会向上一级去查找(也就是 window) 在 window 中也没有会自动创建一个全局变量  （非严格模式下） window.c = 1
+原因是因为 with 会将对象的属性进行一个特殊处理的词法作用域 因此在找不到会向上一级去查找(也就是 window) 在 window 中也没有会自动创建一个全局变量  （非严格模式下） window.c = 1
 
 > 尽管 with 块可以将一个对象处理为词法作用域，但是这个块内部正常的 var 声明并不会被限制在这个块的作用域中，而是被添加到 with 所处的函数作 用域中。
 
@@ -100,7 +100,7 @@ console.log(c) // 1
 开启严格模式后使用with // Strict mode code may not include a with statement
 ```
 
-# 函数作用域
+## 函数作用域
 
 > 区分函数声明和表达式最简单的方法是看 function 关键字出现在声明中的位 置(不仅仅是一行代码，而是整个声明中的位置)。如果 function 是声明中 的第一个词，那么就是一个函数声明，否则就是一个函数表达式。
 
@@ -133,7 +133,7 @@ console.log(a) // 2
 
 许多场景中都有广泛使用这种模式 例如(express 中的 function 中都可以调用\_\_dirname)
 
-```javascript
+```js
 ;(function IIFE(def) {
   def(window)
 })(function def(global) {
@@ -144,11 +144,11 @@ console.log(a) // 2
 
 # 块级作用域
 
-```java
-{
-    // ... 块级作用域
-}
-```
-
 - try/catch
 - with
+
+```js
+{
+  // ... 块级作用域
+}
+```

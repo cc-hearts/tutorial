@@ -2,7 +2,7 @@
 title: 构造函数
 ---
 
-每个 JavaScript 都是一个 Function 对象
+每个 JavaScript 函数都是一个 Function 对象
 
 ```javascript
 ;(function () {}).constructor === Function // true

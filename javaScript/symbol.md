@@ -6,13 +6,24 @@ title: symbol
 >
 > 相反，[Object.assign](https://developer.mozilla.org/zh/docs/Web/JavaScript/Reference/Global_Objects/Object/assign) 会同时复制字符串和 symbol 属性。
 
+## Symbol 复制
+
+```js
+const symbolKeys = Symbol('key')
+const a = {
+  [symbolKeys]: 1,
+}
+
+for (const key of Object.getOwnPropertySymbols(a)) {
+  console.log(key === symbolKeys) // true
+}
+```
+
 ## Symbol.for
 
 要从注册表中读取（不存在则创建）symbol，请使用 `Symbol.for(key)` 。
 
-> https://zh.javascript.info/symbol#symbolkeyfor
-
-![image-20230427111807049](http://oss.cc-heart.cn:30002/oss/file/WPJTOOANlAvXos4EJeb0m/2023-04-27/image-20230427111807049.png)
+> <https://zh.javascript.info/symbol#symbolkeyfor>
 
 ## Symbol.totoPrimitive
 
