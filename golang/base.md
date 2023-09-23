@@ -4,19 +4,46 @@ title: Golang 学习
 
 - [基本语法介绍](./base.md)
 
+> golang 中函数间传递参数的时候都是值传递。
+
 ## 文档
 
 > [https://studygolang.com/pkgdoc](https://studygolang.com/pkgdoc) API 中文文档
 
 > [http://docscn.studygolang.com/](http://docscn.studygolang.com/) 官方
 
+## 创建项目
+
+```go
+go mod init <repo_name>
+```
+
+````
+## init
+在 golang 中不止 main 方法是 入口函数，还有 一个 init 函数 如果声明也会执行
+
+> 所有导入的包中的 init 函数都会执行
+```go
+package main
+
+import "fmt"
+
+func init() {
+    fmt.Println("hello")
+}
+
+func main() {
+    fmt.Println("world")
+}
+
+// 输出 hello world
+````
+
 ## 基础指令
 
 `go run main.go` 运行 golang 的代码
 
 `go build` 命令来生成二进制文件
-
-> 当标识符（包括常量、变量、类型、函数名、结构字段等等）以一个大写字母开头，如：Group1，那么使用这种形式的标识符的对象就可以被外部包的代码所使用（客户端程序需要先导入这个包），这被称为导出（像面向对象语言中的 public）；标识符如果以小写字母开头，则对包外是不可见的，但是他们在整个包的内部是可见并且可用的（像面向对象语言中的 protected ）
 
 ## 环境变量
 
@@ -50,7 +77,7 @@ go env -w GO111MODULE=auto
 
 .go文件 ============> 可执行文件（window下.exe可执行文件）==============>结果
 
-​     (编译)                        (运行)
+	​     (编译)                        (运行)
 
 如果是对源码直接go run 源码  Go的执行流程:
 
@@ -184,6 +211,38 @@ func main() {
 }
 ```
 
+### new 方法创建指针
+
+new 方法可以创建一个指针变量，相当于在内存中创建了**没有变量名**的**某种类型**的**变量**。
+
+```go
+new(type)
+```
+
+## 数组
+
+```go
+// var array_name [quantity]type 声明类型
+
+var result [4]int
+```
+
+## 切片
+
+slice map 数据是无法直接比较值的，数组可以比较
+
+```go
+// var array_name []type 声明类型
+var result []int
+// 切片和数组的在声明类型上的不同就是 去除了 声明的元素个数， 因此切片是动态的
+```
+
+如果切片的值需要添加，可以使用 `slice`
+
+```go
+slice_name := append(slice_name, value) // append 不会改变原有的切片，会新生成一个切片然后返回
+```
+
 ## 结构体
 
 ```go
@@ -242,6 +301,72 @@ func main() {
 }
 ```
 
+## 接口
+
+```go
+type interface_name interface {
+	// ...
+	function_name([params]) [return_types]
+}
+```
+
+## 空接口
+
+**空接口能接纳所有类型的数据，因此可以将任何类型的数据赋值给它的变量**
+
+```go
+
+var anyValue interface {}
+
+func main() {
+ anyValue = 123
+ anyValue = "123"
+}
+```
+
+## 类型断言
+
+**用来判断某个数据是否属于某种类型的方法被称为“类型断言”**
+
+```go
+ value, ok := x.(T)
+```
+
+## nil
+
+nil 是一个特殊的值，它只能赋值给指针类型和接口类型。
+
+> **将一个带有类型的 nil 赋值给接口时，只有值为 nil，而类型不为 nil。此时，接口与 nil 判断将不相等**
+
+```go
+
+package main
+
+import "fmt"
+
+type Person struct {
+    age int
+}
+
+type Animal interface {
+}
+
+func say() Animal {
+    var p *Person = nil
+    return p
+}
+
+func main() {
+    var person *Person = nil
+    fmt.Println(person)          // <nil>
+    fmt.Println(person == nil)   // true
+    fmt.Println(say() == nil)    // false
+    fmt.Println(say() == person) // true
+}
+```
+
+为了规避这一问题， 一般判断了 interface 或者 指针位 nil 的时候 应该直接返回 nil 而不是赋值 nil 再去返回
+
 ## 序列化
 
 ```go
@@ -283,6 +408,25 @@ func main() {
  fmt.Printf("%#v\n", b)
 }
 
+```
+
+反序列化操作
+
+```go
+package main
+
+import (
+"encoding/json"
+"fmt"
+)
+
+
+func main() {
+var ssr interface{}
+var str = `{"page": 1, "fruits": ["apple", "peach"]}`
+fmt.Println(json.Unmarshal([]byte(str), &ssr))
+fmt.Printf("%+v", ssr)
+}
 ```
 
 ## 进制转换
