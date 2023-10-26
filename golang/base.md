@@ -594,6 +594,15 @@ func (this *MyQueue) inStack(val int) {
 }
 ```
 
+## 部署到 Linux 上
+
+要保持后台运行的话 可以使用以下命令使得代码可以在后台运行
+
+```shell
+nohup ./main &
+```
+
 ## 参考资料
 
 - [golang 设计模式](https://mp.weixin.qq.com/s/9iXdsgtuQh6pge5vSDPoQA)
+- [golang http/net 源码](https://www.cnblogs.com/Survivalist/p/10033169.html)

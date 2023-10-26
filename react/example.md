@@ -75,7 +75,7 @@ const App = () => {
   }
 
   function step(startPoint: Point, angle: number, depth: number = 0) {
-    const point = calcPoint(startPoint, calcBranch(angle))
+	    const point = calcPoint(startPoint, calcBranch(angle))
     drawBranch(startPoint, point)
     startDraw(point, angle, depth + 1)
   }

@@ -2,6 +2,8 @@
 title: git 基本命令
 ---
 
+## 提交规范
+
 - `feat` -新功能 feature
 - `fix` -修复 bug
 - `docs` -文档注释
@@ -201,6 +203,7 @@ git merge top # 此时的分支就会是一条线
 ```
 
 ```shell
+# 将 feat-xxx 的分支变基到 main 分支上
 git rebase feat-xxx main
 # 解决冲突后推送
 git push
