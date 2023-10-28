@@ -447,6 +447,22 @@ typeof 操作符可以确定值的原始类型，而 instanceof 操作符用于�
 <script src="./index.js" type="module" />
 ```
 
+## +0 与 -0
+
+在 javascript 中 +0 与 -0 在大多数情况都是相等的
+
+> 使用 `===` 也不例外
+
+为了 区别 `+0` 与 `-0` 有以下的方法：
+
+- `Object.is`
+- ```js
+  # babal 的 pollify 的方式
+  function strictlyEqualToZero(num1,num2) {
+     return num1 === 0 && num1 === num2 && (1 / num1) !== (1 / num2)
+  }
+  ```
+
 ## 常用网站
 
 [es6 语法支持网站查询](https://kangax.github.io/compat-table/es6/)
