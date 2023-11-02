@@ -130,6 +130,14 @@ greet(Derived)
 greet(Base)
 ```
 
+## interface 声明构造函数
+
+```ts
+interface Person {
+  new (...args: any[]): Person
+}
+```
+
 ## 声明类
 
 ```ts

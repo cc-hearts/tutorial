@@ -215,6 +215,10 @@ git push
 git merge master --allow-unrelated-histories
 ```
 
+### git merge --squash
+
+使用 `--squash` 将 `merge` 的时候 commit 记录整合成一个
+
 ### git 中断合并
 
 ```shell
