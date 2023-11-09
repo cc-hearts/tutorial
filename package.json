@@ -25,6 +25,7 @@
     "lint-staged": "^13.2.3",
     "markdownlint": "^0.29.0",
     "prettier": "^2.8.8",
+    "sass": "^1.69.5",
     "typescript": "^5.1.6",
     "vitepress": "1.0.0-beta.7",
     "vitest": "^0.32.4"

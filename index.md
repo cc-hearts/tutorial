@@ -6,6 +6,8 @@ hero:
   name: 'cc tutorial'
 
   tagline: Empowering Learning and Collaboration
+  image:
+    src: ./assets/public/logo.svg
   actions:
     - theme: brand
       text: Get Started
