@@ -7,7 +7,7 @@ hero:
 
   tagline: Empowering Learning and Collaboration
   image:
-    src: ./assets/public/logo.svg
+    src: ./assets/public/logo.png
   actions:
     - theme: brand
       text: Get Started
