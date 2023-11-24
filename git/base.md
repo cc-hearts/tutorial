@@ -340,3 +340,9 @@ git commit -m 'chore: init commit'
 - 删除分支 `git branch -D master` ，master 是分支名
 - 将当前分支 **latest_branch** 重命名为 **master** ，`git branch -m master`
 - 强制更新到远程仓库 `git push -f origin master`
+
+## 中途删除已经存在于 git 中的文件
+
+```Shell
+git rm --cached <file_name>
+```
